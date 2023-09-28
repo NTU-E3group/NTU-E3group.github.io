@@ -1,0 +1,109 @@
+
+:root {
+    --main-color: #0a557e;
+    --main-bg-color: #ffffff;
+    --main-color-2: #4caedd;
+    --main-color-3: #badcea;
+    --secondary-color: #c4c691;
+
+
+    --r-red: #db7476;
+    --r-orange: #ed8c37;
+    --r-yellow: #f5a936;
+    --r-green: #51a885;
+    --r-blue: #267a9e;
+    --r-indigo: #5f739d;
+    --r-purple: #986b9b;
+
+}
+
+.svg-101-top-f {fill: var(--r-yellow);}
+.svg-m-f {fill: var(--main-color);}
+.svg-m-bg-f {fill: var(--main-bg-color);}
+.svg-m-2-f {fill: var(--main-color-2);}
+.svg-m-3-f {fill: var(--main-color-3);}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    width: 960px;
+    height: 540px;
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.hp-landscape {
+    margin-top: 100px;
+    padding: auto;
+
+    display: flex;
+    align-items: baseline;
+    /* justify-content: space-evenly; */
+    /* gap: 50px; */
+
+}
+
+.hp-batt {
+    width: 21px;
+    margin-right: 33px;
+}
+.hp-pv {
+    width: 81px;
+    margin-right: 38px;
+}
+.hp-sky {
+    width: 51px;
+    margin-right: 50px;
+}
+.hp-fb-a25 {
+    width: 64px;
+    margin-right: 50px;
+}
+.hp-101 {
+    width: 91px;
+}
+.hp-wfns {
+    width: 72px;
+    margin-left: 46px;
+}
+.hp-ns-a21 {
+    width: 49px;
+    margin-left: 48px;
+}
+
+.hp-wt {
+    width: 65px;
+    margin-left: 40px;
+}
+    
+.hp-wt-blade {
+    translate: 0 21.34px;
+    transform-origin: 32.5px 34.66px;
+    animation: wt-spin 5s linear infinite; 
+}
+
+@keyframes wt-spin {from {rotate: 0deg;} to {rotate: 360deg;}}
+
+.hp-ess {
+    width: 32px;
+    margin-left: 36px;
+}
+
+.bok {
+    width: 50%;
+    height: 100%;
+    background-color: red;
+    align-self: flex-start;
+}

@@ -1,0 +1,76 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;500;700&display=swap');
+
+/* css reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    color: var(--main-color);
+    font-weight: 500;
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+}
+html, body {
+    height: 100%;
+    max-width: 100%;
+    /* overflow-x: hidden; */
+}
+body {
+    max-width: 100%;
+    line-height: 1.2;
+    -webkit-font-smoothing: antialiased;
+}
+li,ol,ul {
+    list-style: none;
+}
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+input, button, textarea, select {
+    font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+#root, #__next {
+    isolation: isolate;
+}
+a:hover {
+    text-decoration: none;
+}
+
+/* general */
+::selection {
+    background-color: var(--main-color);
+    color: white;
+}
+
+[select-none] {
+    user-select: none;
+}
+
+::-webkit-scrollbar-thumb{
+    background: var(--main-color);
+}
+
+* {
+    font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+}
+
+a[target="_blank"]:after {
+    content: '';
+    background-image: url('/assets/external-link.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: inline-block;
+    position: relative;
+    height: 0.7em;
+    width: 0.7em;
+    margin: 0 0.1em 0 0.1em;
+}
+
