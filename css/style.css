@@ -1,10 +1,16 @@
 
 :root {
     --main-color: #0a557e;
-    --main-bg-color: #ffffff;
+    --main-bg-color: #fcfcff;
     --main-color-2: #4caedd;
     --main-color-3: #badcea;
     --secondary-color: #c4c691;
+
+    /* --main-color: #8fcdff;
+    --main-bg-color: #1a1c1e;
+    --main-color-2: #4caedd;
+    --main-color-3: #badcea;
+    --secondary-color: #5e6300; */
 
 
     --r-red: #db7476;
@@ -14,6 +20,10 @@
     --r-blue: #267a9e;
     --r-indigo: #5f739d;
     --r-purple: #986b9b;
+
+}
+
+.dark-theme {
 
 }
 
@@ -33,23 +43,37 @@ body {
     justify-content: center;
 }
 
+#test-view {
+    opacity: 0.5;
+}
+
 main {
     width: 960px;
     height: 540px;
-    background-color: white;
+    background-color: var(--main-bg-color);
 
-    display: flex;
+    position: relative;
+    /* display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; */
     /* justify-content: center; */
 }
 
+.hp-horizon {
+    position: absolute;
+    stroke: var(--main-color);
+    stroke-width: 3px;
+}
+
 .hp-landscape {
-    margin-top: 100px;
-    padding: auto;
+    position: absolute;
+    width: 100%;
+    top: 60px;
+
 
     display: flex;
     align-items: baseline;
+    justify-content: center;
     /* justify-content: space-evenly; */
     /* gap: 50px; */
 
@@ -57,38 +81,40 @@ main {
 
 .hp-batt {
     width: 21px;
-    margin-right: 33px;
+    margin-right: 26px;
 }
 .hp-pv {
     width: 81px;
-    margin-right: 38px;
+    margin-right: 32px;
 }
 .hp-sky {
     width: 51px;
-    margin-right: 50px;
+    margin-right: 43px;
 }
 .hp-fb-a25 {
     width: 64px;
-    margin-right: 50px;
+    margin-right: 47px;
 }
 .hp-101 {
     width: 91px;
 }
 .hp-wfns {
     width: 72px;
-    margin-left: 46px;
+    margin-left: 45px;
 }
 .hp-ns-a21 {
     width: 49px;
-    margin-left: 48px;
+    margin-left: 45px;
+    translate: 0 5px;
 }
 
 .hp-wt {
     width: 65px;
-    margin-left: 40px;
+    margin-left: 25px;
 }
     
 .hp-wt-blade {
+    /* border: 2px solid red; */
     translate: 0 21.34px;
     transform-origin: 32.5px 34.66px;
     animation: wt-spin 5s linear infinite; 
@@ -98,7 +124,8 @@ main {
 
 .hp-ess {
     width: 32px;
-    margin-left: 36px;
+    margin-left: 18px;
+    margin-right: 14px;
 }
 
 .bok {
