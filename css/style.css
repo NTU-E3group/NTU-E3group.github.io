@@ -144,24 +144,91 @@ main {
 
     display: flex;
 }
+.hp-road-rtl {
+    position: absolute;
+    width: 100%;
+    top: 460px;
+    scale: -1 1;
+
+    display: flex;
+}
 
 .hp-car {
     /* position: absolute; */
     width: 75px;
-    animation: car-go-burr 3s ease-in-out;
+    animation: car-go-burr 7s ease-in-out infinite;
     cursor: pointer;
     translate: 200px;
+    /* transform: translateX(); */
 }
 
-.hp-car:nth-child(2) {
-    animation-delay: 0.5s;
-}
-
-.hp-car:nth-child(1) {
-    animation-delay: 1s;
-}
 
 @keyframes car-go-burr {
-    from {translate: 0px;}
-    to {translate: 200px;}
+    0% {translate: 0px;}
+    40% {translate: 200px;}
+    60% {translate: 200px;}
+    100% {translate: 600px;}
+
+    10% {transform: translateY(5px);}
+    20% {transform: translateY(0px);}
+    30% {transform: translateY(10px);}
+    40% {transform: translateY(5px);}
+    50% {transform: translateY(0px);}
+    60% {transform: translateY(10px);}
+    70% {transform: translateY(5px);}
+    80% {transform: translateY(0px);}
+    90% {transform: translateY(10px);}
+}
+
+.hp-v-stroke {
+    stroke: var(--main-color);
+    stroke-width: 2.95px;
+    stroke-dasharray: 0 100%;
+    /* stroke-dashoffset: 5; */
+    transition: 0.8s;
+    animation: stroke-flying 1s linear infinite;
+}
+
+.hp-car:hover .hp-v-stroke {
+    stroke-dasharray: 100%;
+    /* stroke-dashoffset: calc(-100% - 5px); */
+}
+
+@keyframes stroke-flying {
+    0% {stroke-dasharray: 0 100%;}
+    100% {stroke-dasharray: 100% 0;}
+}
+
+.hp-rain {
+    position: absolute;
+    top: 0;
+    
+}
+
+.hp-rain line {
+    stroke: var(--main-color);
+    stroke-width: 2.95px;
+    stroke-dasharray: 60 100%;
+    stroke-dashoffset: 60;
+    animation: raining 2s linear infinite;
+    /* animation-delay: 0.3s; */
+}
+
+.hp-rain line:nth-child(1) {
+    animation-delay: 0.2s;
+}
+.hp-rain line:nth-child(2) {
+    animation-delay: 0.1s;
+}
+.hp-rain line:nth-child(3) {
+    animation-delay: 0.5s;
+}
+.hp-rain line:nth-child(4) {
+    animation-delay: 0.1s;
+}
+
+@keyframes raining {
+    0% {stroke-dashoffset: 60;}
+    30% {stroke-dashoffset: -560;}
+    100% {stroke-dashoffset: -560;}
 }
