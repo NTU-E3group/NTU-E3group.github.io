@@ -44,7 +44,7 @@ function makeItRainBack(rainSlope) {
         //random number between 98 and 1
         var randoHundo = (Math.floor(Math.random() * (98 - 1 + 1) + 1));
         //random number between 5 and 2
-        var randoFiver = (Math.floor(Math.random() * (100 - 20 + 1) + 20));
+        var randoFiver = (Math.floor(Math.random() * (100 - 10) + 10));
         //increment
         increment += randoFiver;
         //add in a new raindrop with various randomizations to certain CSS properties
