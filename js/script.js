@@ -48,7 +48,7 @@ function makeItRainBack(rainSlope) {
         //increment
         increment += randoFiver;
         //add in a new raindrop with various randomizations to certain CSS properties
-        drops += `<line x1="${increment + rainSlope}" y1="0" x2="${increment}" y2="540" style="animation-delay: 0.${randoHundo}s;"/><circle cx="${increment}" cy="540" r="10" style="animation-delay: 0.${randoHundo}s;"/>`
+        drops += `<line x1="${increment + rainSlope}" y1="0" x2="${increment}" y2="540" style="animation-delay: 0.${randoHundo}s;"/><circle cx="${increment}" cy="540" r="10" style="transform-origin: ${increment}px 540px; animation-delay: 0.${randoHundo}s;"/>`
     }
 
     hpRainBack.innerHTML = drops;
