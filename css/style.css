@@ -215,7 +215,7 @@ main {
         stroke-width: 2px;
         stroke-dasharray: var(--_rain-length) 1000;
         stroke-dashoffset: var(--_rain-length);
-        animation: rain-stroke-front 2s linear infinite;
+        animation: rain-stroke-front 1.3s linear infinite;
     }
 }
 
