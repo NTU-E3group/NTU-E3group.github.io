@@ -58,4 +58,4 @@ function makeItRainBack(rainSlope, precip, dropTime) {
     hpRainBack.innerHTML = drops;
 }
 
-makeItRainBack(200, 10, 1300);
+makeItRainBack(100, 6, 1300);
