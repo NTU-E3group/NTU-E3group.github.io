@@ -186,7 +186,7 @@ main {
     stroke-dasharray: 0 100%;
     /* stroke-dashoffset: 5; */
     transition: 0.8s;
-    animation: stroke-flying 1s linear infinite;
+    animation: vehicle-stroke 1s linear infinite;
 }
 
 .hp-car:hover .hp-v-stroke {
@@ -194,85 +194,48 @@ main {
     /* stroke-dashoffset: calc(-100% - 5px); */
 }
 
-@keyframes stroke-flying {
+@keyframes vehicle-stroke {
     0% {stroke-dasharray: 0 100%;}
     100% {stroke-dasharray: 100% 0;}
 }
 
-.hp-rain {
+.hp-rain-back, .hp-rain-front {
     position: absolute;
     top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hp-rain-front{
+    & line {
+        --_rain-length: 80px;
+
+        stroke: var(--main-color);
+        opacity: 1;
+        stroke-width: 2px;
+        stroke-dasharray: var(--_rain-length) 1000;
+        stroke-dashoffset: var(--_rain-length);
+        animation: rain-stroke-front 2s linear infinite;
+    }
+}
+
+@keyframes rain-stroke-front {
+    from {
+        stroke-dashoffset: var(--_rain-length);
+    }
+    to {
+        stroke-dashoffset: -560;
+    }
     
 }
 
-.hp-rain line {
-    --_rain-length: 80px;
 
-    stroke: var(--main-color);
-    opacity: 0.5;
-    stroke-width: 2.95px;
-    stroke-dasharray: var(--_rain-length) 100%;
-    stroke-dashoffset: var(--_rain-length);
-    animation: raining 0.8s linear infinite;
-    /* animation-delay: 0.3s; */
-}
-
-.hp-rain circle {
-    stroke: var(--main-color);
-    opacity: 0.5;
-    opacity: 1;
-    transform: scale(0);
-    animation: splat-ani 1s linear infinite;
-}
-
-.hp-rain line:nth-child(1) {
-    animation-delay: 0.2s;
-}
-.hp-rain line:nth-child(2) {
-    animation-delay: 0.1s;
-}
-.hp-rain line:nth-child(3) {
-    animation-delay: 0.5s;
-}
-.hp-rain line:nth-child(4) {
-    animation-delay: 0.1s;
-}
-
-@keyframes raining {
-    0% {
-        opacity: 0.5;
-        stroke-dashoffset: var(--_rain-length);
-    }
-    60% {opacity: 0.5;}
-    70% {opacity: 0;}
-    80%, 100% {
-        opacity: 0;
-        stroke-dashoffset: -420;
-    }
-
-}
-
-
-@keyframes splat-ani {
-    0%, 60% {
-        opacity: 1;
-        transform: scale(0);
-    }
-    70% {
-        opacity: 0.5;
-        transform: scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(1.5);
-    }
-}
-
-.hp-rain-unit {
-    position: absolute;
-    top: 0;
-    left: 200px;
-    width: 100px;
+.hp-rain-back {
+    --_drop-time: 1.5s;
+    /* position: absolute;
+    top: -160px;
+    left: 200px; */
+    width: 960px;
 
     & line {
         --_rain-length: 80px;
@@ -282,15 +245,52 @@ main {
         stroke-width: 2px;
         stroke-dasharray: var(--_rain-length) 1000;
         stroke-dashoffset: var(--_rain-length);
-        animation: raining 1s linear infinite;
-        /* animation-delay: 0.3s; */
+        animation: rain-stroke var(--_drop-time) linear infinite;
     }
 
     & circle {
         stroke: var(--main-color);
+        fill: none;
+        stroke-dasharray: 2 5;
+        stroke-width: 4;
         opacity: 1;
-        transform-origin: 50px 400px;
+        transform-origin: 50px 540px;
         transform: scale(0);
-        animation: splat-ani 1s linear infinite;
+        animation: rain-splat var(--_drop-time) linear infinite;
+    }
+}
+
+
+
+@keyframes rain-stroke {
+    0% {
+        opacity: 0.5;
+        stroke-dashoffset: var(--_rain-length);
+    }
+    68% {
+        opacity: 0.5;
+    }
+    72% {
+        opacity: 0;
+    }
+    80%, 100% {
+        opacity: 0;
+        stroke-dashoffset: -560;
+    }
+
+}
+
+@keyframes rain-splat {
+    0%, 75% {
+        opacity: 1;
+        transform: scale(0);
+    }
+    80% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.5);
     }
 }
