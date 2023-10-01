@@ -238,23 +238,25 @@ main {
     width: 960px;
 
     & line {
-        --_rain-length: 80px;
+        --_rain-length: 60px;
 
         stroke: var(--main-color);
         opacity: 0.5;
-        stroke-width: 2px;
+        stroke-width: 1.5px;
         stroke-dasharray: var(--_rain-length) 1000;
         stroke-dashoffset: var(--_rain-length);
         animation: rain-stroke var(--_drop-time) linear infinite;
+
     }
 
-    & circle {
+    & path {
         stroke: var(--main-color);
         fill: none;
-        stroke-dasharray: 2 5;
+        stroke-dasharray: 2 4.25;
         stroke-width: 4;
         opacity: 1;
         transform: scale(0);
+        /* transform-origin: 150px 540px; */
         animation: rain-splat var(--_drop-time) linear infinite;
     }
 }
@@ -266,7 +268,7 @@ main {
         opacity: 0.5;
         stroke-dashoffset: var(--_rain-length);
     }
-    68% {
+    60% {
         opacity: 0.5;
     }
     72% {
@@ -280,16 +282,16 @@ main {
 }
 
 @keyframes rain-splat {
-    0%, 75% {
+    0%, 70% {
         opacity: 1;
         transform: scale(0);
     }
-    80% {
+    75% {
         opacity: 0.5;
-        transform: scale(1);
+        transform: scale(0.7);
     }
     100% {
         opacity: 0;
-        transform: scale(1.5);
+        transform: scale(1);
     }
 }
