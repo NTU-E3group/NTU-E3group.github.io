@@ -207,15 +207,17 @@ main {
 }
 
 .hp-rain-front{
+    --_drop-time: 1.5s;
+
     & line {
         --_rain-length: 80px;
 
         stroke: var(--main-color);
-        opacity: 1;
+        opacity: 0.65;
         stroke-width: 2px;
         stroke-dasharray: var(--_rain-length) 1000;
         stroke-dashoffset: var(--_rain-length);
-        animation: rain-stroke-front 1.3s linear infinite;
+        animation: rain-stroke-front var(--_drop-time) linear infinite;
     }
 }
 
@@ -256,7 +258,6 @@ main {
         stroke-width: 4;
         opacity: 1;
         transform: scale(0);
-        /* transform-origin: 150px 540px; */
         animation: rain-splat var(--_drop-time) linear infinite;
     }
 }
