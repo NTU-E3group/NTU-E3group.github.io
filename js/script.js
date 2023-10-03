@@ -42,8 +42,8 @@ function makeItRain(ifBack, rainSlope, precip, dropTime) {
 
 // dropTime in milliseconds (1000 - 2000)
 
-var rainSlope = 300;
-var precip = 10;
+var rainSlope = 200;
+var precip = 5;
 var dropTime = 1300;
 
 makeItRain(true, rainSlope, precip, dropTime);
