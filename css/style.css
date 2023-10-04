@@ -51,6 +51,9 @@ main {
     width: 960px;
     height: 540px;
     background-color: var(--main-bg-color);
+    border-radius: 30px;
+    outline: 3px solid var(--main-color);
+    /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1); */
 
     position: relative;
     overflow: hidden;
