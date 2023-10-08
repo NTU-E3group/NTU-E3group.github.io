@@ -32,11 +32,12 @@
 .svg-m-bg-f {fill: var(--main-bg-color);}
 .svg-m-2-f {fill: var(--main-color-2);}
 .svg-m-3-f {fill: var(--main-color-3);}
+.svg-s-f {fill: var(--secondary-color);}
 
 body {
     width: 100%;
     height: 100%;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
 
     display: flex;
     align-items: center;
@@ -51,9 +52,9 @@ main {
     width: 960px;
     height: 540px;
     background-color: var(--main-bg-color);
-    border-radius: 30px;
+    border-radius: 3px;
     outline: 3px solid var(--main-color);
-    /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1); */
+    box-shadow: 10px 10px var(--main-color);
 
     position: relative;
     overflow: hidden;
@@ -68,6 +69,31 @@ main {
     position: absolute;
     stroke: var(--main-color);
     stroke-width: 3px;
+}
+
+.hp-wire {
+    position: absolute;
+    width: 100%;
+    top: 358px;
+
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.hp-wire path {
+    stroke: var(--secondary-color);
+    fill: none;
+    stroke-width: 2.95px;
+}
+
+.hp-wire-l {
+    margin-right: 87px;
+}
+
+.hp-wire-r {
+    margin-left: 93px;
+    margin-right: 34px;
 }
 
 .hp-landscape {
