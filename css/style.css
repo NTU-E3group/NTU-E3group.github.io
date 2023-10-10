@@ -63,7 +63,7 @@ main {
 
 .hp-horizon {
     width: 100%;
-    height: 3px;
+    height: 0.53%;
     background-color: var(--main-color);
     position: absolute;
     top: 69%;
