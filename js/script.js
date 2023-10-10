@@ -24,7 +24,7 @@ function makeItRain(ifBack, rainSlope, precip, dropTime) {
     var drops = "";
 
     var rainIntensity = (ifBack ? 100 : 1000) / precip;
-    while (rainSlope < 0 ? increment < 960 + Math.abs(rainSlope) : increment < 960) {
+    while (rainSlope < 0 ? increment < 960 + Math.abs(rainSlope) : increment < 1000) {
         var animationDelay = getRandomInt(1, dropTime);
         increment += getRandomInt(10, 10 + rainIntensity);
         var splatX = increment;
@@ -43,7 +43,7 @@ function makeItRain(ifBack, rainSlope, precip, dropTime) {
 // dropTime in milliseconds (1000 - 2000)
 
 var rainSlope = 200;
-var precip = 5;
+var precip = 1;
 var dropTime = 1300;
 
 makeItRain(true, rainSlope, precip, dropTime);
