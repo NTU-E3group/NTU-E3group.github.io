@@ -72,13 +72,9 @@ section[hp] {
 
             display: flex;
 
-            &::after {
-                content: '';
-                width: 3.875rem;
-                margin: -0.5rem 0 0 0.5rem;
-                background-image: url(/assets/e3-logo.svg);
-                background-repeat: no-repeat;
-                background-size: contain;
+            & svg {
+                height: 3.75rem;
+                translate: 0.625rem -0.75rem;
             }
         }
 
@@ -92,6 +88,10 @@ section[hp] {
             display: flex;
             align-items: baseline;
 
+            /* &:nth-child(1) {color: var(--r-red);}
+            &:nth-child(2) {color: var(--r-yellow);}
+            &:nth-child(3) {color: var(--r-green);} */
+
             &::after {
                 content: '';
                 width: 0.75rem;
@@ -99,6 +99,7 @@ section[hp] {
                 margin-left: 0.25rem;
                 translate: 0 50%;
                 background-color: var(--secondary-color);
+                /* background-color: var(--secondary-color); */
             }
         }
     }
