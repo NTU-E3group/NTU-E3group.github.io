@@ -105,6 +105,8 @@ section[hp] {
     }
 
     .hp-tell-more {
+        --_trans-time: 0.15s;
+        
         position: relative;
         width: 12.5rem;
         height: 3.75rem;
@@ -124,6 +126,8 @@ section[hp] {
         }
 
         &:active {
+            --_trans-time: 0.18s;
+
             & p {
                 scale: 0.99;
                 translate: 0 0;
@@ -144,7 +148,7 @@ section[hp] {
             border-radius: 1.875rem;
             /* box-shadow: 0.3125rem 0.3125rem var(--main-color); */
             font-size: 1.5rem;
-            transition: 0.08s;
+            transition: var(--_trans-time);
 
             
             display: grid;
@@ -170,7 +174,7 @@ section[hp] {
             border-radius: 1.875rem;
             background-color: var(--main-color);
             translate: 0.3125rem 0.3125rem;
-            transition: 0.08s;
+            transition: var(--_trans-time);
             z-index: -1;
         }
     }
