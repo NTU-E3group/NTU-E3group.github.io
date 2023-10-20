@@ -50,15 +50,24 @@ a:hover {
     color: var(--main-bg-color);
 }
 
+::-webkit-scrollbar {
+    width: 0.625rem;
+}
+
+::-webkit-scrollbar-track {
+    background: #eee;
+}
+
 ::-webkit-scrollbar-thumb{
     background: var(--main-color);
+    border-radius: 0.3125rem;
 }
 
 * {
     font-family: 'Outfit', 'Noto Sans TC', sans-serif;
 }
 
-a[target="_blank"]:after {
+/* a[target="_blank"]:after {
     content: '';
     background-image: url('/assets/external-link.svg');
     background-repeat: no-repeat;
@@ -68,5 +77,5 @@ a[target="_blank"]:after {
     height: 0.7em;
     width: 0.7em;
     margin: 0 0.1em 0 0.1em;
-}
+} */
 
