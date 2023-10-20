@@ -48,13 +48,14 @@ body {
     opacity: 0.5;
 }
 
-main {
-    width: 960px;
-    height: 540px;
+.hp-main-window {
+    --_lw: 0.1875rem;
+    width: 1000px;
+    aspect-ratio: 16/9;
     background-color: var(--main-bg-color);
-    border-radius: 3px;
-    outline: 3px solid var(--main-color);
-    box-shadow: 10px 10px var(--main-color);
+    border-radius: 0.1875rem;
+    border: var(--_lw) solid var(--main-color);
+    box-shadow: 0.625rem 0.625rem var(--main-color);
 
     position: relative;
     overflow: hidden;
@@ -65,8 +66,7 @@ main {
     height: 0.53%;
     background-color: var(--main-color);
     position: absolute;
-    stroke: var(--main-color);
-    stroke-width: 3px;
+    top: 69%;
 }
 
 .hp-wire {
@@ -179,7 +179,7 @@ main {
 
 .hp-v-stroke {
     stroke: var(--main-color);
-    stroke-width: 2.95px;
+    stroke-width: var(--_lw);
     stroke-dasharray: 0 100%;
     /* stroke-dashoffset: 5; */
     transition: 0.8s;
@@ -207,11 +207,11 @@ main {
     --_drop-time: 1.5s;
 
     & line {
-        --_rain-length: 80px;
+        --_rain-length: 5rem;
 
         stroke: var(--main-color);
         opacity: 0.65;
-        stroke-width: 2px;
+        stroke-width: 0.125rem;
         stroke-dasharray: var(--_rain-length) 1000;
         stroke-dashoffset: var(--_rain-length);
         animation: rain-stroke-front var(--_drop-time) linear infinite;
@@ -237,11 +237,11 @@ main {
     width: 100%;
 
     & line {
-        --_rain-length: 60px;
+        --_rain-length: 3.75rem;
 
         stroke: var(--main-color);
         opacity: 0.5;
-        stroke-width: 1.5px;
+        stroke-width: 0.09375rem;
         stroke-dasharray: var(--_rain-length) 1000;
         stroke-dashoffset: var(--_rain-length);
         animation: rain-stroke var(--_drop-time) linear infinite;
@@ -331,8 +331,9 @@ main {
         
         &:hover {
             & div {
+                scale: 1.03;
                 translate: 0.75rem -0.0675rem;
-                box-shadow: 0.1875rem 0.25rem var(--main-color);
+                box-shadow: 0.375rem 0.3125rem var(--main-color);
             }
 
             & span {
@@ -345,7 +346,7 @@ main {
         &:active {
             & div {
                 translate: 0.5rem -0.0675rem;
-                box-shadow: 0.1875rem 0.25rem var(--main-color);
+                /* box-shadow: 0.1875rem 0.25rem var(--main-color); */
             }
         }
     }
@@ -356,8 +357,10 @@ main {
     }
 
     & div {
+        --_tag-height: 2.5rem;
         width: 3.5rem;
-        height: 2.5rem;
+        height: var(--_tag-height);
+        background-color: var(--main-bg-color);
         padding: 0.5rem;
         border: 0.125rem solid var(--main-color);
         border-radius: 0.1875rem;
@@ -369,6 +372,7 @@ main {
     }
 
     & svg {
-        width: 1.375rem;
+        /* width: 1.375rem; */
+        height: calc(var(--_tag-height) * 0.55);
     }
 }
