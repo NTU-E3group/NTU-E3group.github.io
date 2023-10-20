@@ -47,11 +47,7 @@ a:hover {
 /* general */
 ::selection {
     background-color: var(--main-color);
-    color: white;
-}
-
-[select-none] {
-    user-select: none;
+    color: var(--main-bg-color);
 }
 
 ::-webkit-scrollbar-thumb{
