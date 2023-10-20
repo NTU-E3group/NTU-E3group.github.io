@@ -13,161 +13,197 @@
     <script defer src="js/script.js"></script>
 </head>
 <body>
-    <div class="hp-main-window">
-        <!-- <img src="./assets/home-view/hp.svg" width="960" id="test-view"> -->
-        <!-- <div class="bok"></div> -->
-        <!-- <svg viewBox="0 0 1000 562.5">
-            <line class="hp-horizon" x1="0" y1="348" x2="1000" y2="348"/>
-        </svg> -->
-        <div class="hp-horizon"></div>
-        <div class="hp-wire">
-            <svg class="hp-wire-l" viewBox="0 0 189 13" width="18.9%">
-                <path d="M14.19 1.4 3.84 11.38 77.35 11.38 87.33 1.4"/>
-                <path d="M87.33 1.4 77.35 11.38 177.44 11.35 187.8 1.4"/>
-                <path d="M14.19 1.4 3.84 11.38 177.44 11.38 187.8 1.4"/>
-            </svg>
+    <main>
+        <section hp>
+            <div class="hp-text">
+                <div class="hp-title">
+                    <h1>E3 Group</h1>
+                    <span>Led by Professor I-Yun Lisa Hsieh</span>
+                </div>
 
-            <svg class="hp-wire-c" viewBox="0 0 264 13" width="264">
-                <polygon class="fill-s" points="261.57 .49 251.66 10.05 131.81 10.05 139.51 2.61 137.46 .49 127.55 10.05 7.7 10.05 15.41 2.61 13.35 .49 .38 13 252.85 13 263.62 2.61 261.57 .49"/>
-            </svg>
-
-            <svg class="hp-wire-r" viewBox="0 0 157 13" width="157">
-                <polygon class="fill-s" points="154.92 .49 145 10.05 88.62 10.05 96.33 2.61 94.27 .49 84.36 10.05 7.35 10.05 15.06 2.61 13.01 .49 .03 13 146.2 13 156.97 2.61 154.92 .49"/>
-            </svg>
-        </div>
-        
-        <div class="hp-landscape">
-            <svg class="hp-batt" viewBox="0 0 21 46" width="2.1%">
-                <rect class="fill-m-3" x="1.64" y="6.11" width="17.73" height="38.41"/>
-                <path class="fill-m" d="M20.84,46H.16V4.63H20.84V46Zm-17.73-2.95h14.77V7.59H3.11V43.05Z"/>
-                <rect class="fill-m-3" x="6.81" y="1.68" width="7.39" height="4.43"/>
-                <path class="fill-m" d="M15.67,7.59H5.33V.2H15.67V7.59Zm-7.39-2.95h4.43v-1.48h-4.43v1.48Z"/>
-                <polygon class="fill-m" points="12.18 29.64 9.37 28.75 10.7 24.58 6.26 24.58 8.82 16.56 11.63 17.45 10.3 21.62 14.74 21.62 12.18 29.64"/>
-            </svg>
-            <svg class="hp-pv" viewBox="0 0 81 47" width="8.1%">
-                <polygon class="fill-m-bg" points="79.39 1.85 16.6 1.85 8.99 45.44 71.78 45.44 79.39 1.85"/>
-                <path class="fill-m" d="M73.02,46.92H7.23L15.36,.37H81.15l-8.12,46.54Zm-62.28-2.95h59.79L77.63,3.33H17.84l-7.09,40.63Z"/>
-                <polygon class="fill-m-3" points="8.87 6.86 2.13 45.44 66.43 45.44 73.16 6.86 8.87 6.86"/>
-                <path class="fill-m" d="M67.67,46.92H.37L7.62,5.38H74.92l-7.25,41.53ZM3.89,43.96h61.3l6.22-35.62H10.11L3.89,43.96Z"/>
-                <rect class="fill-m" x="6.62" y="18.02" width="64.27" height="2.95"/>
-                <rect class="fill-m" x="4.4" y="31.32" width="64.27" height="2.95"/>
-                <rect class="fill-m" x="6.7" y="24.67" width="38.99" height="2.95" transform="translate(-4.03 47.51) rotate(-80.19)"/>
-                <rect class="fill-m" x="29.6" y="24.67" width="38.99" height="2.95" transform="translate(14.96 70.07) rotate(-80.19)"/>
-            </svg>
-            <svg class="hp-img hp-sky" viewBox="0 0 51 196" width="5.1%" alt="The Sky Taipei">
-                <polygon class="fill-m-bg" points="11.25 40.49 49.51 4.29 49.51 194.15 11.25 194.15 11.25 40.49"/>
-                <path class="fill-m" d="M51.35,195.99H9.4V39.69L51.35,0V195.99Zm-38.26-3.69H47.66V8.58L13.09,41.28V192.3Z"/>
-                <polygon class="fill-m-3" points="1.64 40.49 39.9 4.29 39.9 194.15 1.64 194.15 1.64 40.49"/>
-                <path class="fill-m" d="M41.75,195.99H-.2V39.69L41.75,0V195.99Zm-38.26-3.69H38.05V8.58L3.49,41.28V192.3Z"/>
-            </svg>
-            <svg class="hp-img hp-fb-a25" viewBox="0 0 64 161" width="6.4%" alt="Fubon A25">
-                <rect class="fill-m-bg" x="22.14" y="16.63" width="22.3" height="142.95"/>
-                <path class="fill-m" d="M46.28,161.43H20.29V14.79h25.99V161.43Zm-22.3-3.69h18.6V18.48H23.99V157.73Z"/>
-                <polygon class="fill-m-3" points="36.28 2.23 62.39 7.17 62.39 159.58 36.28 159.58 36.28 2.23"/>
-                <path class="fill-m" d="M64.23,161.43h-29.8V0l29.8,5.63V161.43Zm-26.1-3.69h22.41V8.7l-22.41-4.24V157.73Z"/>
-                <polygon class="fill-m-3" points="28.16 2.23 2.05 7.17 2.05 159.58 28.16 159.58 28.16 2.23"/>
-                <path class="fill-m" d="M30,161.43H.21V5.63L30,0V161.43Zm-26.1-3.69H26.31V4.46L3.9,8.7V157.73Z"/>
-            </svg>
-            <svg class="hp-img hp-101" viewBox="0 0 91 301" width="9.1%" alt="Taipei 101">
-                <rect class="fill-m" x="42.97" y="0" width="5.17" height="22.16"/>
-                <polygon class="fill-101-top" points="32.81 22.16 35.58 39.89 54.97 39.89 57.74 22.16 32.81 22.16"/>
-                <path class="fill-m" d="M56.55,41.74h-22.55l-3.35-21.42h29.25l-3.35,21.42Zm-19.39-3.69h16.23l2.19-14.04h-20.61l2.19,14.04Z"/>
-                <polygon class="fill-m-2" points="70.34 243.78 70.15 243.78 20.21 243.78 20.03 243.78 2.33 299.19 9.89 299.19 80.47 299.19 88.03 299.19 70.34 243.78"/>
-                <path class="fill-m" d="M90.56,301.04H-.19l18.87-59.1h53.01l18.87,59.1Zm-85.69-3.69H85.5l-16.51-51.71H21.38l-16.51,51.71Z"/>
-                <polygon class="fill-m-2" points="9.89 39.89 20.21 73.87 70.34 73.87 80.66 39.89 9.89 39.89"/>
-                <path class="fill-m" d="M71.71,75.72H18.84L7.4,38.05H83.15l-11.44,37.68Zm-50.13-3.69h47.39l9.2-30.29H12.38l9.2,30.29Z"/>
-                <polygon class="fill-m-2" points="9.89 73.87 20.21 107.86 70.34 107.86 80.66 73.87 9.89 73.87"/>
-                <path class="fill-m" d="M71.71,109.7H18.84L7.4,72.03H83.15l-11.44,37.68Zm-50.13-3.69h47.39l9.2-30.29H12.38l9.2,30.29Z"/>
-                <polygon class="fill-m-2" points="9.89 107.86 20.21 141.84 70.34 141.84 80.66 107.86 9.89 107.86"/>
-                <path class="fill-m" d="M71.71,143.69H18.84L7.4,106.01H83.15l-11.44,37.68Zm-50.13-3.69h47.39l9.2-30.29H12.38l9.2,30.29Z"/>
-                <polygon class="fill-m-2" points="9.89 141.84 20.21 175.82 70.34 175.82 80.66 141.84 9.89 141.84"/>
-                <path class="fill-m" d="M71.71,177.67H18.84l-11.44-37.68H83.15l-11.44,37.68Zm-50.13-3.69h47.39l9.2-30.29H12.38l9.2,30.29Z"/>
-                <polygon class="fill-m-2" points="9.89 175.82 20.21 209.8 70.34 209.8 80.66 175.82 9.89 175.82"/>
-                <path class="fill-m" d="M71.71,211.65H18.84l-11.44-37.68H83.15l-11.44,37.68Zm-50.13-3.69h47.39l9.2-30.29H12.38l9.2,30.29Z"/>
-                <polygon class="fill-m-2" points="9.89 209.8 20.21 243.78 70.34 243.78 80.66 209.8 9.89 209.8"/>
-                <path class="fill-m" d="M71.71,245.63H18.84l-11.44-37.68H83.15l-11.44,37.68Zm-50.13-3.69h47.39l9.2-30.29H12.38l9.2,30.29Z"/>
-                <rect class="fill-m" x="42.6" y="209.8" width="5.17" height="5.91"/>
-                <rect class="fill-m" x="42.6" y="175.82" width="5.17" height="5.91"/>
-                <rect class="fill-m" x="42.6" y="141.84" width="5.17" height="5.91"/>
-                <rect class="fill-m" x="42.6" y="107.86" width="5.17" height="5.91"/>
-                <rect class="fill-m" x="42.6" y="73.87" width="5.17" height="5.91"/>
-                <rect class="fill-m" x="42.6" y="39.89" width="5.17" height="5.91"/>
-                <circle class="fill-m-bg" cx="45.18" cy="243.78" r="8.3"/>
-                <path class="fill-m" d="M45.18,253.93c-5.59,0-10.14-4.55-10.14-10.14s4.55-10.14,10.14-10.14,10.14,4.55,10.14,10.14-4.55,10.14-10.14,10.14Zm0-16.59c-3.56,0-6.45,2.89-6.45,6.45s2.89,6.45,6.45,6.45,6.45-2.89,6.45-6.45-2.89-6.45-6.45-6.45Z"/>
-            </svg>
-            <svg class="hp-img hp-wfns" viewBox="0 0 72 161" width="7.2%" alt="Breeze Nanshan">
-                <polygon class="fill-m-bg" points="67 7.58 15.39 7.58 18.07 159.2 69.67 159.2 67 7.58"/>
-                <path class="fill-m" d="M71.55,161.05H16.25l-.03-1.81L13.51,5.73h55.3l.03,1.81,2.71,153.5Zm-51.67-3.69h47.91l-2.61-147.92H17.27l2.61,147.92Z"/>
-                <polygon class="fill-m-3" points="54.25 159.2 2.65 159.2 7.53 1.85 59.13 1.85 54.25 159.2"/>
-                <path class="fill-m" d="M56.04,161.05H.75L5.74,0H61.04l-4.99,161.05Zm-51.49-3.69H52.46L57.23,3.69H9.32L4.56,157.35Z"/>
-            </svg>
-            <svg class="hp-img hp-ns-a21" viewBox="0 0 49 162" width="4.9%" alt="Nanshan A21">
-                <path class="fill-m-bg" d="M2.14,117.83v36.2c0,3.06,10.09,5.54,22.53,5.54s22.53-2.48,22.53-5.54v-36.2H2.14Z"/>
-                <path class="fill-m" d="M24.67,161.41c-9.05,0-24.38-1.56-24.38-7.39v-38.05H49.05v38.05c0,5.83-15.32,7.39-24.38,7.39Zm-20.68-7.48c.82,1.39,8.29,3.79,20.68,3.79s19.86-2.4,20.68-3.79v-34.26H3.98v34.26Z"/>
-                <ellipse class="fill-m-bg" cx="24.67" cy="116.35" rx="22.53" ry="5.54"/>
-                <path class="fill-m" d="M24.67,123.74c-9.05,0-24.38-1.56-24.38-7.39s15.32-7.39,24.38-7.39,24.38,1.56,24.38,7.39-15.32,7.39-24.38,7.39Zm-20.62-7.39c1.1,1.4,8.51,3.69,20.62,3.69s19.52-2.3,20.62-3.69c-1.1-1.4-8.51-3.69-20.62-3.69s-19.52,2.3-20.62,3.69Z"/>
-                <path class="fill-m-3" d="M2.14,9.23V107.49c0,3.06,10.09,5.54,22.53,5.54s22.53-2.48,22.53-5.54V9.23H2.14Z"/>
-                <path class="fill-m" d="M24.67,114.87c-9.05,0-24.38-1.56-24.38-7.39V7.39H49.05V107.49c0,5.83-15.32,7.39-24.38,7.39Zm-20.68-7.48c.82,1.39,8.29,3.79,20.68,3.79s19.86-2.4,20.68-3.79V11.08H3.98V107.39Z"/>
-                <ellipse class="fill-m-3" cx="24.67" cy="7.39" rx="22.53" ry="5.54"/>
-                <path class="fill-m" d="M24.67,14.77C15.61,14.77,.29,13.22,.29,7.39S15.61,0,24.67,0s24.38,1.56,24.38,7.39-15.32,7.39-24.38,7.39ZM4.05,7.39c1.1,1.4,8.51,3.69,20.62,3.69s19.52-2.3,20.62-3.69c-1.1-1.4-8.51-3.69-20.62-3.69S5.15,5.99,4.05,7.39Z"/>
-            </svg>
-            <div class="hp-wt" style="width: 6.5%">
-                <svg class="hp-wt-blade" viewBox="0 0 65 56">
-                    <polygon class="fill-m-3" points="35.6 26.97 32.5 34.38 29.4 26.97 29.4 1.56 35.6 1.56 35.6 26.97"/>
-                    <path class="fill-m" d="M27.92,.08V27.27l2.68,6.39,1.9,1,1.9-1,2.68-6.39V.08s-9.16,0-9.16,0Zm6.21,26.59l-1.63,3.88-1.63-3.88V3.04s3.25,0,3.25,0V26.67Z"/>
-                    <polygon class="fill-m-3" points="24.29 35.82 32.26 34.8 27.39 41.19 5.38 53.9 2.28 48.52 24.29 35.82"/>
-                    <path class="fill-m" d="M4.84,55.92l23.54-13.59,4.2-5.51-.09-2.15-1.82-1.15-6.87,.88L.26,47.98l4.58,7.93Zm19.92-18.67l4.18-.53-2.55,3.35L5.93,51.88l-1.63-2.82,20.47-11.82Z"/>
-                    <polygon class="fill-m-3" points="40.71 35.82 32.74 34.8 37.61 41.19 59.62 53.9 62.72 48.52 40.71 35.82"/>
-                    <path class="fill-m" d="M60.16,55.92l-23.54-13.59-4.2-5.51,.09-2.15,1.82-1.15,6.87,.88,23.54,13.59-4.58,7.93Zm-19.92-18.67l-4.18-.53,2.55,3.35,20.47,11.82,1.63-2.82-20.47-11.82Z"/>
-                    <circle class="fill-m-bg" cx="32.5" cy="34.66" r="3.56"/>
-                    <path class="fill-m" d="M32.5,39.69c-1.29,0-2.58-.49-3.56-1.47-1.96-1.96-1.96-5.16,0-7.12,1.96-1.96,5.16-1.96,7.12,0s1.96,5.16,0,7.12c-.98,.98-2.27,1.47-3.56,1.47Zm0-7.11c-.53,0-1.07,.2-1.47,.61-.81,.81-.81,2.13,0,2.94s2.13,.81,2.94,0,.81-2.13,0-2.94c-.41-.41-.94-.61-1.47-.61Z"/>
-                </svg>
-                <svg class="hp-wt-stick" viewBox="0 0 65 74">
-                    <polygon class="fill-m-bg" points="36.4 72.52 28.6 72.52 31.05 2.4 32.5 2.4 33.95 2.4 36.4 72.52"/>
-                    <path class="fill-m" d="M37.93,74h-10.86L29.62,.92h5.76l2.55,73.08Zm-7.8-2.95h4.74L32.53,3.88h-.05l-2.34,67.17Z"/>
-                </svg>
+                <div class="hp-3e">
+                    <p>Energy</p>
+                    <p>Economy</p>
+                    <p>Environment</p>
+                </div>
+                
+                <a class="hp-tell-more">
+                    <p>Tell me more</p>
+                    <div></div>
+                </a>
             </div>
-            <svg class="hp-ess" viewBox="0 0 32 57" width="3.2%">
-                <rect class="fill-m-3" x="1.59" y="2.33" width="28.81" height="53.19"/>
-                <path class="fill-m" d="M31.88,57H.12V.86H31.88V57Zm-28.81-2.95H28.93V3.81H3.07V54.05Z"/>
-                <polygon class="fill-m" points="17.69 27.34 14.87 26.45 16.2 22.28 11.76 22.28 14.31 14.26 17.13 15.16 15.8 19.32 20.24 19.32 17.69 27.34"/>
-              </svg>
-        </div>
 
-        <svg class="hp-rain-back" viewBox="0 0 1000 562.5">
-        </svg>    
-            
-        <div class="hp-road-ltr">
-            <svg class="hp-car" viewBox="0 0 75 31" width="7.5%">
-                <path class="fill-m-3" d="M29.37,2.05h25.77l17.82,9.39v14.41H23.83V11.44L29.37,2.05Z"/>
-                <path class="fill-m" d="M74.44,27.33H22.36V11.04L28.53,.58h26.97l18.93,9.98V27.33Zm-49.13-2.95h46.17V12.34L54.77,3.53H30.22l-4.91,8.32v12.53Z"/>
-                <circle class="fill-m-bg" cx="33.05" cy="25.69" r="3.83"/>
-                <path class="fill-m" d="M33.05,31c-2.93,0-5.31-2.38-5.31-5.31s2.38-5.31,5.31-5.31,5.31,2.38,5.31,5.31-2.38,5.31-5.31,5.31Zm0-7.66c-1.3,0-2.35,1.05-2.35,2.35s1.05,2.35,2.35,2.35,2.35-1.05,2.35-2.35-1.05-2.35-2.35-2.35Z"/>
-                <circle class="fill-m-bg" cx="58.55" cy="25.69" r="3.83"/>
-                <path class="fill-m" d="M58.55,31c-2.93,0-5.31-2.38-5.31-5.31s2.38-5.31,5.31-5.31,5.31,2.38,5.31,5.31-2.38,5.31-5.31,5.31Zm0-7.66c-1.3,0-2.35,1.05-2.35,2.35s1.05,2.35,2.35,2.35,2.35-1.05,2.35-2.35-1.05-2.35-2.35-2.35Z"/>
-                <line class="hp-v-stroke" x1="16.8" y1="15.8" x2="0.6" y2="15.8"/>
-                <line class="hp-v-stroke" x1="16.8" y1="23.7" x2="4.9" y2="23.7"/>
-            </svg>
+            <div class="hp-main">
+                <p>
+                    <svg viewBox="0 0 16 16">
+                        <path class="fill-m" d="M9,0V12.18l5.6-5.6,1.4,1.43L8,16,0,8l1.4-1.43,5.6,5.6V0h2Z"/>
+                    </svg>
+                    Tap to dive into our research world!
+                </p>
+                <div class="hp-window">
+                    <!-- <img src="./assets/home-view/hp.svg" width="960" id="test-view"> -->
+                    <!-- <div class="bok"></div> -->
+                    <!-- <svg viewBox="0 0 1000 562.5">
+                        <line class="hp-horizon" x1="0" y1="348" x2="1000" y2="348"/>
+                    </svg> -->
+                    <div class="hp-horizon"></div>
+                    <div class="hp-wire">
+                        <svg class="hp-wire-l" viewBox="0 0 189 13" width="18.9%">
+                            <path d="M14.19 1.4 3.84 11.38 77.35 11.38 87.33 1.4"/>
+                            <path d="M87.33 1.4 77.35 11.38 177.44 11.35 187.8 1.4"/>
+                            <path d="M14.19 1.4 3.84 11.38 177.44 11.38 187.8 1.4"/>
+                        </svg>
 
-        </div>
-        <div class="hp-road-rtl">
-            <svg class="hp-car" viewBox="0 0 75 31" width="7.5%">
-                <path class="fill-m-3" d="M29.37,2.05h25.77l17.82,9.39v14.41H23.83V11.44L29.37,2.05Z"/>
-                <path class="fill-m" d="M74.44,27.33H22.36V11.04L28.53,.58h26.97l18.93,9.98V27.33Zm-49.13-2.95h46.17V12.34L54.77,3.53H30.22l-4.91,8.32v12.53Z"/>
-                <circle class="fill-m-bg" cx="33.05" cy="25.69" r="3.83"/>
-                <path class="fill-m" d="M33.05,31c-2.93,0-5.31-2.38-5.31-5.31s2.38-5.31,5.31-5.31,5.31,2.38,5.31,5.31-2.38,5.31-5.31,5.31Zm0-7.66c-1.3,0-2.35,1.05-2.35,2.35s1.05,2.35,2.35,2.35,2.35-1.05,2.35-2.35-1.05-2.35-2.35-2.35Z"/>
-                <circle class="fill-m-bg" cx="58.55" cy="25.69" r="3.83"/>
-                <path class="fill-m" d="M58.55,31c-2.93,0-5.31-2.38-5.31-5.31s2.38-5.31,5.31-5.31,5.31,2.38,5.31,5.31-2.38,5.31-5.31,5.31Zm0-7.66c-1.3,0-2.35,1.05-2.35,2.35s1.05,2.35,2.35,2.35,2.35-1.05,2.35-2.35-1.05-2.35-2.35-2.35Z"/>
-                <line class="hp-v-stroke" x1="16.8" y1="15.8" x2="0.6" y2="15.8"/>
-                <line class="hp-v-stroke" x1="16.8" y1="23.7" x2="4.9" y2="23.7"/>
-            </svg>
+                        <svg class="hp-wire-c" viewBox="0 0 264 13" width="264">
+                            <polygon class="fill-s" points="261.57 .49 251.66 10.05 131.81 10.05 139.51 2.61 137.46 .49 127.55 10.05 7.7 10.05 15.41 2.61 13.35 .49 .38 13 252.85 13 263.62 2.61 261.57 .49"/>
+                        </svg>
 
-        </div>
+                        <svg class="hp-wire-r" viewBox="0 0 157 13" width="157">
+                            <polygon class="fill-s" points="154.92 .49 145 10.05 88.62 10.05 96.33 2.61 94.27 .49 84.36 10.05 7.35 10.05 15.06 2.61 13.01 .49 .03 13 146.2 13 156.97 2.61 154.92 .49"/>
+                        </svg>
+                    </div>
+                    
+                    <div class="hp-landscape">
+                        <svg class="hp-batt" viewBox="0 0 21 46" width="2.1%">
+                            <rect class="fill-m-3" x="1.64" y="6.11" width="17.73" height="38.41"/>
+                            <path class="fill-m" d="M20.84,46H.16V4.63H20.84V46Zm-17.73-2.95h14.77V7.59H3.11V43.05Z"/>
+                            <rect class="fill-m-3" x="6.81" y="1.68" width="7.39" height="4.43"/>
+                            <path class="fill-m" d="M15.67,7.59H5.33V.2H15.67V7.59Zm-7.39-2.95h4.43v-1.48h-4.43v1.48Z"/>
+                            <polygon class="fill-m" points="12.18 29.64 9.37 28.75 10.7 24.58 6.26 24.58 8.82 16.56 11.63 17.45 10.3 21.62 14.74 21.62 12.18 29.64"/>
+                        </svg>
+                        <svg class="hp-pv" viewBox="0 0 81 47" width="8.1%">
+                            <polygon class="fill-m-bg" points="79.39 1.85 16.6 1.85 8.99 45.44 71.78 45.44 79.39 1.85"/>
+                            <path class="fill-m" d="M73.02,46.92H7.23L15.36,.37H81.15l-8.12,46.54Zm-62.28-2.95h59.79L77.63,3.33H17.84l-7.09,40.63Z"/>
+                            <polygon class="fill-m-3" points="8.87 6.86 2.13 45.44 66.43 45.44 73.16 6.86 8.87 6.86"/>
+                            <path class="fill-m" d="M67.67,46.92H.37L7.62,5.38H74.92l-7.25,41.53ZM3.89,43.96h61.3l6.22-35.62H10.11L3.89,43.96Z"/>
+                            <rect class="fill-m" x="6.62" y="18.02" width="64.27" height="2.95"/>
+                            <rect class="fill-m" x="4.4" y="31.32" width="64.27" height="2.95"/>
+                            <rect class="fill-m" x="6.7" y="24.67" width="38.99" height="2.95" transform="translate(-4.03 47.51) rotate(-80.19)"/>
+                            <rect class="fill-m" x="29.6" y="24.67" width="38.99" height="2.95" transform="translate(14.96 70.07) rotate(-80.19)"/>
+                        </svg>
+                        <svg class="hp-img hp-sky" viewBox="0 0 51 196" width="5.1%" alt="The Sky Taipei">
+                            <polygon class="fill-m-bg" points="11.25 40.49 49.51 4.29 49.51 194.15 11.25 194.15 11.25 40.49"/>
+                            <path class="fill-m" d="M51.35,195.99H9.4V39.69L51.35,0V195.99Zm-38.26-3.69H47.66V8.58L13.09,41.28V192.3Z"/>
+                            <polygon class="fill-m-3" points="1.64 40.49 39.9 4.29 39.9 194.15 1.64 194.15 1.64 40.49"/>
+                            <path class="fill-m" d="M41.75,195.99H-.2V39.69L41.75,0V195.99Zm-38.26-3.69H38.05V8.58L3.49,41.28V192.3Z"/>
+                        </svg>
+                        <svg class="hp-img hp-fb-a25" viewBox="0 0 64 161" width="6.4%" alt="Fubon A25">
+                            <rect class="fill-m-bg" x="22.14" y="16.63" width="22.3" height="142.95"/>
+                            <path class="fill-m" d="M46.28,161.43H20.29V14.79h25.99V161.43Zm-22.3-3.69h18.6V18.48H23.99V157.73Z"/>
+                            <polygon class="fill-m-3" points="36.28 2.23 62.39 7.17 62.39 159.58 36.28 159.58 36.28 2.23"/>
+                            <path class="fill-m" d="M64.23,161.43h-29.8V0l29.8,5.63V161.43Zm-26.1-3.69h22.41V8.7l-22.41-4.24V157.73Z"/>
+                            <polygon class="fill-m-3" points="28.16 2.23 2.05 7.17 2.05 159.58 28.16 159.58 28.16 2.23"/>
+                            <path class="fill-m" d="M30,161.43H.21V5.63L30,0V161.43Zm-26.1-3.69H26.31V4.46L3.9,8.7V157.73Z"/>
+                        </svg>
+                        <svg class="hp-img hp-101" viewBox="0 0 91 301" width="9.1%" alt="Taipei 101">
+                            <rect class="fill-m" x="42.97" y="0" width="5.17" height="22.16"/>
+                            <polygon class="fill-101-top" points="32.81 22.16 35.58 39.89 54.97 39.89 57.74 22.16 32.81 22.16"/>
+                            <path class="fill-m" d="M56.55,41.74h-22.55l-3.35-21.42h29.25l-3.35,21.42Zm-19.39-3.69h16.23l2.19-14.04h-20.61l2.19,14.04Z"/>
+                            <polygon class="fill-m-2" points="70.34 243.78 70.15 243.78 20.21 243.78 20.03 243.78 2.33 299.19 9.89 299.19 80.47 299.19 88.03 299.19 70.34 243.78"/>
+                            <path class="fill-m" d="M90.56,301.04H-.19l18.87-59.1h53.01l18.87,59.1Zm-85.69-3.69H85.5l-16.51-51.71H21.38l-16.51,51.71Z"/>
+                            <polygon class="fill-m-2" points="9.89 39.89 20.21 73.87 70.34 73.87 80.66 39.89 9.89 39.89"/>
+                            <path class="fill-m" d="M71.71,75.72H18.84L7.4,38.05H83.15l-11.44,37.68Zm-50.13-3.69h47.39l9.2-30.29H12.38l9.2,30.29Z"/>
+                            <polygon class="fill-m-2" points="9.89 73.87 20.21 107.86 70.34 107.86 80.66 73.87 9.89 73.87"/>
+                            <path class="fill-m" d="M71.71,109.7H18.84L7.4,72.03H83.15l-11.44,37.68Zm-50.13-3.69h47.39l9.2-30.29H12.38l9.2,30.29Z"/>
+                            <polygon class="fill-m-2" points="9.89 107.86 20.21 141.84 70.34 141.84 80.66 107.86 9.89 107.86"/>
+                            <path class="fill-m" d="M71.71,143.69H18.84L7.4,106.01H83.15l-11.44,37.68Zm-50.13-3.69h47.39l9.2-30.29H12.38l9.2,30.29Z"/>
+                            <polygon class="fill-m-2" points="9.89 141.84 20.21 175.82 70.34 175.82 80.66 141.84 9.89 141.84"/>
+                            <path class="fill-m" d="M71.71,177.67H18.84l-11.44-37.68H83.15l-11.44,37.68Zm-50.13-3.69h47.39l9.2-30.29H12.38l9.2,30.29Z"/>
+                            <polygon class="fill-m-2" points="9.89 175.82 20.21 209.8 70.34 209.8 80.66 175.82 9.89 175.82"/>
+                            <path class="fill-m" d="M71.71,211.65H18.84l-11.44-37.68H83.15l-11.44,37.68Zm-50.13-3.69h47.39l9.2-30.29H12.38l9.2,30.29Z"/>
+                            <polygon class="fill-m-2" points="9.89 209.8 20.21 243.78 70.34 243.78 80.66 209.8 9.89 209.8"/>
+                            <path class="fill-m" d="M71.71,245.63H18.84l-11.44-37.68H83.15l-11.44,37.68Zm-50.13-3.69h47.39l9.2-30.29H12.38l9.2,30.29Z"/>
+                            <rect class="fill-m" x="42.6" y="209.8" width="5.17" height="5.91"/>
+                            <rect class="fill-m" x="42.6" y="175.82" width="5.17" height="5.91"/>
+                            <rect class="fill-m" x="42.6" y="141.84" width="5.17" height="5.91"/>
+                            <rect class="fill-m" x="42.6" y="107.86" width="5.17" height="5.91"/>
+                            <rect class="fill-m" x="42.6" y="73.87" width="5.17" height="5.91"/>
+                            <rect class="fill-m" x="42.6" y="39.89" width="5.17" height="5.91"/>
+                            <circle class="fill-m-bg" cx="45.18" cy="243.78" r="8.3"/>
+                            <path class="fill-m" d="M45.18,253.93c-5.59,0-10.14-4.55-10.14-10.14s4.55-10.14,10.14-10.14,10.14,4.55,10.14,10.14-4.55,10.14-10.14,10.14Zm0-16.59c-3.56,0-6.45,2.89-6.45,6.45s2.89,6.45,6.45,6.45,6.45-2.89,6.45-6.45-2.89-6.45-6.45-6.45Z"/>
+                        </svg>
+                        <svg class="hp-img hp-wfns" viewBox="0 0 72 161" width="7.2%" alt="Breeze Nanshan">
+                            <polygon class="fill-m-bg" points="67 7.58 15.39 7.58 18.07 159.2 69.67 159.2 67 7.58"/>
+                            <path class="fill-m" d="M71.55,161.05H16.25l-.03-1.81L13.51,5.73h55.3l.03,1.81,2.71,153.5Zm-51.67-3.69h47.91l-2.61-147.92H17.27l2.61,147.92Z"/>
+                            <polygon class="fill-m-3" points="54.25 159.2 2.65 159.2 7.53 1.85 59.13 1.85 54.25 159.2"/>
+                            <path class="fill-m" d="M56.04,161.05H.75L5.74,0H61.04l-4.99,161.05Zm-51.49-3.69H52.46L57.23,3.69H9.32L4.56,157.35Z"/>
+                        </svg>
+                        <svg class="hp-img hp-ns-a21" viewBox="0 0 49 162" width="4.9%" alt="Nanshan A21">
+                            <path class="fill-m-bg" d="M2.14,117.83v36.2c0,3.06,10.09,5.54,22.53,5.54s22.53-2.48,22.53-5.54v-36.2H2.14Z"/>
+                            <path class="fill-m" d="M24.67,161.41c-9.05,0-24.38-1.56-24.38-7.39v-38.05H49.05v38.05c0,5.83-15.32,7.39-24.38,7.39Zm-20.68-7.48c.82,1.39,8.29,3.79,20.68,3.79s19.86-2.4,20.68-3.79v-34.26H3.98v34.26Z"/>
+                            <ellipse class="fill-m-bg" cx="24.67" cy="116.35" rx="22.53" ry="5.54"/>
+                            <path class="fill-m" d="M24.67,123.74c-9.05,0-24.38-1.56-24.38-7.39s15.32-7.39,24.38-7.39,24.38,1.56,24.38,7.39-15.32,7.39-24.38,7.39Zm-20.62-7.39c1.1,1.4,8.51,3.69,20.62,3.69s19.52-2.3,20.62-3.69c-1.1-1.4-8.51-3.69-20.62-3.69s-19.52,2.3-20.62,3.69Z"/>
+                            <path class="fill-m-3" d="M2.14,9.23V107.49c0,3.06,10.09,5.54,22.53,5.54s22.53-2.48,22.53-5.54V9.23H2.14Z"/>
+                            <path class="fill-m" d="M24.67,114.87c-9.05,0-24.38-1.56-24.38-7.39V7.39H49.05V107.49c0,5.83-15.32,7.39-24.38,7.39Zm-20.68-7.48c.82,1.39,8.29,3.79,20.68,3.79s19.86-2.4,20.68-3.79V11.08H3.98V107.39Z"/>
+                            <ellipse class="fill-m-3" cx="24.67" cy="7.39" rx="22.53" ry="5.54"/>
+                            <path class="fill-m" d="M24.67,14.77C15.61,14.77,.29,13.22,.29,7.39S15.61,0,24.67,0s24.38,1.56,24.38,7.39-15.32,7.39-24.38,7.39ZM4.05,7.39c1.1,1.4,8.51,3.69,20.62,3.69s19.52-2.3,20.62-3.69c-1.1-1.4-8.51-3.69-20.62-3.69S5.15,5.99,4.05,7.39Z"/>
+                        </svg>
+                        <div class="hp-wt" style="width: 6.5%">
+                            <svg class="hp-wt-blade" viewBox="0 0 65 56">
+                                <polygon class="fill-m-3" points="35.6 26.97 32.5 34.38 29.4 26.97 29.4 1.56 35.6 1.56 35.6 26.97"/>
+                                <path class="fill-m" d="M27.92,.08V27.27l2.68,6.39,1.9,1,1.9-1,2.68-6.39V.08s-9.16,0-9.16,0Zm6.21,26.59l-1.63,3.88-1.63-3.88V3.04s3.25,0,3.25,0V26.67Z"/>
+                                <polygon class="fill-m-3" points="24.29 35.82 32.26 34.8 27.39 41.19 5.38 53.9 2.28 48.52 24.29 35.82"/>
+                                <path class="fill-m" d="M4.84,55.92l23.54-13.59,4.2-5.51-.09-2.15-1.82-1.15-6.87,.88L.26,47.98l4.58,7.93Zm19.92-18.67l4.18-.53-2.55,3.35L5.93,51.88l-1.63-2.82,20.47-11.82Z"/>
+                                <polygon class="fill-m-3" points="40.71 35.82 32.74 34.8 37.61 41.19 59.62 53.9 62.72 48.52 40.71 35.82"/>
+                                <path class="fill-m" d="M60.16,55.92l-23.54-13.59-4.2-5.51,.09-2.15,1.82-1.15,6.87,.88,23.54,13.59-4.58,7.93Zm-19.92-18.67l-4.18-.53,2.55,3.35,20.47,11.82,1.63-2.82-20.47-11.82Z"/>
+                                <circle class="fill-m-bg" cx="32.5" cy="34.66" r="3.56"/>
+                                <path class="fill-m" d="M32.5,39.69c-1.29,0-2.58-.49-3.56-1.47-1.96-1.96-1.96-5.16,0-7.12,1.96-1.96,5.16-1.96,7.12,0s1.96,5.16,0,7.12c-.98,.98-2.27,1.47-3.56,1.47Zm0-7.11c-.53,0-1.07,.2-1.47,.61-.81,.81-.81,2.13,0,2.94s2.13,.81,2.94,0,.81-2.13,0-2.94c-.41-.41-.94-.61-1.47-.61Z"/>
+                            </svg>
+                            <svg class="hp-wt-stick" viewBox="0 0 65 74">
+                                <polygon class="fill-m-bg" points="36.4 72.52 28.6 72.52 31.05 2.4 32.5 2.4 33.95 2.4 36.4 72.52"/>
+                                <path class="fill-m" d="M37.93,74h-10.86L29.62,.92h5.76l2.55,73.08Zm-7.8-2.95h4.74L32.53,3.88h-.05l-2.34,67.17Z"/>
+                            </svg>
+                        </div>
+                        <svg class="hp-ess" viewBox="0 0 32 57" width="3.2%">
+                            <rect class="fill-m-3" x="1.59" y="2.33" width="28.81" height="53.19"/>
+                            <path class="fill-m" d="M31.88,57H.12V.86H31.88V57Zm-28.81-2.95H28.93V3.81H3.07V54.05Z"/>
+                            <polygon class="fill-m" points="17.69 27.34 14.87 26.45 16.2 22.28 11.76 22.28 14.31 14.26 17.13 15.16 15.8 19.32 20.24 19.32 17.69 27.34"/>
+                        </svg>
+                    </div>
+
+                    <svg class="hp-rain-back" viewBox="0 0 1000 562.5">
+                    </svg>    
+                        
+                    <div class="hp-road-ltr">
+                        <svg class="hp-car" viewBox="0 0 75 31" width="7.5%">
+                            <path class="fill-m-3" d="M29.37,2.05h25.77l17.82,9.39v14.41H23.83V11.44L29.37,2.05Z"/>
+                            <path class="fill-m" d="M74.44,27.33H22.36V11.04L28.53,.58h26.97l18.93,9.98V27.33Zm-49.13-2.95h46.17V12.34L54.77,3.53H30.22l-4.91,8.32v12.53Z"/>
+                            <circle class="fill-m-bg" cx="33.05" cy="25.69" r="3.83"/>
+                            <path class="fill-m" d="M33.05,31c-2.93,0-5.31-2.38-5.31-5.31s2.38-5.31,5.31-5.31,5.31,2.38,5.31,5.31-2.38,5.31-5.31,5.31Zm0-7.66c-1.3,0-2.35,1.05-2.35,2.35s1.05,2.35,2.35,2.35,2.35-1.05,2.35-2.35-1.05-2.35-2.35-2.35Z"/>
+                            <circle class="fill-m-bg" cx="58.55" cy="25.69" r="3.83"/>
+                            <path class="fill-m" d="M58.55,31c-2.93,0-5.31-2.38-5.31-5.31s2.38-5.31,5.31-5.31,5.31,2.38,5.31,5.31-2.38,5.31-5.31,5.31Zm0-7.66c-1.3,0-2.35,1.05-2.35,2.35s1.05,2.35,2.35,2.35,2.35-1.05,2.35-2.35-1.05-2.35-2.35-2.35Z"/>
+                            <line class="hp-v-stroke" x1="16.8" y1="15.8" x2="0.6" y2="15.8"/>
+                            <line class="hp-v-stroke" x1="16.8" y1="23.7" x2="4.9" y2="23.7"/>
+                        </svg>
+
+                    </div>
+                    <div class="hp-road-rtl">
+                        <svg class="hp-car" viewBox="0 0 75 31" width="7.5%">
+                            <path class="fill-m-3" d="M29.37,2.05h25.77l17.82,9.39v14.41H23.83V11.44L29.37,2.05Z"/>
+                            <path class="fill-m" d="M74.44,27.33H22.36V11.04L28.53,.58h26.97l18.93,9.98V27.33Zm-49.13-2.95h46.17V12.34L54.77,3.53H30.22l-4.91,8.32v12.53Z"/>
+                            <circle class="fill-m-bg" cx="33.05" cy="25.69" r="3.83"/>
+                            <path class="fill-m" d="M33.05,31c-2.93,0-5.31-2.38-5.31-5.31s2.38-5.31,5.31-5.31,5.31,2.38,5.31,5.31-2.38,5.31-5.31,5.31Zm0-7.66c-1.3,0-2.35,1.05-2.35,2.35s1.05,2.35,2.35,2.35,2.35-1.05,2.35-2.35-1.05-2.35-2.35-2.35Z"/>
+                            <circle class="fill-m-bg" cx="58.55" cy="25.69" r="3.83"/>
+                            <path class="fill-m" d="M58.55,31c-2.93,0-5.31-2.38-5.31-5.31s2.38-5.31,5.31-5.31,5.31,2.38,5.31,5.31-2.38,5.31-5.31,5.31Zm0-7.66c-1.3,0-2.35,1.05-2.35,2.35s1.05,2.35,2.35,2.35,2.35-1.05,2.35-2.35-1.05-2.35-2.35-2.35Z"/>
+                            <line class="hp-v-stroke" x1="16.8" y1="15.8" x2="0.6" y2="15.8"/>
+                            <line class="hp-v-stroke" x1="16.8" y1="23.7" x2="4.9" y2="23.7"/>
+                        </svg>
+
+                    </div>
 
 
-        <svg class="hp-rain-front" viewBox="0 0 1000 562.5">
-        </svg>
-    </div>
+                    <svg class="hp-rain-front" viewBox="0 0 1000 562.5">
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, velit molestias iusto sapiente ratione voluptatum pariatur nihil quod, perferendis, ipsa obcaecati ipsam aspernatur ullam! Consequuntur pariatur laborum officiis cupiditate dolore?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque est consequatur quia neque vel odio, vero quas! Molestiae ex vel porro ratione harum natus expedita! Laborum veritatis nulla saepe minima quaerat expedita excepturi unde eius, aspernatur assumenda maiores minus molestiae quia quos? Ipsam magnam atque esse, alias enim qui impedit? Minus, quo ducimus, vero error maiores officia similique architecto, dignissimos quae quos repellat id fugiat nam iure dicta. Nesciunt, odio repellendus repellat debitis excepturi ducimus sunt harum, molestias architecto rerum consequatur nostrum ipsa culpa iusto non nisi consequuntur esse quasi officia beatae error. Quo veritatis alias magni, ipsa, ut eum voluptatum nostrum blanditiis atque totam ullam qui id, quasi odio harum nemo velit incidunt nihil eaque et officiis sit distinctio mollitia! Accusantium velit modi dolorem asperiores, voluptatem fuga nulla, minima veniam quae harum, ipsam rerum maiores rem nostrum ex dolores? Voluptatum deserunt error, iure rem labore eius hic molestiae atque facere sequi fuga non, iusto minus ab accusantium porro. Adipisci minima placeat magnam vero, alias repellendus dolores nihil pariatur explicabo maxime delectus veritatis exercitationem quis natus reiciendis amet ipsa fugit nesciunt aliquid! Facilis corporis iste sequi quos numquam, sapiente ad at nemo! Deserunt ut veritatis ad nihil quia quasi nemo? Deleniti nemo nobis modi, fuga odio distinctio esse earum porro quidem impedit voluptates. Iste numquam et, libero minima adipisci ex corporis magni. Cumque vitae quaerat error asperiores atque culpa, libero qui at dolorem quidem. Minus at velit amet cupiditate maxime adipisci reiciendis quod, alias quam vitae explicabo unde eligendi aspernatur repellat tenetur molestias. Qui saepe molestiae nihil nesciunt et beatae voluptate nobis facilis eveniet est culpa amet iste sapiente, dicta excepturi adipisci nulla neque dolores obcaecati sequi consequatur perferendis quod, voluptates odit! Harum dicta repellendus neque voluptatem laborum omnis, delectus id laudantium beatae ab quos quam deserunt quae saepe voluptatibus eligendi hic accusantium odit alias nemo minus veniam commodi! Quo, architecto totam sint quaerat ab dolorem alias esse fugit expedita labore eum minus hic facere dolor nesciunt! Facilis, nobis modi. Incidunt alias tempora quisquam inventore impedit nisi praesentium repudiandae? Nisi facere odit vero numquam labore rem voluptates, incidunt autem. Libero pariatur nobis rem nulla placeat similique modi nesciunt voluptatem quae. Ipsa debitis similique, provident fugiat repellat animi. At voluptatem similique, cumque optio dicta quod suscipit voluptas veniam molestiae exercitationem nihil recusandae dignissimos quidem tempora sapiente expedita assumenda magnam natus facere enim atque commodi et! Dolorum inventore explicabo animi! Velit nulla animi itaque fugiat perspiciatis. Voluptas sint qui ipsum. Molestias voluptates est soluta quisquam? Animi repellendus laborum omnis quae aliquid architecto, ut autem earum, esse consectetur unde excepturi sequi, voluptatem id doloribus tempore maiores blanditiis quas ipsa obcaecati. Ratione consectetur, repellat, eum odio quasi quam molestias amet possimus aperiam laboriosam, fugit officia nobis ipsa ducimus culpa distinctio alias cumque! Aliquid, quibusdam. Iste reprehenderit temporibus hic adipisci quis sapiente, quas voluptas ipsa quibusdam accusantium eius aperiam praesentium saepe dolor sint mollitia. Numquam pariatur ullam, sapiente reiciendis perferendis cupiditate tenetur consequuntur totam ab at nostrum tempora voluptatem quo laborum nulla saepe! Quisquam at consectetur magni porro ipsum, quibusdam maiores rerum veritatis, corporis illum nesciunt fugit. Eos dolor nihil facilis culpa rerum doloremque! Repellat magni rem veniam et laudantium aliquam atque. Impedit mollitia cumque, in corrupti ipsum ullam magni quo perspiciatis, nesciunt aliquid iusto laborum! Corporis, quos sequi, quam similique obcaecati rerum odio, repellat non perferendis voluptas laborum hic debitis! Quibusdam aut provident quisquam reprehenderit natus, ducimus suscipit incidunt reiciendis hic nulla facilis in consequuntur? In deserunt deleniti dolore molestias natus at adipisci similique ad nemo autem eos vel delectus, optio minus excepturi ullam modi sint ipsam voluptate nulla magnam. Ducimus neque minus dolore! Ad tenetur ducimus odit et beatae ipsum placeat impedit libero, dolores laudantium ullam accusamus consequatur necessitatibus explicabo? Consectetur voluptates debitis mollitia laudantium unde odit similique, sint temporibus doloribus totam quasi amet reiciendis reprehenderit, dolores aut eveniet aperiam, officia velit animi magni laborum accusamus ut? Atque repellat animi, reiciendis sapiente fuga repellendus ut? Eveniet dolores aliquam reprehenderit libero voluptates excepturi quas voluptatibus asperiores quibusdam repellat fugiat soluta quos minima, omnis pariatur consectetur amet, in, qui labore officiis provident autem error similique nemo? Qui nihil aspernatur at unde tempore dolore praesentium illo incidunt libero perspiciatis. Omnis alias tempore molestiae unde nemo consequatur quam nisi distinctio, reprehenderit dolorem facilis inventore. Rem quam, amet id nulla voluptate libero quasi odit qui! Quae obcaecati facere earum quam quisquam deserunt distinctio nulla officia harum et, ipsum, sed quasi aliquid magni temporibus reiciendis dignissimos mollitia vel labore velit possimus exercitationem modi. Ex natus pariatur eos aliquam in, ipsam labore laborum modi, sequi rem quia repudiandae dicta iste fugiat aspernatur omnis assumenda similique quidem nisi tempora et vel veniam officiis recusandae? Quo tenetur commodi officia! Ea magnam autem, possimus voluptatem similique est obcaecati totam. Tempore doloribus dolor ducimus ullam minus doloremque, ab adipisci deleniti, deserunt sunt ipsum vel voluptatibus dolorum corrupti! Ad ea reprehenderit impedit minus doloremque, excepturi quidem velit et praesentium expedita cum voluptatibus at labore laudantium iure, nam provident magnam quae voluptatum? Pariatur aspernatur atque alias obcaecati blanditiis est deleniti expedita provident, dignissimos reprehenderit ab aut esse mollitia odit illum aperiam suscipit incidunt ut consequatur, ullam explicabo eos. Atque repellendus voluptate possimus corporis. Laborum tempora, porro minus ad ab quis dicta velit quos facilis harum quo voluptas aperiam vel tenetur omnis facere ducimus doloremque quibusdam voluptates! Quaerat at delectus quasi? Nemo ad, voluptatibus at quo quos nam eveniet cum, repudiandae provident eaque sunt in culpa, quasi soluta sequi maiores totam fugit tenetur aut commodi! Veniam quidem dolor expedita aliquam fugit odit dolores sequi, nesciunt iusto voluptates? Quia ipsum, in quisquam mollitia eligendi aliquam officiis ex iure placeat ullam alias quaerat blanditiis a consequatur nihil rerum pariatur eos dolores voluptatum eius aliquid beatae repudiandae? Quas laboriosam, eum quasi neque voluptatum officiis alias accusantium tenetur animi facilis perspiciatis mollitia recusandae nesciunt sit totam. Fugit voluptates quaerat, fuga dolor labore, exercitationem impedit expedita ea aliquid dolorem repellat assumenda laboriosam cumque quis magnam maiores adipisci odio vel animi. Molestias ut perferendis aliquam perspiciatis laborum dicta rerum, laboriosam molestiae nobis numquam?
+        </section>
+
+
+    </main>
 
 
     <nav class="nav-l">

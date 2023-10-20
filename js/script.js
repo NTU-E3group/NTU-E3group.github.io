@@ -46,5 +46,5 @@ var rainSlope = 200;
 var precip = 1;
 var dropTime = 1300;
 
-// makeItRain(true, rainSlope, precip, dropTime);
-// makeItRain(false, rainSlope, precip, dropTime);
+makeItRain(true, rainSlope, precip, dropTime);
+makeItRain(false, rainSlope, precip, dropTime);
