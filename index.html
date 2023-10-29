@@ -24,7 +24,7 @@
 </head>
 <body>
     <main>
-        <section hp>
+        <section id="home">
             <div class="hp-text">
                 <div class="hp-title">
                     <h1>
@@ -60,13 +60,21 @@
             </div>
 
             <div class="hp-main">
-                <p>
+                <p class="hp-dive-in">
                     <svg viewBox="0 0 16 16">
                         <path class="fill-m" d="M9,0V12.18l5.6-5.6,1.4,1.43L8,16,0,8l1.4-1.43,5.6,5.6V0h2Z"/>
                     </svg>
                     Tap to dive into our research world!
                 </p>
                 <div class="hp-window">
+                    <button class="hp-top-layer" type="button">
+                        <div>
+                            <svg viewBox="0 0 24 24">
+                                <path class="fill-m" d="M10,19H6.4l3.5-3.5c0.4-0.4,0.4-1,0-1.4l0,0c-0.4-0.4-1-0.4-1.4,0L5,17.6V14c0-0.6-0.4-1-1-1s-1,0.4-1,1v6c0,0.6,0.4,1,1,1h6c0.6,0,1-0.4,1-1S10.6,19,10,19z"/>
+                                <path class="fill-m" d="M20,3h-6c-0.6,0-1,0.4-1,1s0.4,1,1,1h3.6l-3.5,3.5c-0.4,0.4-0.4,1,0,1.4l0,0c0.4,0.4,1,0.4,1.4,0L19,6.4V10c0,0.6,0.4,1,1,1s1-0.4,1-1V4C21,3.4,20.6,3,20,3z"/>
+                            </svg>
+                        </div>
+                    </button>
                     <!-- <img src="./assets/home-view/hp.svg" width="960" id="test-view"> -->
                     <!-- <div class="bok"></div> -->
                     <!-- <svg viewBox="0 0 1000 562.5">
@@ -224,9 +232,9 @@
             </div>
         </section>
 
-        <section pp id="people">
-            <h2>
-                People
+        <section id="people">
+            <div class="ppl-title section-title">
+                <h2>People</h2>
                 <svg viewBox="0 0 200 173.27">
                     <polygon fill="#d8daa5" points="0 101.39 16.77 101.39 34.06 71.44 17.3 71.44 0 101.39"/>
                     <polygon fill="#d8daa5" points="66.14 101.39 82.9 101.39 100.2 71.44 83.43 71.44 66.14 101.39"/>
@@ -241,7 +249,7 @@
                     <polygon fill="#abbfc1" points="124.88 28.71 116.5 43.23 133.79 73.19 142.18 58.67 124.88 28.71"/>
                     <polygon fill="#217e77" points="150.12 158.75 158.5 173.27 200 101.39 158.76 29.96 117.26 101.83 125.38 115.89 160.05 55.84 168.56 70.58 133.89 130.64 141.61 144 176.1 84.26 184.61 99.01 150.12 158.75"/>
                 </svg>
-            </h2>
+            </div>            
 
             <h3>Principle Investigator</h3>
             <div class="ppl-section" who="L">
@@ -690,6 +698,26 @@
             </div>
         </section>
 
+        <section id="research">
+            <div class="res-title section-title">
+                <h2>Research</h2>
+                <svg viewBox="0 0 200 173.27">
+                    <polygon fill="#d8daa5" points="0 101.39 16.77 101.39 34.06 71.44 17.3 71.44 0 101.39"/>
+                    <polygon fill="#d8daa5" points="66.14 101.39 82.9 101.39 100.2 71.44 83.43 71.44 66.14 101.39"/>
+                    <polygon fill="#d8daa5" points="33.07 101.39 49.84 101.39 67.13 71.44 50.36 71.44 33.07 101.39"/>
+                    <polygon fill="#1e5b7d" points="133.06 14.52 141.44 0 58.45 0 17.21 71.44 100.2 71.44 108.32 57.38 38.97 57.38 47.49 42.63 116.83 42.63 124.55 29.27 55.57 29.27 64.08 14.52 133.06 14.52"/>
+                    <polygon fill="#c2d2ac" points="158.53 173.19 150.15 158.67 115.56 158.67 123.94 173.19 158.53 173.19"/>
+                    <polygon fill="#c2d2ac" points="125.46 115.92 117.08 101.39 82.49 101.39 90.87 115.92 125.46 115.92"/>
+                    <polygon fill="#c2d2ac" points="142 144.55 133.61 130.03 99.02 130.03 107.41 144.55 142 144.55"/>
+                    <polygon fill="#aeb657" points="16.76 101.39 0 101.39 41.5 173.27 123.98 173.27 82.49 101.39 66.26 101.39 100.93 161.44 83.9 161.44 49.23 101.39 33.79 101.39 68.28 161.13 51.26 161.13 16.76 101.39"/>
+                    <polygon fill="#abbfc1" points="141.42 0.08 133.03 14.6 150.33 44.55 158.71 30.03 141.42 0.08"/>
+                    <polygon fill="#abbfc1" points="108.35 57.35 99.97 71.87 117.26 101.83 125.64 87.31 108.35 57.35"/>
+                    <polygon fill="#abbfc1" points="124.88 28.71 116.5 43.23 133.79 73.19 142.18 58.67 124.88 28.71"/>
+                    <polygon fill="#217e77" points="150.12 158.75 158.5 173.27 200 101.39 158.76 29.96 117.26 101.83 125.38 115.89 160.05 55.84 168.56 70.58 133.89 130.64 141.61 144 176.1 84.26 184.61 99.01 150.12 158.75"/>
+                </svg>
+            </div>
+        </section>     
+
         <section>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, velit molestias iusto sapiente ratione voluptatum pariatur nihil quod, perferendis, ipsa obcaecati ipsam aspernatur ullam! Consequuntur pariatur laborum officiis cupiditate dolore?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque est consequatur quia neque vel odio, vero quas! Molestiae ex vel porro ratione harum natus expedita! Laborum veritatis nulla saepe minima quaerat expedita excepturi unde eius, aspernatur assumenda maiores minus molestiae quia quos? Ipsam magnam atque esse, alias enim qui impedit? Minus, quo ducimus, vero error maiores officia similique architecto, dignissimos quae quos repellat id fugiat nam iure dicta. Nesciunt, odio repellendus repellat debitis excepturi ducimus sunt harum, molestias architecto rerum consequatur nostrum ipsa culpa iusto non nisi consequuntur esse quasi officia beatae error. Quo veritatis alias magni, ipsa, ut eum voluptatum nostrum blanditiis atque totam ullam qui id, quasi odio harum nemo velit incidunt nihil eaque et officiis sit distinctio mollitia! Accusantium velit modi dolorem asperiores, voluptatem fuga nulla, minima veniam quae harum, ipsam rerum maiores rem nostrum ex dolores? Voluptatum deserunt error, iure rem labore eius hic molestiae atque facere sequi fuga non, iusto minus ab accusantium porro. Adipisci minima placeat magnam vero, alias repellendus dolores nihil pariatur explicabo maxime delectus veritatis exercitationem quis natus reiciendis amet ipsa fugit nesciunt aliquid! Facilis corporis iste sequi quos numquam, sapiente ad at nemo! Deserunt ut veritatis ad nihil quia quasi nemo? Deleniti nemo nobis modi, fuga odio distinctio esse earum porro quidem impedit voluptates. Iste numquam et, libero minima adipisci ex corporis magni. Cumque vitae quaerat error asperiores atque culpa, libero qui at dolorem quidem. Minus at velit amet cupiditate maxime adipisci reiciendis quod, alias quam vitae explicabo unde eligendi aspernatur repellat tenetur molestias. Qui saepe molestiae nihil nesciunt et beatae voluptate nobis facilis eveniet est culpa amet iste sapiente, dicta excepturi adipisci nulla neque dolores obcaecati sequi consequatur perferendis quod, voluptates odit! Harum dicta repellendus neque voluptatem laborum omnis, delectus id laudantium beatae ab quos quam deserunt quae saepe voluptatibus eligendi hic accusantium odit alias nemo minus veniam commodi! Quo, architecto totam sint quaerat ab dolorem alias esse fugit expedita labore eum minus hic facere dolor nesciunt! Facilis, nobis modi. Incidunt alias tempora quisquam inventore impedit nisi praesentium repudiandae? Nisi facere odit vero numquam labore rem voluptates, incidunt autem. Libero pariatur nobis rem nulla placeat similique modi nesciunt voluptatem quae. Ipsa debitis similique, provident fugiat repellat animi. At voluptatem similique, cumque optio dicta quod suscipit voluptas veniam molestiae exercitationem nihil recusandae dignissimos quidem tempora sapiente expedita assumenda magnam natus facere enim atque commodi et! Dolorum inventore explicabo animi! Velit nulla animi itaque fugiat perspiciatis. Voluptas sint qui ipsum. Molestias voluptates est soluta quisquam? Animi repellendus laborum omnis quae aliquid architecto, ut autem earum, esse consectetur unde excepturi sequi, voluptatem id doloribus tempore maiores blanditiis quas ipsa obcaecati. Ratione consectetur, repellat, eum odio quasi quam molestias amet possimus aperiam laboriosam, fugit officia nobis ipsa ducimus culpa distinctio alias cumque! Aliquid, quibusdam. Iste reprehenderit temporibus hic adipisci quis sapiente, quas voluptas ipsa quibusdam accusantium eius aperiam praesentium saepe dolor sint mollitia. Numquam pariatur ullam, sapiente reiciendis perferendis cupiditate tenetur consequuntur totam ab at nostrum tempora voluptatem quo laborum nulla saepe! Quisquam at consectetur magni porro ipsum, quibusdam maiores rerum veritatis, corporis illum nesciunt fugit. Eos dolor nihil facilis culpa rerum doloremque! Repellat magni rem veniam et laudantium aliquam atque. Impedit mollitia cumque, in corrupti ipsum ullam magni quo perspiciatis, nesciunt aliquid iusto laborum! Corporis, quos sequi, quam similique obcaecati rerum odio, repellat non perferendis voluptas laborum hic debitis! Quibusdam aut provident quisquam reprehenderit natus, ducimus suscipit incidunt reiciendis hic nulla facilis in consequuntur? In deserunt deleniti dolore molestias natus at adipisci similique ad nemo autem eos vel delectus, optio minus excepturi ullam modi sint ipsam voluptate nulla magnam. Ducimus neque minus dolore! Ad tenetur ducimus odit et beatae ipsum placeat impedit libero, dolores laudantium ullam accusamus consequatur necessitatibus explicabo? Consectetur voluptates debitis mollitia laudantium unde odit similique, sint temporibus doloribus totam quasi amet reiciendis reprehenderit, dolores aut eveniet aperiam, officia velit animi magni laborum accusamus ut? Atque repellat animi, reiciendis sapiente fuga repellendus ut? Eveniet dolores aliquam reprehenderit libero voluptates excepturi quas voluptatibus asperiores quibusdam repellat fugiat soluta quos minima, omnis pariatur consectetur amet, in, qui labore officiis provident autem error similique nemo? Qui nihil aspernatur at unde tempore dolore praesentium illo incidunt libero perspiciatis. Omnis alias tempore molestiae unde nemo consequatur quam nisi distinctio, reprehenderit dolorem facilis inventore. Rem quam, amet id nulla voluptate libero quasi odit qui! Quae obcaecati facere earum quam quisquam deserunt distinctio nulla officia harum et, ipsum, sed quasi aliquid magni temporibus reiciendis dignissimos mollitia vel labore velit possimus exercitationem modi. Ex natus pariatur eos aliquam in, ipsam labore laborum modi, sequi rem quia repudiandae dicta iste fugiat aspernatur omnis assumenda similique quidem nisi tempora et vel veniam officiis recusandae? Quo tenetur commodi officia! Ea magnam autem, possimus voluptatem similique est obcaecati totam. Tempore doloribus dolor ducimus ullam minus doloremque, ab adipisci deleniti, deserunt sunt ipsum vel voluptatibus dolorum corrupti! Ad ea reprehenderit impedit minus doloremque, excepturi quidem velit et praesentium expedita cum voluptatibus at labore laudantium iure, nam provident magnam quae voluptatum? Pariatur aspernatur atque alias obcaecati blanditiis est deleniti expedita provident, dignissimos reprehenderit ab aut esse mollitia odit illum aperiam suscipit incidunt ut consequatur, ullam explicabo eos. Atque repellendus voluptate possimus corporis. Laborum tempora, porro minus ad ab quis dicta velit quos facilis harum quo voluptas aperiam vel tenetur omnis facere ducimus doloremque quibusdam voluptates! Quaerat at delectus quasi? Nemo ad, voluptatibus at quo quos nam eveniet cum, repudiandae provident eaque sunt in culpa, quasi soluta sequi maiores totam fugit tenetur aut commodi! Veniam quidem dolor expedita aliquam fugit odit dolores sequi, nesciunt iusto voluptates? Quia ipsum, in quisquam mollitia eligendi aliquam officiis ex iure placeat ullam alias quaerat blanditiis a consequatur nihil rerum pariatur eos dolores voluptatum eius aliquid beatae repudiandae? Quas laboriosam, eum quasi neque voluptatum officiis alias accusantium tenetur animi facilis perspiciatis mollitia recusandae nesciunt sit totam. Fugit voluptates quaerat, fuga dolor labore, exercitationem impedit expedita ea aliquid dolorem repellat assumenda laboriosam cumque quis magnam maiores adipisci odio vel animi. Molestias ut perferendis aliquam perspiciatis laborum dicta rerum, laboriosam molestiae nobis numquam?
         </section>
@@ -701,7 +729,7 @@
     <nav class="nav-l">
         <ul>
             <ui>
-                <a>
+                <a href="#home">
                     <span>Home</span>
                     <div>
                         <svg viewBox="0 0 22 22">
@@ -726,7 +754,7 @@
             </ui>
 
             <ui>
-                <a>
+                <a href="#research">
                     <span>Research</span>
                     <div>
                         <svg viewBox="0 0 22 22">
