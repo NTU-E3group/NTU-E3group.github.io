@@ -532,6 +532,10 @@ section:has(.section-title) {
 
 .ppl-section {
     margin-block-start: 2rem;
+    /* border: 3px solid var(--main-color);
+    border-radius: 0.3125rem;
+    padding: 2rem;
+    box-shadow: 0.25rem 0.25rem var(--main-shadow-color); */
 
     display: grid;
     grid-template-columns: repeat(var(--_block-col), 1fr);
@@ -549,9 +553,10 @@ section:has(.section-title) {
         & img {
             width: var(--_img-width);
             aspect-ratio: var(--_img-aspect-ratio);
+            border: 0.1875rem solid var(--main-color);
             border-radius: var(--_img-border-r);
             object-fit: cover;
-            box-shadow: var(--_img-shadow_shift) var(--_img-shadow_shift) var(--main-color);
+            box-shadow: var(--_img-shadow_shift) var(--_img-shadow_shift) var(--main-shadow-color);
             user-select: none;
         }
     }
@@ -623,7 +628,7 @@ section:has(.section-title) {
 
     --_img-width: 15rem;
     --_img-aspect-ratio: 4/5;
-    --_img-border-r: 0.3125rem;
+    --_img-border-r: 0.1875rem;
     --_img-shadow_shift: 0.3125rem;
 
     --_block-flex-dir: row;
@@ -634,18 +639,19 @@ section:has(.section-title) {
 }
 
 .ppl-section[who='M'] {
-    --_block-col: 5;
+    --_block-col: 6;
     --_grid-gap: 2rem calc((100% - var(--_block-col) * var(--_img-width)) / (var(--_block-col) - 1));
     
-    --_img-width: 15rem;
+    /* --_img-width: 15rem; */
+    --_img-width: 12rem;
     --_img-aspect-ratio: 1/1;
-    --_img-border-r: 0.3125rem;
+    --_img-border-r: 0.1875rem;
     --_img-shadow_shift: 0.3125rem;
 
     --_block-flex-dir: column;
     --_block-flex-gap: 1rem;
 
-    --_name-font-size-h4: 2.5rem;
+    --_name-font-size-h4: 2.25rem;
     --_name-font-size-span: 1rem;
     --_name-margin-block-start-h4: 0.125rem;
     --_name-margin-inline-start-h4: 0;
@@ -657,7 +663,7 @@ section:has(.section-title) {
     
     --_img-width: 10rem;
     --_img-aspect-ratio: 1/1;
-    --_img-border-r: 0.3125rem;
+    --_img-border-r: 0.125rem;
     --_img-shadow_shift: 0.3125rem;
 
     --_block-flex-dir: column;
