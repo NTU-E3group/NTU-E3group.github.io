@@ -46,7 +46,7 @@ a:hover {
 
 /* general */
 ::selection {
-    background-color: var(--main-color);
+    background-color: var(--selection-color);
     color: var(--main-bg-color);
 }
 

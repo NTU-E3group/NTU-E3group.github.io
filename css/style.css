@@ -23,6 +23,9 @@
     --r-indigo: #5f739d;
     --r-purple: #986b9b;
 
+
+    --selection-color: #0a557edd;
+
 }
 
 .dark-theme {
@@ -221,7 +224,7 @@ section:has(.section-title) {
     width: var(--_window-width);
     aspect-ratio: 16/9;
     background-color: var(--main-bg-color);
-    border-radius: 0.1875rem;
+    border-radius: 0.375rem;
     border: var(--_lw) solid var(--main-color);
     box-shadow: 0.625rem 0.625rem var(--main-shadow-color);
     overflow: hidden;
@@ -230,6 +233,7 @@ section:has(.section-title) {
     &:hover {
         translate: -0.0625rem -0.0625rem;
         box-shadow: 0.8125rem 0.8125rem var(--main-shadow-color);
+
         /* scale: 1.0025; */
     }
 
@@ -737,8 +741,8 @@ section:has(.section-title) {
         height: var(--_tag-height);
         background-color: var(--main-bg-color);
         padding: 0.5rem;
-        border: 0.1875rem solid var(--main-color);
-        border-radius: 0.1875rem;
+        border: 0.125rem solid var(--main-color);
+        border-radius: 0.25rem;
         box-shadow: 0.1875rem 0.1875rem var(--main-shadow-color);
         translate: 1rem 0;
 
