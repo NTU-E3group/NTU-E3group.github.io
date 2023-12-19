@@ -125,6 +125,49 @@ function vehicleAnimate(time) {
 // requestAnimationFrame(vehicleAnimate);
 
 
+
+function vehicleAnimate(time) {
+    if (!lastTime) {
+        lastTime = time;
+        requestAnimationFrame(vehicleAnimate);
+        return;
+    }
+
+    const deltaTime = (time - lastTime) / 1000; // 时间差（秒）
+    lastTime = time;
+
+    for (let i = 0; i < vehicleInfos.length; i++) {
+        let vehicle = document.querySelectorAll('.vehicles')[i];
+
+        // 計算與前車的距離
+        let distanceToFrontCar = i === 0 ? Infinity : vehicleInfos[i - 1].position - vehicleInfos[i].position;
+
+        // 根據與前車的距離調整加速度
+        if (distanceToFrontCar < vehicleInfos[i].safeDistance) {
+            // 與前車距離小於安全距離，減速
+            vehicleInfos[i].acceleration = -vehicleInfos[i].decelerationRate; // 設置為負加速度
+        } else {
+            // 與前車距離大於安全距離，可根據需要加速
+            vehicleInfos[i].acceleration = vehicleInfos[i].normalAcceleration; // 正常加速度
+        }
+
+        // 更新速度和位置
+        vehicleInfos[i].velocity += vehicleInfos[i].acceleration * deltaTime;
+        vehicleInfos[i].velocity = Math.max(0, vehicleInfos[i].velocity); // 確保速度不小於0
+        vehicleInfos[i].position += vehicleInfos[i].velocity * deltaTime;
+
+        vehicle.style.transform = `translateX(${vehicleInfos[i].position}px)`;
+    }
+    requestAnimationFrame(vehicleAnimate);
+}
+
+
+
+
+
+
+
+
 // let position = 0;     // 当前位置
 // let velocity = 0;     // 当前速度
 // const acceleration = 40;  // 加速度
