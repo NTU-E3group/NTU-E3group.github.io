@@ -55,10 +55,6 @@ body {
 
 main {
     width: 1460px;
-
-    & > section {
-        width: 100%;
-    }
 }
 
 section:has(.section-title) {
