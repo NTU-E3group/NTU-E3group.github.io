@@ -27,12 +27,13 @@ for (let i = 0; i < 10; i++) {
     let vehicleType = getRandInt(0, 3);
     let safeDistance = getRandNorm(40, 20, 5);
     vehicleInfos.push({
-        'type': vehicleType,
-        'position': vehiclePosition,
-        'velocity': getRandNorm(100, 20, 0),
-        'acceleration': getRandNorm(40, 10, 0, 80),
-        'deceleration': getRandNorm(-50, 10, -80, 0),
-        'safeDistance': safeDistance
+        type: vehicleType,
+        position: vehiclePosition,
+        velocity: getRandNorm(100, 20, 0),
+        maxVelocity: getRandNorm(100, 20, 0),
+        acceleration: getRandNorm(40, 10, 0, 80),
+        deceleration: getRandNorm(-50, 10, -80, 0),
+        safeDistance: safeDistance
     });
     appendVehicle(vehicleType, vehiclePosition);
     vehiclePosition -= vehiclewidths[vehicleType] + safeDistance;
@@ -113,10 +114,10 @@ function vehicleAnimate(time) {
     for (let i = 0; i < vehicleInfos.length; i++) {
         let vehicle = document.querySelectorAll('.vehicles')[i];
 
-        vehicleInfos[i]['velocity'] += vehicleInfos[i]['acceleration'] * deltaTime;
-        vehicleInfos[i]['position'] += vehicleInfos[i]['velocity'] * deltaTime;
+        vehicleInfos[i].velocity += vehicleInfos[i].acceleration * deltaTime;
+        vehicleInfos[i].position += vehicleInfos[i].velocity * deltaTime;
 
-        vehicle.style.transform = `translateX(${vehicleInfos[i]['position']}px)`;
+        vehicle.style.transform = `translateX(${vehicleInfos[i].position}px)`;
 
     }
     requestAnimationFrame(vehicleAnimate);
