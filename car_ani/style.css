@@ -36,7 +36,8 @@
 
 body {
     display: grid;
-    place-items: center;
+    justify-content: right;
+    align-items: center;
 }
 
 main {
@@ -52,6 +53,7 @@ main {
 .vehicles {
     position: absolute;
     top: 25rem;
+    /* right: 0; */
     translate: -100% -100%;
     /* transition: 2s linear; */
     /* outline: 1px solid red; */

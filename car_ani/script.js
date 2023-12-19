@@ -1,3 +1,5 @@
+const main = document.querySelector('main');
+
 function getRandInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -11,38 +13,32 @@ function getRandNorm(mean, standardDeviation, min, max) {
 
     while (num < min || num > max) {
         console.log('here', num);
-        num = getRandomNormal(mean, standardDeviation, max, min);
+        num = getRandNorm(mean, standardDeviation, min, max);
     };
 
     return num;
 }
 
-
-
-var cars = document.querySelectorAll('.hp-car');
-console.log(cars);
-car1_pos = []
-const main = document.querySelector('main');
-
-carsInfo = [];
+const vehiclewidths = [40, 53, 73, 102];
+var vehicleInfos = [];
+var vehiclePosition = 0;
 
 for (let i = 0; i < 10; i++) {
-    vehicleType = getRandInt(0, 3);
-    carsInfo.push({
+    let vehicleType = getRandInt(0, 3);
+    let safeDistance = getRandNorm(40, 20, 5);
+    vehicleInfos.push({
         'type': vehicleType,
-        'position': 10,
+        'position': vehiclePosition,
         'velocity': getRandNorm(100, 20, 0),
         'acceleration': getRandNorm(40, 10, 0, 80),
         'deceleration': getRandNorm(-50, 10, -80, 0),
-        'safe_distance': getRandInt(200, 50, 0)
+        'safeDistance': safeDistance
     });
-    appendVehicle(vehicleType, getRandInt(0, 1000));
-
+    appendVehicle(vehicleType, vehiclePosition);
+    vehiclePosition -= vehiclewidths[vehicleType] + safeDistance;
 }
 
-
 function appendVehicle(type, position) {
-    console.log('hi');
     let svgVehicle = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
     svgVehicle.setAttribute('class', 'vehicles');
 
@@ -101,16 +97,42 @@ function appendVehicle(type, position) {
     main.appendChild(svgVehicle);
 }
 
+let lastTime = 0; 
 
-let position = 0;     // 当前位置
-let velocity = 0;     // 当前速度
-const acceleration = 40;  // 加速度
-const deceleration = -50; // 减速度
-let lastTime = 0;     // 上次动画帧的时间
-let pauseStartTime = 0; // 暂停开始的时间
-let isPaused = false;  // 是否暂停
-const pauseDuration = 1000; // 暂停时长（毫秒）
-let phase = 1;
+function vehicleAnimate(time) {
+    if (!lastTime) {
+        lastTime = time;
+        requestAnimationFrame(vehicleAnimate);
+        return;
+    }
+
+    const deltaTime = (time - lastTime) / 1000; // 时间差（秒）
+    lastTime = time;
+
+
+    for (let i = 0; i < vehicleInfos.length; i++) {
+        let vehicle = document.querySelectorAll('.vehicles')[i];
+
+        vehicleInfos[i]['velocity'] += vehicleInfos[i]['acceleration'] * deltaTime;
+        vehicleInfos[i]['position'] += vehicleInfos[i]['velocity'] * deltaTime;
+
+        vehicle.style.transform = `translateX(${vehicleInfos[i]['position']}px)`;
+
+    }
+    requestAnimationFrame(vehicleAnimate);
+}
+// requestAnimationFrame(vehicleAnimate);
+
+
+// let position = 0;     // 当前位置
+// let velocity = 0;     // 当前速度
+// const acceleration = 40;  // 加速度
+// const deceleration = -50; // 减速度
+// let lastTime = 0;     // 上次动画帧的时间
+// let pauseStartTime = 0; // 暂停开始的时间
+// let isPaused = false;  // 是否暂停
+// const pauseDuration = 1000; // 暂停时长（毫秒）
+// let phase = 1;
 
 // function animate(time) {
 //     // console.log(time);
