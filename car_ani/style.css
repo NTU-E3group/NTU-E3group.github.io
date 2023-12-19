@@ -49,12 +49,12 @@ main {
     box-shadow: 0.5rem 0.5rem var(--main-shadow-color);
 }
 
-.hp-car {
+.vehicles {
     position: absolute;
     top: 25rem;
-    width: 75px;
-    translate: -100% 0;
+    translate: -100% -100%;
     /* transition: 2s linear; */
+    /* outline: 1px solid red; */
 }
 
 .hp-v-stroke {
