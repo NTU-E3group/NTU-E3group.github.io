@@ -19,34 +19,53 @@ function getRandNorm(mean, standardDeviation, min, max) {
     return num;
 }
 
-const vehiclewidths = [40, 53, 73, 102];
-var vehicleInfos = [];
-var vehiclePosition = 0;
-
-
-for (let i = 0; i < 10; i++) {
-    let lastVehicleInfo = makeVehicle(vehiclePosition);
-    vehiclePosition -= vehiclewidths[lastVehicleInfo.type] + lastVehicleInfo.safeDistance * 2;
+function getRandVehicleType() {
+    const rand = Math.random();
+    
+    if (rand < 0.35) {
+        return 0;
+    } else if (rand < 0.65) {
+        return 1;
+    } else if (rand < 0.85) {
+        return 2;
+    } else {
+        return 3;
+    }
 }
 
-function makeVehicle(vehiclePosition) {
-    let vehicleType = getRandInt(0, 3);
-    let safeDistance = getRandNorm(30, 10, 5, 60);
+
+const initialVehicleNum = Math.ceil(main.offsetWidth / 120);
+const vehicleWidths = [40, 53, 73, 102];
+var vehicleInfos = [];
+var vehiclePos = main.offsetWidth - 200;
+const safeDistRatio = 2.3;
+
+let lastTime = 0;
+const vibrationAmplitude = 2;
+const vibrationFrequency = 0.5;
+
+for (let i = 0; i < initialVehicleNum; i++) {
+    let lastVehicleInfo = makeVehicle(vehiclePos);
+    vehiclePos -= vehicleWidths[lastVehicleInfo.type] + lastVehicleInfo.safeDist * safeDistRatio;
+}
+
+function makeVehicle(vehiclePos) {
+    let vehicleType = getRandVehicleType();
     vehicleInfos.push({
         type: vehicleType,
-        position: vehiclePosition,
-        velocity: getRandNorm(100, 20, 20, 160),
-        maxVelocity: getRandNorm(100, 20, 20),
+        pos: vehiclePos,
+        velocity: getRandNorm(100, 20, 30, 160),
+        maxVelocity: getRandNorm(100, 10, 70),
         acceleration: getRandNorm(60, 10, 20, 120),
         deceleration: getRandNorm(-90, 10, -130, -60),
-        safeDistance: safeDistance
+        safeDist: getRandNorm(100, 10, 60, 130)
     });
-    appendVehicleSVG(vehicleType, vehiclePosition);
+    appendVehicleSvg(vehicleType, vehiclePos);
 
     return vehicleInfos[vehicleInfos.length - 1];
 }
 
-function appendVehicleSVG(type, position) {
+function appendVehicleSvg(type, pos) {
     let svgVehicle = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
     svgVehicle.setAttribute('class', 'vehicles');
 
@@ -101,15 +120,11 @@ function appendVehicleSVG(type, position) {
             `;
     }
 
-    svgVehicle.style.transform = `translateX(${position}px)`;
+    svgVehicle.style.transform = `translateX(${pos}px)`;
     main.appendChild(svgVehicle);
 }
 
-
 var vehicles = document.querySelectorAll('.vehicles');
-let lastTime = 0;
-const vibrationAmplitude = 2; // 震动的幅度，单位像素
-const vibrationFrequency = 0.5; // 震动的频率，单位赫兹
 
 function vehicleAnimate(time) {
     if (!lastTime) {
@@ -118,38 +133,39 @@ function vehicleAnimate(time) {
         return;
     }
 
-    const deltaTime = (time - lastTime) / 1000; // 时间差（秒）
+    const deltaTime = (time - lastTime) / 1000;
     lastTime = time;
 
     let i = 0;
 
     while (i < vehicleInfos.length) {
-        let distanceToFront = i === 0 ? Infinity : vehicleInfos[i-1].position - vehiclewidths[vehicleInfos[i-1].type] - vehicleInfos[i].position;
-        let distanceRatio = Math.abs(distanceToFront - vehicleInfos[i].safeDistance) / vehicleInfos[i].safeDistance;
+        let distToFront = i === 0 ? Infinity : vehicleInfos[i-1].pos - vehicleWidths[vehicleInfos[i-1].type] - vehicleInfos[i].pos;
+        let distRatio = Math.abs(distToFront - vehicleInfos[i].safeDist) / vehicleInfos[i].safeDist;
 
-        if (distanceToFront > vehicleInfos[i].safeDistance) {
-            vehicleInfos[i].velocity += vehicleInfos[i].acceleration * distanceRatio * deltaTime;
+        if (distToFront > vehicleInfos[i].safeDist) {
+            vehicleInfos[i].velocity += vehicleInfos[i].acceleration * distRatio * deltaTime;
 
             vehicleInfos[i].velocity = Math.min(vehicleInfos[i].velocity, vehicleInfos[i].maxVelocity);
         } else {
             vehicleInfos[i].velocity += vehicleInfos[i].deceleration * deltaTime;
 
-            vehicleInfos[i].velocity = Math.max(vehicleInfos[i].velocity, 0);
+            vehicleInfos[i].velocity = Math.max(vehicleInfos[i].velocity, 20);
         }
 
-        vehicleInfos[i].position += vehicleInfos[i].velocity * deltaTime;
+        vehicleInfos[i].pos += vehicleInfos[i].velocity * deltaTime;
 
         let vibrationOffset = vibrationAmplitude * Math.sin(time * (vibrationFrequency + vehicleInfos[i].maxVelocity*0.005) * 2 * Math.PI / 1000);
 
-        vehicles[i].style.transform = `translateX(${vehicleInfos[i].position}px) translateY(${vibrationOffset}px)`;
+        vehicles[i].style.transform = `translateX(${vehicleInfos[i].pos}px) translateY(${vibrationOffset}px)`;
 
-        if (vehicleInfos[i].position > main.offsetWidth + vehiclewidths[vehicleInfos[i].type] * 2) {
+        if (vehicleInfos[i].pos > main.offsetWidth + vehicleWidths[vehicleInfos[i].type] * 2) {
             vehicles[i].remove();
             vehicleInfos.splice(i, 1);
             i--;
 
-        let lastVehicleInfo = vehicleInfos[vehicleInfos.length - 1];
-        makeVehicle(lastVehicleInfo.position - vehiclewidths[lastVehicleInfo.type] - lastVehicleInfo.safeDistance * 2);
+            let lastVehicleInfo = vehicleInfos[vehicleInfos.length - 1];
+            let newVehiclePos = lastVehicleInfo.pos - vehicleWidths[lastVehicleInfo.type] - lastVehicleInfo.safeDist * safeDistRatio;
+            makeVehicle(newVehiclePos);
 
             vehicles = document.querySelectorAll('.vehicles');
         };
@@ -157,175 +173,6 @@ function vehicleAnimate(time) {
         i++;
     };
 
-    if (vehicleInfos.length < 10) {
-        // let lastVehicleInfo = vehicleInfos[vehicleInfos.length - 1]
-        // makeVehicle(lastVehicleInfo.position - vehiclewidths[lastVehicleInfo.type] - lastVehicleInfo.safeDistance * 2);
-    }
     requestAnimationFrame(vehicleAnimate);
 }
 requestAnimationFrame(vehicleAnimate);
-
-
-
-// function vehicleAnimate(time) {
-//     if (!lastTime) {
-//         lastTime = time;
-//         requestAnimationFrame(vehicleAnimate);
-//         return;
-//     }
-
-//     const deltaTime = (time - lastTime) / 1000; // 时间差（秒）
-//     lastTime = time;
-
-//     for (let i = 0; i < vehicleInfos.length; i++) {
-//         let vehicle = document.querySelectorAll('.vehicles')[i];
-
-//         // 計算與前車的距離
-//         let distanceToFrontCar = i === 0 ? Infinity : vehicleInfos[i - 1].position - vehicleInfos[i].position;
-
-//         // 根據與前車的距離調整加速度
-//         if (distanceToFrontCar < vehicleInfos[i].safeDistance) {
-//             // 與前車距離小於安全距離，減速
-//             vehicleInfos[i].acceleration = -vehicleInfos[i].decelerationRate; // 設置為負加速度
-//         } else {
-//             // 與前車距離大於安全距離，可根據需要加速
-//             vehicleInfos[i].acceleration = vehicleInfos[i].normalAcceleration; // 正常加速度
-//         }
-
-//         // 更新速度和位置
-//         vehicleInfos[i].velocity += vehicleInfos[i].acceleration * deltaTime;
-//         vehicleInfos[i].velocity = Math.max(0, vehicleInfos[i].velocity); // 確保速度不小於0
-//         vehicleInfos[i].position += vehicleInfos[i].velocity * deltaTime;
-
-//         vehicle.style.transform = `translateX(${vehicleInfos[i].position}px)`;
-//     }
-//     requestAnimationFrame(vehicleAnimate);
-// }
-
-
-
-
-
-
-
-
-// let position = 0;     // 当前位置
-// let velocity = 0;     // 当前速度
-// const acceleration = 40;  // 加速度
-// const deceleration = -50; // 减速度
-// let lastTime = 0;     // 上次动画帧的时间
-// let pauseStartTime = 0; // 暂停开始的时间
-// let isPaused = false;  // 是否暂停
-// const pauseDuration = 1000; // 暂停时长（毫秒）
-// let phase = 1;
-
-// function animate(time) {
-//     // console.log(time);
-//     if (!lastTime) {
-//         lastTime = time;
-//         requestAnimationFrame(animate);
-//         return;
-//     }
-
-//     const deltaTime = (time - lastTime) / 1000; // 时间差（秒）
-//     lastTime = time;
-
-//     if (isPaused) {
-//         if (time - pauseStartTime > pauseDuration) {
-//             // 暂停结束
-//             console.log('stopstop');
-//             isPaused = false;
-//             phase = 3;
-//         } else {
-//             // 继续暂停
-//             requestAnimationFrame(animate);
-//             return;
-//         }
-//     }
-
-//     if (phase === 1) {
-//         // 第一阶段：加速直到达到20单位位置
-//         if (velocity < 100) {
-//             velocity += acceleration * deltaTime;
-//         }
-//         if (position >= 200) {
-//             phase = 2; // 进入第二阶段：暂停
-//             isPaused = true;
-//             pauseStartTime = time;
-//             velocity = 0;
-//         }
-//     } else if (phase === 3) {
-//         // 第三阶段：从20到40单位再次加速
-//         if (position < 400) {
-//             if (velocity < 100) {
-//                 velocity += acceleration * deltaTime;
-//             }
-//         } else {
-//             // 接近40单位时减速
-//             velocity += deceleration * deltaTime;
-//             if (velocity <= 0) {
-//                 velocity = 0;
-//                 // 停止动画
-//                 return;
-//             }
-//         }
-//     }
-
-//     position += velocity * deltaTime;
-
-//     // 更新元素的位置
-//     cars[0].style.transform = `translateX(${position}px)`; // 这里的单位可以根据需要调整
-
-//     requestAnimationFrame(animate);
-// }
-
-// // 开始动画
-// requestAnimationFrame(animate);
-
-
-
-// def update_position_and_velocity(position, velocity, acceleration, safe_distance, front_car_position, front_car_velocity, speed_limit, reaction_time, max_acceleration, max_deceleration):
-//     # 考慮反應時間
-//     effective_velocity = velocity + acceleration * reaction_time
-
-//     # 更新加速度：考慮最大加速度和減速度
-//     if acceleration > 0:
-//         acceleration = min(acceleration, max_acceleration)
-//     else:
-//         acceleration = max(acceleration, -max_deceleration)
-
-//     # 更新速度：考慮限速和前車速度
-//     new_velocity = min(effective_velocity, speed_limit, front_car_velocity)
-
-//     # 計算新位置
-//     new_position = position + new_velocity
-
-//     # 檢查與前方車輛的安全距離
-//     if front_car_position - new_position < safe_distance:
-//         # 適應前方車輛的速度
-//         new_velocity = min(new_velocity, front_car_velocity)
-//         # 減速以維持安全距離
-//         new_position = position + new_velocity
-
-//     return new_position, new_velocity
-
-// # 示範使用函數的方式
-// # 假設車輛的初始位置為0，速度為10單位/秒，加速度為1單位/秒²，安全距離為5單位
-// # 前車的位置為20單位，速度為8單位/秒，限速為15單位/秒，反應時間為1秒
-// # 最大加速度為3單位/秒²，最大減速度為5單位/秒²
-// position = 0
-// velocity = 10
-// acceleration = 1
-// safe_distance = 5
-// front_car_position = 20
-// front_car_velocity = 8
-// speed_limit = 15
-// reaction_time = 1
-// max_acceleration = 3
-// max_deceleration = 5
-
-// # 計算新的位置和速度
-// new_position, new_velocity = update_position_and_velocity(position, velocity, acceleration, safe_distance, front_car_position, front_car_velocity, speed_limit, reaction_time, max_acceleration, max_deceleration)
-
-// new_position, new_velocity
-
