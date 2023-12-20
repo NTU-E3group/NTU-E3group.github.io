@@ -23,6 +23,12 @@ const vehiclewidths = [40, 53, 73, 102];
 var vehicleInfos = [];
 var vehiclePosition = 0;
 
+
+for (let i = 0; i < 10; i++) {
+    let lastVehicleInfo = makeVehicle(vehiclePosition);
+    vehiclePosition -= vehiclewidths[lastVehicleInfo.type] + lastVehicleInfo.safeDistance * 2;
+}
+
 function makeVehicle(vehiclePosition) {
     let vehicleType = getRandInt(0, 3);
     let safeDistance = getRandNorm(30, 10, 5, 60);
@@ -35,18 +41,12 @@ function makeVehicle(vehiclePosition) {
         deceleration: getRandNorm(-90, 10, -130, -60),
         safeDistance: safeDistance
     });
-    appendVehicle(vehicleType, vehiclePosition);
+    appendVehicleSVG(vehicleType, vehiclePosition);
 
     return vehicleInfos[vehicleInfos.length - 1];
 }
 
-
-for (let i = 0; i < 10; i++) {
-    let lastVehicleInfo = makeVehicle(vehiclePosition);
-    vehiclePosition -= vehiclewidths[lastVehicleInfo.type] + lastVehicleInfo.safeDistance * 2;
-}
-
-function appendVehicle(type, position) {
+function appendVehicleSVG(type, position) {
     let svgVehicle = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
     svgVehicle.setAttribute('class', 'vehicles');
 
@@ -105,19 +105,6 @@ function appendVehicle(type, position) {
     main.appendChild(svgVehicle);
 }
 
-function addNewVehicle() {
-    let newVehicle = document.createElement('div');
-    newVehicle.className = 'vehicle';
-    document.body.appendChild(newVehicle);
-
-    // 添加新车辆的信息到数组
-    let newVehicleInfo = {
-        position: 0, // 初始位置
-        velocity: initialVelocity, // 初始速度
-        // ...[其他必要的信息]...
-    };
-    vehicleInfos.push(newVehicleInfo);
-}
 
 var vehicles = document.querySelectorAll('.vehicles');
 let lastTime = 0;
@@ -161,6 +148,9 @@ function vehicleAnimate(time) {
             vehicleInfos.splice(i, 1);
             i--;
 
+        let lastVehicleInfo = vehicleInfos[vehicleInfos.length - 1];
+        makeVehicle(lastVehicleInfo.position - vehiclewidths[lastVehicleInfo.type] - lastVehicleInfo.safeDistance * 2);
+
             vehicles = document.querySelectorAll('.vehicles');
         };
 
@@ -168,7 +158,8 @@ function vehicleAnimate(time) {
     };
 
     if (vehicleInfos.length < 10) {
-        // addNewVehicle();
+        // let lastVehicleInfo = vehicleInfos[vehicleInfos.length - 1]
+        // makeVehicle(lastVehicleInfo.position - vehiclewidths[lastVehicleInfo.type] - lastVehicleInfo.safeDistance * 2);
     }
     requestAnimationFrame(vehicleAnimate);
 }

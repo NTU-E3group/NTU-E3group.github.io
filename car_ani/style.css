@@ -49,7 +49,7 @@ main {
     border-radius: 0.5rem;
     border: 2px solid var(--main-color);
     box-shadow: 0.5rem 0.5rem var(--main-shadow-color);
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 .vehicles {
