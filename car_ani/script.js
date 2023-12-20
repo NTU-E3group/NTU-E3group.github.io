@@ -25,18 +25,18 @@ var vehiclePosition = 0;
 
 for (let i = 0; i < 10; i++) {
     let vehicleType = getRandInt(0, 3);
-    let safeDistance = getRandNorm(40, 20, 5);
+    let safeDistance = getRandNorm(30, 10, 5, 60);
     vehicleInfos.push({
         type: vehicleType,
         position: vehiclePosition,
-        velocity: getRandNorm(100, 20, 0),
-        maxVelocity: getRandNorm(100, 20, 0),
-        acceleration: getRandNorm(40, 10, 0, 80),
-        deceleration: getRandNorm(-50, 10, -80, 0),
+        velocity: getRandNorm(100, 20, 20, 160),
+        maxVelocity: getRandNorm(100, 20, 20),
+        acceleration: getRandNorm(60, 10, 20, 120),
+        deceleration: getRandNorm(-90, 10, -130, -60),
         safeDistance: safeDistance
     });
     appendVehicle(vehicleType, vehiclePosition);
-    vehiclePosition -= vehiclewidths[vehicleType] + safeDistance;
+    vehiclePosition -= vehiclewidths[vehicleType] + safeDistance * 2;
 }
 
 function appendVehicle(type, position) {
@@ -98,7 +98,10 @@ function appendVehicle(type, position) {
     main.appendChild(svgVehicle);
 }
 
-let lastTime = 0; 
+var vehicles = document.querySelectorAll('.vehicles');
+let lastTime = 0;
+const vibrationAmplitude = 2; // 震动的幅度，单位像素
+const vibrationFrequency = 0.5; // 震动的频率，单位赫兹
 
 function vehicleAnimate(time) {
     if (!lastTime) {
@@ -110,56 +113,67 @@ function vehicleAnimate(time) {
     const deltaTime = (time - lastTime) / 1000; // 时间差（秒）
     lastTime = time;
 
+    vehicleInfos.forEach((vehicleInfo, i) => {
+        let distanceToFront = i === 0 ? Infinity : vehicleInfos[i-1].position - vehiclewidths[vehicleInfos[i-1].type] - vehicleInfo.position;
+        let distanceRatio = Math.abs(distanceToFront - vehicleInfo.safeDistance) / vehicleInfo.safeDistance;
 
-    for (let i = 0; i < vehicleInfos.length; i++) {
-        let vehicle = document.querySelectorAll('.vehicles')[i];
+        if (distanceToFront > vehicleInfo.safeDistance) {
+            vehicleInfo.velocity += vehicleInfo.acceleration * distanceRatio * deltaTime;
 
-        vehicleInfos[i].velocity += vehicleInfos[i].acceleration * deltaTime;
-        vehicleInfos[i].position += vehicleInfos[i].velocity * deltaTime;
-
-        vehicle.style.transform = `translateX(${vehicleInfos[i].position}px)`;
-
-    }
-    requestAnimationFrame(vehicleAnimate);
-}
-// requestAnimationFrame(vehicleAnimate);
-
-
-
-function vehicleAnimate(time) {
-    if (!lastTime) {
-        lastTime = time;
-        requestAnimationFrame(vehicleAnimate);
-        return;
-    }
-
-    const deltaTime = (time - lastTime) / 1000; // 时间差（秒）
-    lastTime = time;
-
-    for (let i = 0; i < vehicleInfos.length; i++) {
-        let vehicle = document.querySelectorAll('.vehicles')[i];
-
-        // 計算與前車的距離
-        let distanceToFrontCar = i === 0 ? Infinity : vehicleInfos[i - 1].position - vehicleInfos[i].position;
-
-        // 根據與前車的距離調整加速度
-        if (distanceToFrontCar < vehicleInfos[i].safeDistance) {
-            // 與前車距離小於安全距離，減速
-            vehicleInfos[i].acceleration = -vehicleInfos[i].decelerationRate; // 設置為負加速度
+            vehicleInfo.velocity = Math.min(vehicleInfo.velocity, vehicleInfo.maxVelocity);
         } else {
-            // 與前車距離大於安全距離，可根據需要加速
-            vehicleInfos[i].acceleration = vehicleInfos[i].normalAcceleration; // 正常加速度
+            vehicleInfo.velocity += vehicleInfo.deceleration * deltaTime;
+
+            vehicleInfo.velocity = Math.max(vehicleInfo.velocity, 0);
         }
 
-        // 更新速度和位置
-        vehicleInfos[i].velocity += vehicleInfos[i].acceleration * deltaTime;
-        vehicleInfos[i].velocity = Math.max(0, vehicleInfos[i].velocity); // 確保速度不小於0
-        vehicleInfos[i].position += vehicleInfos[i].velocity * deltaTime;
+        vehicleInfo.position += vehicleInfo.velocity * deltaTime;
 
-        vehicle.style.transform = `translateX(${vehicleInfos[i].position}px)`;
-    }
+        let vibrationOffset = vibrationAmplitude * Math.sin(time * (vibrationFrequency + i*0.1) * 2 * Math.PI / 1000);
+
+        vehicles[i].style.transform = `translateX(${vehicleInfo.position}px) translateY(${vibrationOffset}px)`;
+
+    });
     requestAnimationFrame(vehicleAnimate);
 }
+requestAnimationFrame(vehicleAnimate);
+
+
+
+// function vehicleAnimate(time) {
+//     if (!lastTime) {
+//         lastTime = time;
+//         requestAnimationFrame(vehicleAnimate);
+//         return;
+//     }
+
+//     const deltaTime = (time - lastTime) / 1000; // 时间差（秒）
+//     lastTime = time;
+
+//     for (let i = 0; i < vehicleInfos.length; i++) {
+//         let vehicle = document.querySelectorAll('.vehicles')[i];
+
+//         // 計算與前車的距離
+//         let distanceToFrontCar = i === 0 ? Infinity : vehicleInfos[i - 1].position - vehicleInfos[i].position;
+
+//         // 根據與前車的距離調整加速度
+//         if (distanceToFrontCar < vehicleInfos[i].safeDistance) {
+//             // 與前車距離小於安全距離，減速
+//             vehicleInfos[i].acceleration = -vehicleInfos[i].decelerationRate; // 設置為負加速度
+//         } else {
+//             // 與前車距離大於安全距離，可根據需要加速
+//             vehicleInfos[i].acceleration = vehicleInfos[i].normalAcceleration; // 正常加速度
+//         }
+
+//         // 更新速度和位置
+//         vehicleInfos[i].velocity += vehicleInfos[i].acceleration * deltaTime;
+//         vehicleInfos[i].velocity = Math.max(0, vehicleInfos[i].velocity); // 確保速度不小於0
+//         vehicleInfos[i].position += vehicleInfos[i].velocity * deltaTime;
+
+//         vehicle.style.transform = `translateX(${vehicleInfos[i].position}px)`;
+//     }
+//     requestAnimationFrame(vehicleAnimate);
+// }
 
 
 

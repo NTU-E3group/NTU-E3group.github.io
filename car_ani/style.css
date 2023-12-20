@@ -36,7 +36,7 @@
 
 body {
     display: grid;
-    justify-content: right;
+    justify-content: center;
     align-items: center;
 }
 
@@ -57,6 +57,19 @@ main {
     translate: -100% -100%;
     /* transition: 2s linear; */
     /* outline: 1px solid red; */
+    /* animation: vehicle-vibrate 1s linear infinite; */
+}
+
+@keyframes vehicle-vibrate {
+    0% {
+        transform: translateY(0%);
+    }
+    50% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(0%);
+    }
 }
 
 .hp-v-stroke {
