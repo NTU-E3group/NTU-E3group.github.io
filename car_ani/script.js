@@ -23,7 +23,7 @@ const vehiclewidths = [40, 53, 73, 102];
 var vehicleInfos = [];
 var vehiclePosition = 0;
 
-for (let i = 0; i < 10; i++) {
+function makeVehicle(vehiclePosition) {
     let vehicleType = getRandInt(0, 3);
     let safeDistance = getRandNorm(30, 10, 5, 60);
     vehicleInfos.push({
@@ -36,7 +36,14 @@ for (let i = 0; i < 10; i++) {
         safeDistance: safeDistance
     });
     appendVehicle(vehicleType, vehiclePosition);
-    vehiclePosition -= vehiclewidths[vehicleType] + safeDistance * 2;
+
+    return vehicleInfos[vehicleInfos.length - 1];
+}
+
+
+for (let i = 0; i < 10; i++) {
+    let lastVehicleInfo = makeVehicle(vehiclePosition);
+    vehiclePosition -= vehiclewidths[lastVehicleInfo.type] + lastVehicleInfo.safeDistance * 2;
 }
 
 function appendVehicle(type, position) {
@@ -98,6 +105,20 @@ function appendVehicle(type, position) {
     main.appendChild(svgVehicle);
 }
 
+function addNewVehicle() {
+    let newVehicle = document.createElement('div');
+    newVehicle.className = 'vehicle';
+    document.body.appendChild(newVehicle);
+
+    // 添加新车辆的信息到数组
+    let newVehicleInfo = {
+        position: 0, // 初始位置
+        velocity: initialVelocity, // 初始速度
+        // ...[其他必要的信息]...
+    };
+    vehicleInfos.push(newVehicleInfo);
+}
+
 var vehicles = document.querySelectorAll('.vehicles');
 let lastTime = 0;
 const vibrationAmplitude = 2; // 震动的幅度，单位像素
@@ -113,27 +134,42 @@ function vehicleAnimate(time) {
     const deltaTime = (time - lastTime) / 1000; // 时间差（秒）
     lastTime = time;
 
-    vehicleInfos.forEach((vehicleInfo, i) => {
-        let distanceToFront = i === 0 ? Infinity : vehicleInfos[i-1].position - vehiclewidths[vehicleInfos[i-1].type] - vehicleInfo.position;
-        let distanceRatio = Math.abs(distanceToFront - vehicleInfo.safeDistance) / vehicleInfo.safeDistance;
+    let i = 0;
 
-        if (distanceToFront > vehicleInfo.safeDistance) {
-            vehicleInfo.velocity += vehicleInfo.acceleration * distanceRatio * deltaTime;
+    while (i < vehicleInfos.length) {
+        let distanceToFront = i === 0 ? Infinity : vehicleInfos[i-1].position - vehiclewidths[vehicleInfos[i-1].type] - vehicleInfos[i].position;
+        let distanceRatio = Math.abs(distanceToFront - vehicleInfos[i].safeDistance) / vehicleInfos[i].safeDistance;
 
-            vehicleInfo.velocity = Math.min(vehicleInfo.velocity, vehicleInfo.maxVelocity);
+        if (distanceToFront > vehicleInfos[i].safeDistance) {
+            vehicleInfos[i].velocity += vehicleInfos[i].acceleration * distanceRatio * deltaTime;
+
+            vehicleInfos[i].velocity = Math.min(vehicleInfos[i].velocity, vehicleInfos[i].maxVelocity);
         } else {
-            vehicleInfo.velocity += vehicleInfo.deceleration * deltaTime;
+            vehicleInfos[i].velocity += vehicleInfos[i].deceleration * deltaTime;
 
-            vehicleInfo.velocity = Math.max(vehicleInfo.velocity, 0);
+            vehicleInfos[i].velocity = Math.max(vehicleInfos[i].velocity, 0);
         }
 
-        vehicleInfo.position += vehicleInfo.velocity * deltaTime;
+        vehicleInfos[i].position += vehicleInfos[i].velocity * deltaTime;
 
-        let vibrationOffset = vibrationAmplitude * Math.sin(time * (vibrationFrequency + i*0.1) * 2 * Math.PI / 1000);
+        let vibrationOffset = vibrationAmplitude * Math.sin(time * (vibrationFrequency + vehicleInfos[i].maxVelocity*0.005) * 2 * Math.PI / 1000);
 
-        vehicles[i].style.transform = `translateX(${vehicleInfo.position}px) translateY(${vibrationOffset}px)`;
+        vehicles[i].style.transform = `translateX(${vehicleInfos[i].position}px) translateY(${vibrationOffset}px)`;
 
-    });
+        if (vehicleInfos[i].position > main.offsetWidth + vehiclewidths[vehicleInfos[i].type] * 2) {
+            vehicles[i].remove();
+            vehicleInfos.splice(i, 1);
+            i--;
+
+            vehicles = document.querySelectorAll('.vehicles');
+        };
+
+        i++;
+    };
+
+    if (vehicleInfos.length < 10) {
+        // addNewVehicle();
+    }
     requestAnimationFrame(vehicleAnimate);
 }
 requestAnimationFrame(vehicleAnimate);

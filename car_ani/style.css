@@ -43,11 +43,13 @@ body {
 main {
     --_lw: 0.1875rem;
 
+    position: relative;
     width: 960px;
     height: 600px;
     border-radius: 0.5rem;
     border: 2px solid var(--main-color);
     box-shadow: 0.5rem 0.5rem var(--main-shadow-color);
+    /* overflow: hidden; */
 }
 
 .vehicles {
