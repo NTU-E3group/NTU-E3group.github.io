@@ -1,0 +1,46 @@
+body {
+    cursor: none; /* 隐藏默认鼠标指针 */
+    max-width: 100%;
+    overflow: hidden;
+}
+
+#custom-cursor {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: black;
+    position: absolute;
+    pointer-events: none; /* 确保鼠标事件可以传递给其他元素 */
+    translate: -50% -50%;
+    transition: width 0.1s ease-in-out, height 0.1s ease-in-out;
+    z-index: 999;
+}
+
+#custom-cursor.hover-effect {
+    /* transform: scale(3); */
+    width: 120px;
+    height: 120px;
+    transition: width 0.1s ease-in-out, height 0.1s ease-in-out;
+}
+
+#custom-cursor.hover-effect:after {
+    content: 'hover';
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* font-size: 10px; */
+}
+
+#btn {
+    width: 100px;
+    height: 50px;
+    background-color: #ccc;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    /* cursor: none; */
+}
