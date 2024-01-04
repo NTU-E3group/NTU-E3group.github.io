@@ -1,5 +1,12 @@
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+};
+
 const colorArray = ['--r-red', '--r-orange', '--r-yellow', '--r-green', '--r-blue', '-r-indigo', '--r-purple'];
 
+
+// 101 top color change
 function change101Top() {
     var timeNow = new Date();
     var utc8Day = timeNow.getUTCHours() >= 16 ? timeNow.getUTCDay() + 1 : timeNow.getUTCDay();
@@ -18,10 +25,7 @@ hpTopLayer.addEventListener('mouseout', () => {
     hpDiveIn.style.transform = 'translateY(0rem)';
 });
 
-function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
-};
-
+// rain
 var hpRainFront = document.querySelector('.hp-rain-front');
 var hpRainBack = document.querySelector('.hp-rain-back');
 
@@ -48,7 +52,6 @@ function makeItRain(ifBack, rainSlope, precip, dropTime) {
     hpSvgRain.innerHTML = drops;
 };
 
-
 // dropTime in milliseconds (1000 - 2000)
 var rainSlope = 200;
 var precip = 1;
@@ -56,3 +59,46 @@ var dropTime = 1300;
 
 makeItRain(true, rainSlope, precip, dropTime);
 makeItRain(false, rainSlope, precip, dropTime);
+
+
+
+// cursor
+let mouseX = 0, mouseY = 0;
+let cursorX = 0, cursorY = 0;
+const delay = 4;
+
+const cursor = document.querySelector('.cursor');
+const cursorText = document.querySelector('.cursor-text');
+console.log(cursor.style);
+function animateCursor() {
+    let distX = mouseX - cursorX;
+    let distY = mouseY - cursorY;
+
+    cursorX = cursorX + (distX / delay);
+    cursorY = cursorY + (distY / delay);
+
+    cursor.style.left = cursorX + 'px';
+    cursor.style.top = cursorY + 'px';
+
+    requestAnimationFrame(animateCursor);
+}
+
+document.addEventListener('mousemove', function(e) {
+    mouseX = e.pageX;
+    mouseY = e.pageY;
+});
+
+document.querySelectorAll('[hover-text]').forEach(elem => {
+    elem.addEventListener('mouseover', function() {
+        cursor.classList.add('hover-effect');
+        // cursorText.innerHTML = 'fjooj';
+        cursorText.innerHTML = elem.getAttribute('hover-text');
+    });
+
+    elem.addEventListener('mouseout', function() {
+        cursor.classList.remove('hover-effect');
+        cursorText.innerHTML = '';
+    });
+});
+
+animateCursor();
