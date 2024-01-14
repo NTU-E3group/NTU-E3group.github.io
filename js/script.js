@@ -69,7 +69,10 @@ const delay = 4;
 
 const cursor = document.querySelector('.cursor');
 const cursorText = document.querySelector('.cursor-text');
-console.log(cursor.style);
+// console.log(cursor.style);
+console.log(window.innerWidth);
+console.log(document.documentElement.clientWidth);
+
 function animateCursor() {
     let distX = mouseX - cursorX;
     let distY = mouseY - cursorY;
@@ -77,16 +80,33 @@ function animateCursor() {
     cursorX = cursorX + (distX / delay);
     cursorY = cursorY + (distY / delay);
 
+    if (cursorX + cursor.offsetWidth/2 >= document.documentElement.clientWidth) {
+        cursorX = document.documentElement.clientWidth - cursor.offsetWidth/2;
+    };
+    
+
     cursor.style.left = cursorX + 'px';
     cursor.style.top = cursorY + 'px';
 
+    // console.log(cursor.clientWidth);
+
     requestAnimationFrame(animateCursor);
 }
+// const windowWidth = document.documentElement.clientWidth;
+// const windowHeight = document.documentElement.clientHeight;
+
+// console.log(windowWidth, windowHeight);
 
 document.addEventListener('mousemove', function(e) {
     mouseX = e.pageX;
     mouseY = e.pageY;
 });
+// document.addEventListener('scroll', function(e) {
+//     mouseX = e.pageX;
+//     mouseY = e.pageY;
+// });
+
+
 
 document.querySelectorAll('[hover-text]').forEach(elem => {
     elem.addEventListener('mouseover', function() {

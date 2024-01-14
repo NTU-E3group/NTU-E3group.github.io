@@ -41,6 +41,7 @@
 
 html {
     scroll-behavior: smooth;
+    /* cursor: none; */
 }
 
 body {
@@ -132,7 +133,7 @@ section:has(.section-title) {
         width: 12.5rem;
         height: 3.75rem;
         user-select: none;
-        cursor: pointer;
+        /* cursor: pointer; */
 
         & p {
             position: absolute;
@@ -258,7 +259,7 @@ section:has(.section-title) {
         inset: 0;
         background-color: transparent;
         z-index: 99;
-        cursor: pointer;
+        /* cursor: none; */
 
         &:hover {
             & div {
@@ -368,7 +369,7 @@ section:has(.section-title) {
     .hp-car {
         /* position: absolute; */
         width: 75px;
-        cursor: pointer;
+        /* cursor: pointer; */
         animation: car-go-burr 7s ease-in-out infinite;
         /* translate: 200px; */
         /* transform: translateX(); */
@@ -506,6 +507,15 @@ section:has(.section-title) {
     100% {
         opacity: 0;
         transform: scale(1);
+    }
+}
+
+/* about */
+#about {
+    & p {
+        max-width: 60rem;
+        margin-top: 1rem;
+        font-size: 1.5rem;
     }
 }
 
@@ -754,8 +764,8 @@ section:has(.section-title) {
 .cursor {
     --_cursor-trans: .2s;
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
     border-radius: 50%;
     background-color: var(--main-bg-color);
     border: 0.125rem solid var(--main-color);
@@ -783,13 +793,18 @@ section:has(.section-title) {
 
 .cursor.hover-effect {
     /* transform: scale(3); */
-    width: 120px;
-    height: 120px;
+    width: 7.5rem;
+    height: 7.5rem;
     border-width: 0.1875rem;
     box-shadow: 0.125rem 0.125rem var(--main-shadow-color);
+    /* cursor: none; */
 
     .cursor-text {
         /* opacity: 1; */
         scale: 1;
     }
+}
+
+[hover-text]:hover {
+    cursor: none;
 }
