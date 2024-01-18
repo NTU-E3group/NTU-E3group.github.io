@@ -58,11 +58,17 @@
 .fill-house-dark {fill: var(--house-dark);}
 .fill-house-light {fill: var(--house-light);}
 
-.stroke-s {
+.stroke-m {stroke: var(--main-color);}
+.stroke-s {stroke: var(--secondary-color);}
+.stroke-m-3 {stroke: var(--main-color-3);}
+.stroke-3 {
     fill: none;
-    stroke: var(--secondary-color);
+    stroke-width: 0.1875rem;
 }
-.stroke-3 {stroke-width: 0.1875rem;}
+.stroke-2 {
+    fill: none;
+    stroke-width: 0.125rem;
+}
 
 
 html {
