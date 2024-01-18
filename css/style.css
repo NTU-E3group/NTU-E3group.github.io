@@ -14,7 +14,6 @@
     --main-color-3: #badcea;
     --secondary-color: #5e6300; */
 
-
     --r-red: #db7476;
     --r-orange: #ed8c37;
     --r-yellow: #f5a936;
@@ -26,6 +25,9 @@
     --main-light: #b4cbd8;
     --main-3-light: #f4fafc;
     --secondary-light: #eceddd;
+    --house-dark: #b4cedb;
+    --house-light: #cad9e2;
+
 
     --selection-color: #0a557edd;
 
@@ -53,6 +55,8 @@
 .fill-m-light {fill: var(--main-light);}
 .fill-m-3-light {fill: var(--main-3-light);}
 .fill-s-light {fill: var(--secondary-light);}
+.fill-house-dark {fill: var(--house-dark);}
+.fill-house-light {fill: var(--house-light);}
 
 .stroke-s {
     fill: none;
