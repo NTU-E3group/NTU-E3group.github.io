@@ -495,6 +495,10 @@ h3 {
     }
 }
 
+.ani-rotate-360 {
+    animation: wt-spin 6s linear infinite;
+}
+
 @keyframes wt-spin {from {rotate: 0deg;} to {rotate: 360deg;}}
 
 @keyframes car-go-burr {
