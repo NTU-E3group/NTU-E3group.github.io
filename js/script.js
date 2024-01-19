@@ -70,8 +70,8 @@ const delay = 4;
 const cursor = document.querySelector('.cursor');
 const cursorText = document.querySelector('.cursor-text');
 // console.log(cursor.style);
-console.log(window.innerWidth);
-console.log(document.documentElement.clientWidth);
+// console.log(window.innerWidth);
+// console.log(document.documentElement.clientWidth);
 
 function animateCursor() {
     let distX = mouseX - cursorX;
@@ -121,4 +121,4 @@ document.querySelectorAll('[hover-text]').forEach(elem => {
     });
 });
 
-animateCursor();
+// animateCursor();
