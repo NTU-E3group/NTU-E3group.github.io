@@ -934,5 +934,5 @@ h3 {
 }
 
 [hover-text]:hover {
-    cursor: none;
+    /* cursor: none; */
 }
