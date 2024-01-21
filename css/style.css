@@ -790,6 +790,7 @@ h3 {
 
 
 .ani-rotate-360 {
+    --_rotate-deg: 360deg;
     animation: rotate-360 linear infinite;
     animation-duration: 10s;
 }
