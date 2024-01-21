@@ -743,6 +743,10 @@ h3 {
         border: 0.1875rem solid var(--main-color);
         border-radius: 0.125rem;
         box-shadow: 0.3125rem 0.3125rem var(--main-shadow-color);
+
+        & > * {opacity: 0.2;}
+
+        & .field-check {opacity: 1;}
     }
 
     .res-img-block {
