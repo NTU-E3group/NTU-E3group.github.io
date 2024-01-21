@@ -65,10 +65,12 @@
 .stroke-3 {
     fill: none;
     stroke-width: 0.1875rem;
+    stroke-miterlimit: 10;
 }
 .stroke-2 {
     fill: none;
     stroke-width: 0.125rem;
+    stroke-miterlimit: 10;
 }
 
 
@@ -131,7 +133,7 @@ h3 {
 #home {
     --_window-width: 960px;
 
-    height: 100svh;
+    height: max(100svh, 50rem);
 
     display: grid;
     grid-template-columns: 1fr var(--_window-width);
@@ -727,14 +729,15 @@ h3 {
 .res-section {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     gap: 2rem 1rem;
-}
 
-.res-block {
-    display: flex;
-    gap: 0.75rem;
-    align-items: flex-start;
+    &.recent {justify-content: space-between;}
+
+    .res-block {
+        display: flex;
+        gap: 0.75rem;
+        align-items: flex-start;
+    }
 
     .res-fields {
         border: 0.1875rem solid var(--main-color);
@@ -791,17 +794,26 @@ h3 {
 
 .ani-rotate-360 {
     --_rotate-deg: 360deg;
-    animation: rotate-360 linear infinite;
+    animation: rotate-var linear infinite;
     animation-duration: 10s;
 }
 
 .ani-energy-through {
+    --_offset-start: 20;
+    --_offset-end: -75;
     animation: energy-through 2.5s linear infinite;
     stroke-dasharray: 0.5rem 9999;
+
+    &.longer {
+        --_offset-start: 20;
+        --_offset-end: -120;
+    }
 }
 
 .ani-wind-move {
-    animation: wind-move 2s ease-in-out infinite alternate;
+    --_translate-y-start: -0.1875rem;
+    --_translate-y-end: 0.1875rem;
+    animation: translate-var 2s ease-in-out infinite alternate;
 }
 
 .ani-carbon-pricing {
@@ -811,8 +823,8 @@ h3 {
     .stick-1 {--_rotate-deg: 20deg;}
 
     .platform-1, .platform-2 {animation: translate-var var(--_animation-time) ease-in-out infinite alternate;}
-    .platform-1 {--_translate-x: 0; --_translate-y: 0.98rem;}
-    .platform-2 {--_translate-x: 0; --_translate-y: -1.45rem;}
+    .platform-1 {--_translate-y-end: 0.98rem;}
+    .platform-2 {--_translate-y-end: -1.45rem;}
 
     .ani-coin-flip {
         animation: coin-flip var(--_animation-time) ease-in-out infinite;
@@ -826,18 +838,14 @@ h3 {
 
 @keyframes rotate-var {from {rotate: 0deg;} to {rotate: var(--_rotate-deg);}}
 
-@keyframes translate-var {from {translate: 0 0;} to {translate: var(--_translate-x) var(--_translate-y);}}
+@keyframes translate-var {
+    from {translate: var(--_translate-x-start, 0) var(--_translate-y-start);}
+    to {translate: var(--_translate-x-end, 0) var(--_translate-y-end, 0);}
+}
 
-@keyframes energy-through {from {stroke-dashoffset: 20%;} to {stroke-dashoffset: -50%;}}
-
-@keyframes wind-move {
-    0% {translate: 0 -0.1875rem;}
-    /* 12.5% {translate: 0.0625rem 0.1875rem;}
-    37.5% {translate: 0.125rem -0.1875rem;}
-    50% {translate: 0.25rem 0;}
-    62.5% {translate: 0.125rem 0.1875rem;}
-    87.5% {translate: 0.0625rem -0.1875rem;} */
-    100% {translate: 0 0.1875rem;}
+@keyframes energy-through {
+    from {stroke-dashoffset: var(--_offset-start);}
+    to {stroke-dashoffset: var(--_offset-end);}
 }
 
 @keyframes coin-flip {
@@ -853,15 +861,14 @@ h3 {
 
 .nav-l {
     position: fixed;
-    top: 50dvh;
+    top: 50svh;
     right: 0;
     translate: 0 -50%;
 
 
     & ul {
-        display: flex;
-        flex-direction: column;
-        align-items: end;
+        display: grid;
+        justify-items: end;
         gap: 1rem;
     }
 
