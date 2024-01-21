@@ -802,8 +802,29 @@ h3 {
     animation: wind-move 2s ease-in-out infinite alternate;
 }
 
+.ani-carbon-pricing {
+    --_animation-time: 3s;
 
-@keyframes rotate-360 {from {rotate: 0deg;} to {rotate: 360deg;}}
+    .stick-1, .stick-2 {animation: rotate-var var(--_animation-time) ease-in-out infinite alternate;}
+    .stick-1 {--_rotate-deg: 20deg;}
+
+    .platform-1, .platform-2 {animation: translate-var var(--_animation-time) ease-in-out infinite alternate;}
+    .platform-1 {--_translate-x: 0; --_translate-y: 0.98rem;}
+    .platform-2 {--_translate-x: 0; --_translate-y: -1.45rem;}
+
+    .ani-coin-flip {
+        animation: coin-flip var(--_animation-time) ease-in-out infinite;
+
+        .frontface {animation: coin-surface-opacity var(--_animation-time) step-start infinite;}
+
+        .backface {animation: coin-surface-opacity var(--_animation-time) step-start infinite calc(var(--_animation-time) / -2);}
+    }
+}
+  
+
+@keyframes rotate-var {from {rotate: 0deg;} to {rotate: var(--_rotate-deg);}}
+
+@keyframes translate-var {from {translate: 0 0;} to {translate: var(--_translate-x) var(--_translate-y);}}
 
 @keyframes energy-through {from {stroke-dashoffset: 20%;} to {stroke-dashoffset: -50%;}}
 
@@ -816,6 +837,14 @@ h3 {
     87.5% {translate: 0.0625rem -0.1875rem;} */
     100% {translate: 0 0.1875rem;}
 }
+
+@keyframes coin-flip {
+    0% {transform: rotateY(0deg);}
+    50% {transform: rotateY(180deg);}
+    100% {transform: rotateY(360deg);}
+}
+
+@keyframes coin-surface-opacity {25% {opacity: 1;} 75% {opacity: 0;}}
 
 
 
