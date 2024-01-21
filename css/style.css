@@ -745,6 +745,7 @@ h3 {
     .res-img-block {
         width: 12rem;
         aspect-ratio: 4/3;
+        background-color: var(--main-bg-color);
         border: 0.1875rem solid var(--main-color);
         border-radius: 0.125rem;
         box-shadow: 0.3125rem 0.3125rem var(--main-shadow-color);
