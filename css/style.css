@@ -592,6 +592,7 @@ h3 {
     gap: var(--_grid-gap);
 
     .ppl-block {
+        text-decoration: none;
         cursor: pointer;
 
         display: flex;
