@@ -8,6 +8,8 @@
     --secondary-color: #c4c691;
     --page-bg: #f7fafb;
 
+    --main-hsl: 201, 85%, 27%;
+
     /* --main-color: #8fcdff;
     --main-bg-color: #1a1c1e;
     --main-color-2: #4caedd;
@@ -590,26 +592,45 @@ h3 {
     gap: var(--_grid-gap);
 
     .ppl-block {
+        cursor: pointer;
+
         display: flex;
         flex-direction: var(--_block-flex-dir);
         gap: var(--_block-flex-gap);
-    }
 
-    .ppl-img {
-        cursor: pointer;
+        &:hover {
+            .ppl-img img {
+                translate: -0.0625rem -0.0625rem;
+                box-shadow: 0.4375rem 0.4375rem var(--main-shadow-color);
+            }
 
-        & img {
-            width: var(--_img-width);
-            aspect-ratio: var(--_img-aspect-ratio);
-            border: 0.1875rem solid var(--main-color);
-            border-radius: var(--_img-border-r);
-            object-fit: cover;
-            box-shadow: var(--_img-shadow_shift) var(--_img-shadow_shift) var(--main-shadow-color);
-            user-select: none;
+            .ppl-text {
+                translate: -0.0625rem -0.0625rem;
+            }
+        }
+
+        &:active {
+            .ppl-img img {
+                translate: 0 0;
+                box-shadow: 0.3125rem 0.3125rem var(--main-shadow-color);
+            }
         }
     }
 
-    .ppl-name {
+    .ppl-img img {
+        width: var(--_img-width);
+        aspect-ratio: var(--_img-aspect-ratio);
+        border: 0.1875rem solid var(--main-color);
+        border-radius: var(--_img-border-r);
+        object-fit: cover;
+        box-shadow: var(--_img-shadow_shift) var(--_img-shadow_shift) var(--main-shadow-color);
+        user-select: none;
+        transition: var(--hover-transition-time);
+    }
+
+    .ppl-text {
+        transition: var(--hover-transition-time);
+
         & h4 {
             margin-block-start: 0.125rem;
             font-size: var(--_name-font-size-h4);
@@ -618,10 +639,6 @@ h3 {
         & span {
             font-size: var(--_name-font-size-span);
         }
-    }
-
-    .ppl-arrow {
-        cursor: pointer;
     }
 
     &[who='L'] {
