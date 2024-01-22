@@ -31,6 +31,7 @@
 
     --selection-color: #0a557edd;
 
+    --hover-transition-time: 0.15s;
 }
 
 .dark-theme {
@@ -182,7 +183,6 @@ h3 {
     }
 
     .hp-tell-more {
-        --_trans-time: 0.15s;
         --_hover-p: 0%;
         
         position: relative;
@@ -199,7 +199,7 @@ h3 {
             border: 0.1875rem solid var(--main-color);
             border-radius: 1.875rem;
             font-size: 1.5rem;
-            transition: var(--_trans-time);
+            transition: var(--hover-transition-time);
 
             
             display: grid;
@@ -213,7 +213,7 @@ h3 {
             border-radius: 1.875rem;
             background-color: var(--main-shadow-color);
             translate: 0.3125rem 0.3125rem;
-            transition: var(--_trans-time);
+            transition: var(--hover-transition-time);
             z-index: -1;
         }
 
@@ -232,7 +232,7 @@ h3 {
         }
 
         &:active {
-            --_trans-time: 0.18s;
+            --hover-transition-time: 0.18s;
 
             & p {
                 scale: 0.99;
@@ -248,8 +248,6 @@ h3 {
 }
 
 .hp-main {
-    --_hover-transition: 0.15s;
-
     translate: 0 -1rem;
 
     display: flex;
@@ -260,7 +258,7 @@ h3 {
     & > p {
         font-size: 1.5rem;
         user-select: none;
-        transition: transform var(--_hover-transition);
+        transition: transform var(--hover-transition-time);
 
         display: flex;
         align-items: baseline;
@@ -281,7 +279,7 @@ h3 {
     border: var(--_lw) solid var(--main-color);
     box-shadow: 0.625rem 0.625rem var(--main-shadow-color);
     overflow: hidden;
-    transition: var(--_hover-transition);
+    transition: var(--hover-transition-time);
 
     &:hover {
         translate: -0.0625rem -0.0625rem;
@@ -293,7 +291,7 @@ h3 {
     &:active {
         translate: 0 0;
         box-shadow: 0.625rem 0.625rem var(--main-shadow-color);
-        scale: 1;
+        /* scale: 1; */
     }
 
     & > * {
@@ -335,7 +333,7 @@ h3 {
             border: var(--_lw) solid var(--main-color);
             box-shadow: 0.1875rem 0.1875rem var(--main-shadow-color);
             translate: 6rem 0;
-            transition: translate var(--_hover-transition);
+            transition: translate var(--hover-transition-time);
         }
     }
 
@@ -741,6 +739,7 @@ h3 {
     }
 
     .res-fields {
+        background-color: var(--main-bg-color);
         border: 0.1875rem solid var(--main-color);
         border-radius: 0.125rem;
         box-shadow: 0.3125rem 0.3125rem var(--main-shadow-color);
@@ -758,10 +757,22 @@ h3 {
         border-radius: 0.125rem;
         box-shadow: 0.3125rem 0.3125rem var(--main-shadow-color);
         overflow: hidden;
+        transition: var(--hover-transition-time);
 
         display: flex;
         align-items: center;
         justify-content: center;
+
+        &:hover {
+            translate: -0.0625rem -0.0625rem;
+            box-shadow: 0.4375rem 0.4375rem var(--main-shadow-color);
+            cursor: pointer;
+        }
+
+        &:active {
+            translate: 0 0;
+            box-shadow: 0.3125rem 0.3125rem var(--main-shadow-color);
+        }
 
         .res-img {
             max-width: initial;
@@ -794,52 +805,85 @@ h3 {
     }
 }
 
-
-
-
-.ani-rotate-360 {
-    --_rotate-deg: 360deg;
-    animation: rotate-var linear infinite;
-    animation-duration: 10s;
-}
-
-.ani-energy-through {
-    --_offset-start: 20;
-    --_offset-end: -75;
-    animation: energy-through 2.5s linear infinite;
-    stroke-dasharray: 0.5rem 9999;
-
-    &.longer {
-        --_offset-start: 20;
-        --_offset-end: -120;
+.res-img-block {
+    &:has(.ani-rotate-360):hover {
+        .ani-rotate-360 {
+            --_rotate-deg: 360deg;
+            animation: rotate-var linear infinite;
+            animation-duration: 10s;
+        }
     }
-}
 
-.ani-wind-move {
-    --_translate-y-start: -0.1875rem;
-    --_translate-y-end: 0.1875rem;
-    animation: translate-var 2s ease-in-out infinite alternate;
-}
-
-.ani-carbon-pricing {
-    --_animation-time: 3s;
-
-    .stick-1, .stick-2 {animation: rotate-var var(--_animation-time) ease-in-out infinite alternate;}
-    .stick-1 {--_rotate-deg: 20deg;}
-
-    .platform-1, .platform-2 {animation: translate-var var(--_animation-time) ease-in-out infinite alternate;}
-    .platform-1 {--_translate-y-end: 0.98rem;}
-    .platform-2 {--_translate-y-end: -1.45rem;}
-
-    .ani-coin-flip {
-        animation: coin-flip var(--_animation-time) ease-in-out infinite;
-
-        .frontface {animation: coin-surface-opacity var(--_animation-time) step-start infinite;}
-
-        .backface {animation: coin-surface-opacity var(--_animation-time) step-start infinite calc(var(--_animation-time) / -2);}
+    .ani-energy-through {
+        stroke-dasharray: 0 9999;
     }
+
+    &:has(.ani-energy-through):hover {
+        .ani-energy-through {
+            --_offset-start: 20;
+            --_offset-end: -75;
+            animation: energy-through 2.5s linear infinite;
+            stroke-dasharray: 0.5rem 9999;
+        
+            &.longer {
+                --_offset-start: 20;
+                --_offset-end: -120;
+            }
+        }
+    }
+
+    &:has(.ani-wind-move):hover {
+        .ani-wind-move {
+            --_translate-y-start: -0.1875rem;
+            --_translate-y-end: 0.1875rem;
+            animation: translate-var 2s ease-in-out infinite alternate;
+        }
+    }
+
+    .ani-carbon-pricing {
+        & .backface {opacity: 0;}
+    }
+    
+    &:has(.ani-carbon-pricing):hover {
+        .ani-carbon-pricing {
+            --_animation-time: 3s;
+
+            .stick-1, .stick-2 {animation: rotate-var var(--_animation-time) ease-in-out infinite alternate;}
+            .stick-1 {--_rotate-deg: 20deg;}
+
+            .platform-1, .platform-2 {animation: translate-var var(--_animation-time) ease-in-out infinite alternate;}
+            .platform-1 {--_translate-y-end: 0.98rem;}
+            .platform-2 {--_translate-y-end: -1.45rem;}
+
+            .ani-coin-flip {
+                animation: coin-flip var(--_animation-time) ease-in-out infinite;
+
+                .frontface {animation: coin-surface-opacity var(--_animation-time) step-start infinite;}
+
+                .backface {
+                    opacity: 1;
+                    animation: coin-surface-opacity var(--_animation-time) step-start infinite calc(var(--_animation-time) / -2);
+                }
+            }
+        }
+    }
+
+    &:has(.ani-top-layer) {
+        position: relative;
+        
+        .ani-top-layer {
+            position: absolute;
+            inset: 0;
+            background-color: transparent;
+            z-index: 99;
+        } 
+    }
+    
 }
-  
+
+
+
+
 
 @keyframes rotate-var {from {rotate: 0deg;} to {rotate: var(--_rotate-deg);}}
 

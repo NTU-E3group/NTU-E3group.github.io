@@ -60,6 +60,27 @@ var dropTime = 1300;
 makeItRain(true, rainSlope, precip, dropTime);
 makeItRain(false, rainSlope, precip, dropTime);
 
+// research animation: hover to start
+const resImgBlockWithAni = Array.from(document.querySelectorAll('.res-img-block'))
+    .filter(elem => elem.querySelector('animateMotion'));
+
+resImgBlockWithAni.forEach(elem => {
+    const aniTopLayer = document.createElement('div');
+    elem.insertBefore(aniTopLayer, elem.firstChild);
+    aniTopLayer.setAttribute('class', 'ani-top-layer');
+
+    aniTopLayer.addEventListener('mouseover', () => {
+        elem.querySelectorAll('animateMotion').forEach(svgElem => {
+            svgElem.beginElement();
+        });
+    });
+    aniTopLayer.addEventListener('mouseout', () => {
+        elem.querySelectorAll('animateMotion').forEach(svgElem => {
+            svgElem.endElement();
+        });
+    });
+});
+
 
 
 // cursor
