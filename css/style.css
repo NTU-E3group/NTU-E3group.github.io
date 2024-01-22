@@ -589,6 +589,7 @@ h3 {
 
     display: grid;
     grid-template-columns: repeat(var(--_block-col), 1fr);
+    /* grid-template-columns: repeat(auto-fill, var(--_img-width)); */
     gap: var(--_grid-gap);
 
     .ppl-block {
@@ -600,7 +601,7 @@ h3 {
         gap: var(--_block-flex-gap);
 
         &:hover {
-            .ppl-img img {
+            .ppl-img {
                 translate: -0.0625rem -0.0625rem;
                 box-shadow: 0.4375rem 0.4375rem var(--main-shadow-color);
             }
@@ -611,14 +612,43 @@ h3 {
         }
 
         &:active {
-            .ppl-img img {
+            .ppl-img {
                 translate: 0 0;
                 box-shadow: 0.3125rem 0.3125rem var(--main-shadow-color);
             }
         }
     }
 
-    .ppl-img img {
+    .ppl-img {
+        --_border-width: 0.1875rem;
+        --_block-skew: -3deg;
+        --_content-skew: calc(-1 * var(--_block-skew));
+
+        width: calc(var(--_img-width) + 2 * var(--_border-width));
+        /* aspect-ratio: var(--_img-aspect-ratio); */
+        /* height: calc(var(--_img-width) / var(--_img-aspect-ratio) + 2 * var(--_border-width)); */
+        height: calc(var(--_img-width) / (var(--_img-aspect-ratio)) + 2 * var(--_border-width));
+        transform: skewX(var(--_block-skew));
+        border: 0.1875rem solid var(--main-color);
+        border-radius: var(--_img-border-r);
+        box-shadow: var(--_img-shadow_shift) var(--_img-shadow_shift) var(--main-shadow-color);
+        overflow: hidden;
+        user-select: none;
+        transition: var(--hover-transition-time);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & img {
+            max-width: initial;
+            flex-shrink: 0;
+            width: calc((1 + tan(var(--_content-skew))) * var(--_img-width));
+            transform: skewX(var(--_content-skew));
+        }
+    }
+
+    /* .ppl-img img {
         width: var(--_img-width);
         aspect-ratio: var(--_img-aspect-ratio);
         border: 0.1875rem solid var(--main-color);
@@ -627,7 +657,7 @@ h3 {
         box-shadow: var(--_img-shadow_shift) var(--_img-shadow_shift) var(--main-shadow-color);
         user-select: none;
         transition: var(--hover-transition-time);
-    }
+    } */
 
     .ppl-text {
         transition: var(--hover-transition-time);
