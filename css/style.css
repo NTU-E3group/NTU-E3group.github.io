@@ -724,7 +724,7 @@ h3 {
 
     --_img-width: 15rem;
     --_img-aspect-ratio: 4/5;
-    --_img-border-r: 0.1875rem;
+    --_img-border-r: 0.25rem;
     --_img-shadow_shift: 0.3125rem;
 
     --_block-flex-dir: row;
@@ -741,7 +741,8 @@ h3 {
     /* --_img-width: 15rem; */
     --_img-width: 12rem;
     --_img-aspect-ratio: 1/1;
-    --_img-border-r: 0.1875rem;
+    /* --_img-border-r: 0.1875rem; */
+    --_img-border-r: 0.25rem;
     --_img-shadow_shift: 0.3125rem;
 
     --_block-flex-dir: column;
@@ -759,7 +760,7 @@ h3 {
     
     --_img-width: 10rem;
     --_img-aspect-ratio: 1/1;
-    --_img-border-r: 0.125rem;
+    --_img-border-r: 0.1875rem;
     --_img-shadow_shift: 0.3125rem;
 
     --_block-flex-dir: column;
