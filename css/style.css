@@ -33,6 +33,11 @@
 
     --selection-color: #0a557edd;
 
+    --border-width: 0.1875rem;
+    --block-shadow-shift: 0.3125rem;
+    --block-hover-translate: -0.0625rem;
+    --block-hover-shadow-shift: 0.4375rem;
+
     --hover-transition-time: 0.15s;
     --block-skew: -3deg;
     --content-skew: calc(-1 * var(--block-skew));
@@ -589,17 +594,12 @@ h3 {
     padding-inline: 1rem;
 
     .ppl-img {
-        --_border-width: 0.1875rem;
-
-
-        width: calc(var(--_img-width) + 2 * var(--_border-width));
-        /* aspect-ratio: var(--_img-aspect-ratio); */
-        /* height: calc(var(--_img-width) / var(--_img-aspect-ratio) + 2 * var(--_border-width)); */
-        height: calc(var(--_img-width) / (var(--_img-aspect-ratio)) + 2 * var(--_border-width));
+        width: calc(var(--_img-width) + 2 * var(--border-width));
+        height: calc(var(--_img-width) / (var(--_img-aspect-ratio)) + 2 * var(--border-width));
         transform: skewX(var(--block-skew));
-        border: 0.1875rem solid var(--main-color);
+        border: var(--border-width) solid var(--main-color);
         border-radius: var(--_img-border-r);
-        box-shadow: var(--_img-shadow_shift) var(--_img-shadow_shift) var(--main-shadow-color);
+        box-shadow: var(--block-shadow-shift) var(--block-shadow-shift) var(--main-shadow-color);
         overflow: hidden;
         user-select: none;
         transition: var(--hover-transition-time);
@@ -620,7 +620,6 @@ h3 {
         --_img-width: 15rem;
         --_img-aspect-ratio: 4/5;
         --_img-border-r: 0.25rem;
-        --_img-shadow_shift: 0.3125rem;
     
         display: grid;
         gap: 1rem;
@@ -669,7 +668,6 @@ h3 {
         --_img-width: 12rem;
         --_img-aspect-ratio: 1/1;
         --_img-border-r: 0.25rem;
-        --_img-shadow_shift: 0.3125rem;
     
         display: grid;
         grid-template-columns: repeat(auto-fill, min(var(--_img-width), 100%));
@@ -685,19 +683,19 @@ h3 {
     
             &:hover {
                 .ppl-img {
-                    translate: -0.0625rem -0.0625rem;
-                    box-shadow: 0.4375rem 0.4375rem var(--main-shadow-color);
+                    translate: var(--block-hover-translate) var(--block-hover-translate);
+                    box-shadow: var(--block-hover-shadow-shift) var(--block-hover-shadow-shift) var(--main-shadow-color);
                 }
     
                 .ppl-text {
-                    translate: -0.0625rem -0.0625rem;
+                    translate: var(--block-hover-translate) var(--block-hover-translate);
                 }
             }
     
             &:active {
                 .ppl-img {
                     translate: 0 0;
-                    box-shadow: 0.3125rem 0.3125rem var(--main-shadow-color);
+                    box-shadow: var(--block-shadow-shift) var(--block-shadow-shift) var(--main-shadow-color);
                 }
             }
         }
@@ -722,48 +720,53 @@ h3 {
 
 
 
-.ppl-section[who='S'] {
-    /* --_block-col: 7;
-    --_grid-gap: 2rem calc((100% - var(--_block-col) * var(--_img-width)) / (var(--_block-col) - 1));
-    
-    --_img-width: 10rem;
-    --_img-aspect-ratio: 1/1;
-    --_img-border-r: 0.1875rem;
-    --_img-shadow_shift: 0.3125rem;
-
-    --_block-flex-dir: column;
-    --_block-flex-gap: 0.875rem;
-
-    --_name-font-size-h4: 1.5rem;
-    --_name-font-size-span: 0.75rem;
-    --_name-margin-block-start-h4: 0.3125rem;
-    --_name-margin-inline-start-h4: -0.125rem; */
-}
-
-
 /* research */
 .res-section {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
+    gap: 2rem 1rem; */
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 41rem);
     gap: 2rem 1rem;
+    justify-content: space-between;
 
     &.recent {justify-content: space-between;}
 
     .res-block {
-        display: flex;
+        /* display: flex;
         gap: 0.75rem;
-        align-items: flex-start;
+        align-items: flex-start; */
+        display: grid;
+        grid-template-columns: auto auto 25rem;
+        gap: 0.75rem;
     }
 
-    .res-fields {
+    .res-fields-block {
+        width: 2rem;
+        height: 5rem;
+        transform: skewX(var(--block-skew));
         background-color: var(--main-bg-color);
-        border: 0.1875rem solid var(--main-color);
+        border: var(--border-width) solid var(--main-color);
         border-radius: 0.125rem;
-        box-shadow: 0.3125rem 0.3125rem var(--main-shadow-color);
+        box-shadow: var(--block-shadow-shift) var(--block-shadow-shift) var(--main-shadow-color);
+        overflow: hidden;
+        user-select: none;
+        transition: var(--hover-transition-time);
 
-        & > * {opacity: 0.2;}
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-        & .field-check {opacity: 1;}
+        .res-fields {
+            max-width: initial;
+            flex-shrink: 0;
+            transform: skewX(var(--content-skew));
+            
+            & > * {opacity: 0.2;}
+
+            & .field-check {opacity: 1;}
+        }
     }
 
     .res-img-block {
@@ -771,9 +774,9 @@ h3 {
         aspect-ratio: 4/3;
         transform: skewX(var(--block-skew));
         background-color: var(--main-bg-color);
-        border: 0.1875rem solid var(--main-color);
+        border: var(--border-width) solid var(--main-color);
         border-radius: 0.125rem;
-        box-shadow: 0.3125rem 0.3125rem var(--main-shadow-color);
+        box-shadow: var(--block-shadow-shift) var(--block-shadow-shift) var(--main-shadow-color);
         overflow: hidden;
         transition: var(--hover-transition-time);
 
@@ -782,14 +785,14 @@ h3 {
         justify-content: center;
 
         &:hover {
-            translate: -0.0625rem -0.0625rem;
-            box-shadow: 0.4375rem 0.4375rem var(--main-shadow-color);
+            translate: var(--block-hover-translate) var(--block-hover-translate);
+            box-shadow: var(--block-hover-shadow-shift) var(--block-hover-shadow-shift) var(--main-shadow-color);
             cursor: pointer;
         }
 
         &:active {
             translate: 0 0;
-            box-shadow: 0.3125rem 0.3125rem var(--main-shadow-color);
+            box-shadow: var(--block-shadow-shift) var(--block-shadow-shift) var(--main-shadow-color);
         }
 
         .res-img {
@@ -801,9 +804,11 @@ h3 {
 
     .res-info {
         margin-inline-start: 0.25rem;
-        width: 26.5rem;
+        /* width: 26.5rem; */
+        /* width: 25rem; */
 
         display: grid;
+        align-content: start;
         /* gap: 0.25rem; */
 
         .res-tag {
@@ -817,7 +822,7 @@ h3 {
 
         .res-info-minor {
             margin-block-start: 0.5rem;
-            padding-inline-start: 0.1875rem;
+            /* padding-inline-start: 0.1875rem; */
             font-size: 1.25rem;
             text-wrap: balance;
             /* font-weight: 400; */
