@@ -34,6 +34,8 @@
     --selection-color: #0a557edd;
 
     --hover-transition-time: 0.15s;
+    --block-skew: -3deg;
+    --content-skew: calc(-1 * var(--block-skew));
 }
 
 .dark-theme {
@@ -588,14 +590,13 @@ h3 {
 
     .ppl-img {
         --_border-width: 0.1875rem;
-        --_block-skew: -3deg;
-        --_content-skew: calc(-1 * var(--_block-skew));
+
 
         width: calc(var(--_img-width) + 2 * var(--_border-width));
         /* aspect-ratio: var(--_img-aspect-ratio); */
         /* height: calc(var(--_img-width) / var(--_img-aspect-ratio) + 2 * var(--_border-width)); */
         height: calc(var(--_img-width) / (var(--_img-aspect-ratio)) + 2 * var(--_border-width));
-        transform: skewX(var(--_block-skew));
+        transform: skewX(var(--block-skew));
         border: 0.1875rem solid var(--main-color);
         border-radius: var(--_img-border-r);
         box-shadow: var(--_img-shadow_shift) var(--_img-shadow_shift) var(--main-shadow-color);
@@ -610,8 +611,8 @@ h3 {
         & img {
             max-width: initial;
             flex-shrink: 0;
-            width: calc((1 + tan(var(--_content-skew))) * var(--_img-width));
-            transform: skewX(var(--_content-skew));
+            width: calc((1 + tan(var(--content-skew))) * var(--_img-width));
+            transform: skewX(var(--content-skew));
         }
     }
 
@@ -768,6 +769,7 @@ h3 {
     .res-img-block {
         width: 12rem;
         aspect-ratio: 4/3;
+        transform: skewX(var(--block-skew));
         background-color: var(--main-bg-color);
         border: 0.1875rem solid var(--main-color);
         border-radius: 0.125rem;
@@ -792,6 +794,7 @@ h3 {
 
         .res-img {
             max-width: initial;
+            transform: skewX(var(--content-skew));
             flex-shrink: 0;
         }
     }
