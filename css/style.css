@@ -590,7 +590,7 @@ h3 {
         max-width: var(--para-max-width);
         margin-top: 1rem;
         font-size: 1.125rem;
-        text-align: justify;
+        /* text-align: justify; */
 
         & sub {
             font-size: 0.75em;
@@ -956,8 +956,10 @@ h3 {
 
 /* publication */
 .pub-section {
+    --_font-size-l: 1.5rem;
+    --_font-size-s: 1rem;
+
     display: grid;
-    /* gap: 0.5rem; */
     justify-items: start;
 
     .pub-quote {
@@ -980,17 +982,17 @@ h3 {
 
         .pub-date {
             margin-block-start: 0.4375rem;
-            font-size: 0.75rem;
+            font-size: var(--_font-size-s);
 
             display: flex;
             align-items: start;
 
             .pub-date-mm {
-                width: 1.7rem;
+                width: 2.2rem;
             }
-
+            
             .pub-date-yy {
-                width: 1.1rem;
+                width: 1.4rem;
                 text-align: right;
             }
         }
@@ -1000,7 +1002,7 @@ h3 {
 
             .pub-title {
                 /* display: inline-block; */
-                font-size: 1.25rem;
+                font-size: var(--_font-size-l);
                 /* text-wrap: balance; */
                 transition: var(--hover-transition-time);
             }
@@ -1022,7 +1024,7 @@ h3 {
 
         .pub-subtitle {
             margin-block-start: 0.125rem;
-            font-size: 0.75rem;
+            font-size: var(--_font-size-s);
         }
     }
     
