@@ -60,6 +60,18 @@ var dropTime = 1300;
 makeItRain(true, rainSlope, precip, dropTime);
 makeItRain(false, rainSlope, precip, dropTime);
 
+// people
+document.querySelectorAll('.ppl-filter-checkbox').forEach(function(checkbox) {
+    checkbox.addEventListener('change', function() {
+      document.querySelectorAll('.ppl-filter-content').forEach(function(elem) {
+        if (elem.getAttribute('data-value') === checkbox.value) {
+          elem.style.display = checkbox.checked ? 'grid' : 'none';
+        }
+      });
+    });
+});
+  
+
 // research animation: hover to start
 const resImgBlockWithAni = Array.from(document.querySelectorAll('.res-img-block'))
     .filter(elem => elem.querySelector('animateMotion'));

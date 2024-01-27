@@ -686,7 +686,7 @@ h3 {
     
         display: grid;
         grid-template-columns: repeat(auto-fill, min(var(--_img-width), 100%));
-        gap: 1.5rem 2rem;
+        gap: 1.5rem 3rem;
         justify-content: space-between;
     
         .ppl-block {
