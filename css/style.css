@@ -609,10 +609,10 @@ h3 {
 
 
     .ppl-img {
-        width: calc(var(--_img-width) + 2 * var(--border-width));
-        height: calc(var(--_img-width) / (var(--_img-aspect-ratio)) + 2 * var(--border-width));
+        width: calc(var(--_img-width) + 2 * var(--_img-border-w));
+        height: calc(var(--_img-width) / (var(--_img-aspect-ratio)) + 2 * var(--_img-border-w));
         transform: skewX(var(--block-skew));
-        border: var(--border-width) solid var(--main-color);
+        border: var(--_img-border-w) solid var(--main-color);
         border-radius: var(--_img-border-r);
         box-shadow: var(--block-shadow-shift) var(--block-shadow-shift) var(--main-shadow-color);
         overflow: hidden;
@@ -635,7 +635,8 @@ h3 {
         --_img-width: 15rem;
         --_img-aspect-ratio: 4/5;
         --_img-border-r: 0.25rem;
-    
+        --_img-border-w: 0.1875rem;
+
         display: grid;
         gap: 1rem;
     
@@ -683,6 +684,7 @@ h3 {
         --_img-width: 12rem;
         --_img-aspect-ratio: 1/1;
         --_img-border-r: 0.25rem;
+        --_img-border-w: 0.1875rem;
     
         display: grid;
         grid-template-columns: repeat(auto-fill, min(var(--_img-width), 100%));
@@ -743,6 +745,8 @@ h3 {
         --_img-width: 5rem;
         --_img-aspect-ratio: 1/1;
         --_img-border-r: 0.125rem;
+        --_img-border-w: 0.125rem;
+
         --_block-width: 15rem;
         
         margin-block-start: 2rem;
@@ -796,7 +800,6 @@ h3 {
                 & span::after {
                     content: url(../assets/icons/ppl_s_arrow.svg);
                     display: inline-block;
-                    width: 0.625rem;
                     margin-inline-start: 0.5rem;
                     transform: skewX(var(--block-skew));
                 }
