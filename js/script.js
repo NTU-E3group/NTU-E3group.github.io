@@ -13,17 +13,17 @@ function change101Top() {
     var topColorHex = getComputedStyle(document.documentElement).getPropertyValue(colorArray[utc8Day % 7]);
     document.querySelector(".fill-101-top").style.fill = topColorHex;
 };
-change101Top();
+// change101Top();
 
 var hpDiveIn = document.querySelector('.hp-dive-in');
 var hpTopLayer = document.querySelector('.hp-top-layer');
 
-hpTopLayer.addEventListener('mouseover', () => {
-    hpDiveIn.style.transform = 'translateY(-0.4375rem)';
-});
-hpTopLayer.addEventListener('mouseout', () => {
-    hpDiveIn.style.transform = 'translateY(0rem)';
-});
+// hpTopLayer.addEventListener('mouseover', () => {
+//     hpDiveIn.style.transform = 'translateY(-0.4375rem)';
+// });
+// hpTopLayer.addEventListener('mouseout', () => {
+//     hpDiveIn.style.transform = 'translateY(0rem)';
+// });
 
 // rain
 var hpRainFront = document.querySelector('.hp-rain-front');
@@ -57,8 +57,8 @@ var rainSlope = 200;
 var precip = 1;
 var dropTime = 1300;
 
-makeItRain(true, rainSlope, precip, dropTime);
-makeItRain(false, rainSlope, precip, dropTime);
+// makeItRain(true, rainSlope, precip, dropTime);
+// makeItRain(false, rainSlope, precip, dropTime);
 
 // people
 document.querySelectorAll('.ppl-filter-checkbox').forEach(function(checkbox) {
