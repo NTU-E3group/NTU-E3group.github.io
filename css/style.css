@@ -103,7 +103,7 @@ body {
     /* width: 100%; */
     /* height: 100%; */
     background-color: var(--page-bg);
-    padding-inline: 5rem;
+    /* padding-inline: 5rem; */
 
     /* display: flex;
     flex-direction: column;
@@ -111,8 +111,9 @@ body {
 }
 
 main {
-    width: 1360px;
+    width: min(100%, 1360px);
     margin-inline: auto;
+    padding-inline: 2rem;
 
     display: grid;
 }
@@ -151,16 +152,180 @@ h3 {
     }
 }
 
+.skewed-btn {
+    padding: var(--btn-padding);
+    border: var(--_adjusted-border-width, var(--btn-border-width)) solid var(--main-color);
+    border-radius: var(--_adjusted-border-radius, var(--btn-border-radius));
+    box-shadow: var(--btn-shadow-shift) var(--btn-shadow-shift) var(--main-shadow-color);
+    font-size: var(--_font-size, 1rem);
+    transform: skewX(var(--block-skew));
+    text-decoration: none;
+    user-select: none;
+    transition: var(--hover-transition-time);
+
+    & > * {
+        transform: skewX(var(--content-skew));
+    }
+}
+
+.skewed-block {
+    padding: var(--_padding);
+    border: var(--_border-width) solid var(--main-color);
+    border-radius: var(--_border-radius);
+    box-shadow: var(--_shadow-shift) var(--_shadow-shift) var(--main-shadow-color);
+    /* font-size: var(--_font-size, 1rem); */
+    transform: skewX(var(--block-skew));
+    text-decoration: none;
+    user-select: none;
+    transition: var(--hover-transition-time);
+
+    & > * {
+        transform: skewX(var(--content-skew));
+    }
+}
+
 #home {
-    --_window-width: 960px;
+    /* --_window-width: 960px;
 
     height: max(100svh, 50rem);
 
     display: grid;
     grid-template-columns: 1fr var(--_window-width);
-    align-items: center;
+    align-items: center; */
 
+    --_window-padding: 2rem;
+
+    position: relative;
+    /* width: 1920px;
+    height: 1080px; */
+    width: min(100%, 120rem);
+    height: min(100%, 75rem);
+    margin-inline: auto;
+    margin-block: 2rem;
+    padding: var(--_window-padding);
+    /* outline: 1px solid #0a557eaa; */
+    /* background-color: #0000ff22; */
+
+    display: grid;
+    place-content: center;
+
+    .hp1-mainthing {
+        margin-inline: 83px 33px;
+        /* margin-block: auto; */
+
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        gap: 3rem;
+        justify-content: space-between;
+
+        .hp1-img {
+            width: 1300px;
+            height: 570px;
+            /* background-color: #0000ff66; */
+        }
+    }
+
+    .hp1-text {
+    
+        display: grid;
+        gap: 4.5rem;
+        /* justify-content: start; */
+        justify-items: start;
+    
+        .hp1-title {
+            & h1 {
+                font-size: 4rem;
+    
+                display: flex;
+    
+                & svg {
+                    height: 3.75rem;
+                    translate: 0.625rem -0.75rem;
+                }
+            }
+    
+            & span {font-size: 1.25rem;}
+        }
+    
+        .hp1-3e {
+            & p {
+                font-size: 2rem;
+    
+                display: flex;
+                align-items: baseline;
+    
+                &::after {
+                    content: '';
+                    width: 0.75rem;
+                    height: 0.25rem;
+                    margin-left: 0.25rem;
+                    translate: 0 50%;
+                    background-color: var(--secondary-color);
+                }
+            }
+        }
+    
+        .hp1-about-us {
+            --_font-size: 1.5rem;
+        }
+    }
+
+    .hp1-menu-btn {
+        position: absolute;
+        top: var(--_window-padding);
+        right: var(--_window-padding);
+
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+
+        & p {
+            font-size: 1.125rem;
+        }
+    }
+
+    .hp1-recent-news {
+        position: absolute;
+        bottom: var(--_window-padding);
+        left: var(--_window-padding);
+        width: 30%;
+
+        & h3 {
+            margin-block: 0 0.375rem;
+        }
+        
+        .hp1-news-block {
+            overflow: hidden;
+            
+        }
+
+        .hp1-news {
+            text-wrap: nowrap;
+        }
+
+    }
+
+    .hp1-scroll-for-more {
+        position: absolute;
+        /* margin-inline: auto; */
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: var(--_window-padding);
+
+        display: grid;
+        place-items: center;
+        gap: 0.125rem;
+    }
+
+    .hp1-last-update {
+        position: absolute;
+        bottom: var(--_window-padding);
+        right: var(--_window-padding);
+        
+    }
 }
+
 
 .hp-text {
 
@@ -586,15 +751,53 @@ h3 {
 
 /* about */
 #about {
-    & p {
-        max-width: var(--para-max-width);
+}
+
+.abt-section {
+    /* --_para-min-width: 768px; */
+    --_para-min-width: 60rem;
+    --_logo-width: 12rem;
+    --_gap: 1rem;
+
+    display: flex;
+    gap: calc(var(--_gap) * 2) var(--_gap);
+    flex-wrap: wrap;
+
+    & > * {
+        flex-grow: 1;
+    }
+
+    /* display: grid;
+    grid-template-columns: var(--para-max-width) 1fr;
+    align-content: center;
+    gap: 1rem; */
+
+    .abt-text {
         margin-top: 1rem;
         font-size: 1.125rem;
         /* text-align: justify; */
-
+        flex-grow: 999;
+        flex-basis: calc(
+            (min(100%, var(--_para-min-width)) - (100% - var(--_logo-width) - var(--_gap))) * 9999
+        );
+    
         & sub {
             font-size: 0.75em;
             vertical-align: sub;
+        }
+    }
+
+    .abt-logos {
+        margin-inline: auto;
+        
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4rem;
+        justify-content: center;
+
+        & img {
+            width: var(--_logo-width);
+            /* width: 100%; */
         }
     }
 }
@@ -747,7 +950,7 @@ h3 {
         --_img-border-r: 0.125rem;
         --_img-border-w: 0.125rem;
 
-        --_block-width: 15rem;
+        --_block-width: 14.5rem;
         
         margin-block-start: 2rem;
 
@@ -1091,7 +1294,7 @@ h3 {
     
     .pub-block {
         display: grid;
-        grid-template-columns: auto var(--para-max-width) 1fr;
+        grid-template-columns: auto min(100%, var(--para-max-width)) 1fr;
         align-items: start;
         gap: 1rem;
 
