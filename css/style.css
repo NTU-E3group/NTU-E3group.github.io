@@ -146,7 +146,7 @@ h3 {
 }
 
 .skewed-btn {
-    padding: var(--btn-padding);
+    padding: var(--_adjusted-padding, var(--btn-padding));
     background-color: var(--main-bg-color);
     border: var(--_adjusted-border-width, var(--btn-border-width)) solid var(--main-color);
     border-radius: var(--_adjusted-border-radius, var(--btn-border-radius));
@@ -160,6 +160,14 @@ h3 {
 
     & > * {
         transform: skewX(var(--content-skew));
+    }
+
+    &:not([not-hoverable]):hover {
+        --_hover-translate: var(--_adjusted-hover-translate, var(--btn-hover-translate));
+        --_hover-shadow-shift: var(--_adjusted-hover-shadow-shift, var(--btn-hover-shadow-shift));
+
+        translate: var(--_hover-translate) var(--_hover-translate);
+        box-shadow: var(--_hover-shadow-shift) var(--_hover-shadow-shift) var(--main-shadow-color);
     }
 }
 
@@ -840,29 +848,35 @@ h3 {
         gap: 1rem;
     
         .ppl-block {
-            display: grid;
-            grid-template-columns: auto 1fr;
+            display: flex;
             gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .ppl-img img {
+            width: calc((1 + tan(var(--content-skew))) * var(--_img-width) * 1.03);
         }
     
         .ppl-text {
             transition: var(--hover-transition-time);
     
             display: grid;
-            grid-template-rows: repeat(4, auto) 1fr;
-    
-            .ppl-quot {
-                translate: -0.875rem 0.5rem;
+            align-content: start;
+            justify-items: start;
+            gap: 1rem;
+
+            & > * + * {
+                margin-inline-start: 0.875rem;
             }
     
-            .ppl-info {
-                margin-block: 1rem;
+            .ppl-quote {
+                translate: 0 0.5rem;
             }
 
             & a {
                 display: flex;
                 align-items: center;
-                gap: 0.25rem;
+                gap: 0.4375rem;
             }
         }
     
@@ -1061,7 +1075,7 @@ h3 {
 
 /* research */
 .res-section {
-    --_block-scale: 0.85;
+    --_block-scale: 1;
     padding-inline: 1rem;
     
     &[topic-type='ongoing'] {
