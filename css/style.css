@@ -781,16 +781,12 @@ h3 {
     .abt-logos {
         margin-inline: auto;
         width: var(--_logo-width);
+        user-select: none;
         
         display: flex;
         flex-wrap: wrap;
         gap: 2rem 4rem;
         justify-content: center;
-
-        & img {
-            /* width: var(--_logo-width); */
-            /* width: 100%; */
-        }
 
         .abt-logo-e3 {
             width: 10rem;
