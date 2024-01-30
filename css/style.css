@@ -101,22 +101,18 @@ html {
 
 body {
     background-color: var(--page-bg);
-
-    /* background-image: url(../assets/image/background.png);
-    background-repeat: repeat-y;
-    background-size: 100% auto; */
 }
 
 main {
-    width: min(100%, 89rem);
-    margin-inline: auto;
-    padding-inline: 2rem;
-
-    display: grid;
+    background-image: url(../assets/image/background.png);
+    background-repeat: repeat-y;
+    background-size: 100% auto;
 }
 
 section:has(.section-title) {
-    padding-block: 8rem 2rem;
+    width: min(100%, 89rem);
+    margin-inline: auto;
+    padding: 8rem 2rem 2rem;
 
     & .section-title {
         display: flex;
@@ -151,6 +147,7 @@ h3 {
 
 .skewed-btn {
     padding: var(--btn-padding);
+    background-color: var(--main-bg-color);
     border: var(--_adjusted-border-width, var(--btn-border-width)) solid var(--main-color);
     border-radius: var(--_adjusted-border-radius, var(--btn-border-radius));
     box-shadow: 
@@ -183,34 +180,21 @@ h3 {
 }
 
 #home {
-    /* --_window-width: 960px;
-
-    height: max(100svh, 50rem);
-
-    display: grid;
-    grid-template-columns: 1fr var(--_window-width);
-    align-items: center; */
-
     --_window-padding: 2rem;
 
     position: relative;
-    /* width: 1920px;
-    height: 1080px; */
     width: min(100%, 120rem);
     height: min(100%, 75rem);
-    /* background-color: var(--page-bg); */
+    /* height: 100svh; */
     margin-inline: auto;
     margin-block: 2rem;
     padding: var(--_window-padding);
-    /* outline: 1px solid #0a557eaa; */
-    /* background-color: #0000ff22; */
 
     display: grid;
     place-content: center;
 
     .hp1-mainthing {
         margin-inline: 83px 33px;
-        /* margin-block: auto; */
 
         display: grid;
         grid-template-columns: auto 1fr;
@@ -221,7 +205,6 @@ h3 {
         .hp1-img {
             width: 1300px;
             height: 570px;
-            /* background-color: #0000ff66; */
         }
     }
 
@@ -756,12 +739,14 @@ h3 {
 
 .abt-section {
     /* --_para-min-width: 768px; */
-    --_para-min-width: 60rem;
+    --_para-min-width: 50rem;
     --_logo-width: 12rem;
     --_gap: 2rem;
 
+    padding-inline: 1rem;
+
     display: flex;
-    gap: var(--_gap);
+    gap: var(--_gap) calc(var(--_gap) * 1.5);
     flex-wrap: wrap;
 
     & > * {
@@ -774,18 +759,23 @@ h3 {
     gap: 1rem; */
 
     .abt-text {
-        margin-top: 1rem;
-        font-size: 1.125rem;
-        /* text-align: justify; */
         flex-grow: 999;
         flex-basis: calc(
             (min(100%, var(--_para-min-width)) - (100% - var(--_logo-width) - var(--_gap))) * 9999
         );
-    
-        & sub {
-            font-size: 0.75em;
-            vertical-align: sub;
+            
+        & p {
+            margin-top: 1rem;
+            font-size: 1.125rem;
+            text-align: justify;
+            text-indent: 2rem;
+
+            & sub {
+                font-size: 0.75em;
+                vertical-align: sub;
+            }
         }
+    
     }
 
     .abt-logos {
