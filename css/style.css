@@ -772,7 +772,7 @@ h3 {
 
             & sub {
                 font-size: 0.75em;
-                vertical-align: sub;
+                vertical-align: text-bottom;
             }
         }
     
@@ -880,15 +880,16 @@ h3 {
     }
 
     &[who='M'] {
-        --_img-width: 12rem;
+        --_img-width: 11rem;
         --_img-aspect-ratio: 1/1;
         --_img-border-r: 0.25rem;
         --_img-border-w: 0.1875rem;
     
         display: grid;
-        grid-template-columns: repeat(auto-fill, min(var(--_img-width), 100%));
+        grid-template-columns: repeat(auto-fill, var(--_img-width));
         gap: 1.5rem 3rem;
         justify-content: space-between;
+        /* justify-content: space-around; */
     
         .ppl-block {
             text-decoration: none;
@@ -954,6 +955,7 @@ h3 {
         grid-template-columns: repeat(auto-fill, min(var(--_block-width), 100%));
         gap: 2rem 1rem;
         justify-content: space-between;
+        /* justify-content: space-around; */
 
         .ppl-block {
             width: var(--_block-width);
@@ -998,6 +1000,7 @@ h3 {
 
                 & span::after {
                     content: url(../assets/icons/ppl_s_arrow.svg);
+                    width: 0.75rem;
                     display: inline-block;
                     margin-inline-start: 0.5rem;
                     transform: skewX(var(--block-skew));
@@ -1058,11 +1061,12 @@ h3 {
 
 /* research */
 .res-section {
+    --_block-scale: 0.85;
     padding-inline: 1rem;
     
     &[topic-type='ongoing'] {
         display: grid;
-        grid-template-columns: repeat(auto-fill, 41rem);
+        grid-template-columns: repeat(auto-fill, calc(40.25rem - 14rem * (1 - var(--_block-scale))));
         gap: 2rem 1rem;
         justify-content: space-between;
     }
@@ -1074,17 +1078,16 @@ h3 {
     }
 
     .res-block {
-        /* display: flex;
-        gap: 0.75rem;
-        align-items: flex-start; */
         display: grid;
         grid-template-columns: auto auto 25rem;
+        justify-content: start;
         gap: 0.625rem;
     }
 
     .res-fields-block {
-        width: 2rem;
-        height: 5rem;
+        width: calc(2rem * var(--_block-scale));
+        aspect-ratio: 2/5;
+        /* height: calc(2rem * var(--_block-scale)); */
         transform: skewX(var(--block-skew));
         background-color: var(--main-bg-color);
         border: var(--border-width) solid var(--main-color);
@@ -1100,6 +1103,7 @@ h3 {
 
         .res-fields {
             max-width: initial;
+            width: calc(1.875rem * var(--_block-scale));
             flex-shrink: 0;
             transform: skewX(var(--content-skew));
             
@@ -1110,7 +1114,7 @@ h3 {
     }
 
     .res-img-block {
-        width: 12rem;
+        width: calc(12rem * var(--_block-scale));
         aspect-ratio: 4/3;
         transform: skewX(var(--block-skew));
         background-color: var(--main-bg-color);
@@ -1137,6 +1141,7 @@ h3 {
 
         .res-img {
             max-width: initial;
+            width: calc(var(--_svg-width, 12.125rem) * var(--_block-scale));
             transform: skewX(var(--content-skew));
             flex-shrink: 0;
         }
