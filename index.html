@@ -1773,6 +1773,37 @@
                     <polygon fill="#217e77" points="150.12 158.75 158.5 173.27 200 101.39 158.76 29.96 117.26 101.83 125.38 115.89 160.05 55.84 168.56 70.58 133.89 130.64 141.61 144 176.1 84.26 184.61 99.01 150.12 158.75"/>
                 </svg>
             </div>
+
+            <section class="glf-section" which="slider">
+                <div class="glf-slider-header">
+                    <h3>Recent Photos</h3>
+
+                    <div class="glf-slider-btns">
+                        <button type="button" class="glf-slider-btn skewed-btn" onclick="sliderStepPush(-1)" aria-label="Last Photo">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 22" width="0.8125rem">
+                                <path class="fill-m" d="M2.28,22.1L.24,19.9,9.68,11.15c.05-.05,.08-.1,.08-.15s-.03-.1-.08-.15L.24,2.1,2.28-.1,11.72,8.65c.67,.62,1.04,1.46,1.04,2.35s-.37,1.73-1.04,2.35L2.28,22.1Z"/>
+                            </svg>
+                        </button>
+
+                        <div class="glf-slider-num">
+                            <span class="glf-slider-current-num">5</span>
+                            <span>/</span>
+                            <span class="glf-slider-whole-num">10</span>
+                        </div>
+
+                        <button type="button" class="glf-slider-btn skewed-btn" onclick="sliderStepPush(1)" aria-label="Next Photo">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 22" width="0.8125rem">
+                                <path class="fill-m" d="M2.28,22.1L.24,19.9,9.68,11.15c.05-.05,.08-.1,.08-.15s-.03-.1-.08-.15L.24,2.1,2.28-.1,11.72,8.65c.67,.62,1.04,1.46,1.04,2.35s-.37,1.73-1.04,2.35L2.28,22.1Z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="glf-slider">
+                    <img src="./assets/gallery/2020-1.png" alt="">
+                </div>
+
+            </section>
         </section>
 
         <section id="conatct-us">
@@ -1865,7 +1896,7 @@
             </ui> -->
 
             <ui>
-                <a href="#photos" hover-text="Photos">
+                <a href="#group-life" hover-text="Group Life">
                     <span>Group Life</span>
                     <div>
                         <svg viewBox="0 0 22 22">
