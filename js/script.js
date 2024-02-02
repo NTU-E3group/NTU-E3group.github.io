@@ -60,18 +60,21 @@ var dropTime = 1300;
 // makeItRain(true, rainSlope, precip, dropTime);
 // makeItRain(false, rainSlope, precip, dropTime);
 
-// people
-document.querySelectorAll('.filter-checkbox[where="ppl"]').forEach(function(checkbox) {
-    checkbox.addEventListener('change', function() {
-      document.querySelectorAll('.filter-content[where="ppl"]').forEach(function(elem) {
-        if (elem.dataset.value === checkbox.value) {
-          elem.style.display = checkbox.checked ? 'grid' : 'none';
-        }
-      });
+// filters
+document.querySelectorAll('.filter').forEach((filter) => {
+    let where = filter.getAttribute('where');
+
+    document.querySelectorAll(`.filter-checkbox[where="${where}"]`).forEach((checkbox) => {
+        checkbox.addEventListener('change', () => {
+        document.querySelectorAll(`.filter-content[where="${where}"]`).forEach((elem) => {
+            if (elem.dataset.value === checkbox.value) {
+            elem.style.display = checkbox.checked ? 'grid' : 'none';
+            }
+        });
+        });
     });
 });
 
-console.log(document.querySelectorAll('.filter-content[where="ppl"]'));
 
 // research animation: hover to start
 const resImgBlockWithAni = Array.from(document.querySelectorAll('.res-img-block'))
