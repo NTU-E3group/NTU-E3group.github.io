@@ -61,16 +61,17 @@ var dropTime = 1300;
 // makeItRain(false, rainSlope, precip, dropTime);
 
 // people
-document.querySelectorAll('.ppl-filter-checkbox').forEach(function(checkbox) {
+document.querySelectorAll('.filter-checkbox[where="ppl"]').forEach(function(checkbox) {
     checkbox.addEventListener('change', function() {
-      document.querySelectorAll('.ppl-filter-content').forEach(function(elem) {
-        if (elem.getAttribute('data-value') === checkbox.value) {
+      document.querySelectorAll('.filter-content[where="ppl"]').forEach(function(elem) {
+        if (elem.dataset.value === checkbox.value) {
           elem.style.display = checkbox.checked ? 'grid' : 'none';
         }
       });
     });
 });
-  
+
+console.log(document.querySelectorAll('.filter-content[where="ppl"]'));
 
 // research animation: hover to start
 const resImgBlockWithAni = Array.from(document.querySelectorAll('.res-img-block'))
