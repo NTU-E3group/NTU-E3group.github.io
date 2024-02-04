@@ -65,12 +65,18 @@ document.querySelectorAll('.filter').forEach((filter) => {
     let where = filter.getAttribute('where');
 
     document.querySelectorAll(`.filter-checkbox[where="${where}"]`).forEach((checkbox) => {
-        checkbox.addEventListener('change', () => {
         document.querySelectorAll(`.filter-content[where="${where}"]`).forEach((elem) => {
             if (elem.dataset.value === checkbox.value) {
-            elem.style.display = checkbox.checked ? 'grid' : 'none';
-            }
+                elem.style.display = checkbox.checked ? 'grid' : 'none';
+            };
         });
+
+        checkbox.addEventListener('change', () => {
+            document.querySelectorAll(`.filter-content[where="${where}"]`).forEach((elem) => {
+                if (elem.dataset.value === checkbox.value) {
+                    elem.style.display = checkbox.checked ? 'grid' : 'none';
+                };
+            });
         });
     });
 });
