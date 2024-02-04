@@ -35,7 +35,7 @@
 
     --para-max-width: 60rem;
 
-    --border-width: 0.1875rem;
+    /* --border-width: 0.1875rem; */
 
     --btn-border-width: 0.125rem;
     --btn-border-radius: 0.125rem;
@@ -145,17 +145,16 @@ h3 {
     }
 }
 
-.skewed-btn {
+.skewed-block {
     --_shadow-shift: var(--_adjusted-shadow-shift, var(--btn-shadow-shift));
 
-    padding: var(--_adjusted-padding, var(--btn-padding));
     background-color: var(--main-bg-color);
     border: var(--_adjusted-border-width, var(--btn-border-width)) solid var(--main-color);
     border-radius: var(--_adjusted-border-radius, var(--btn-border-radius));
     box-shadow: var(--_shadow-shift) var(--_shadow-shift) var(--main-shadow-color);
-    font-size: var(--_font-size, 1rem);
     transform: skewX(var(--_adjusted-block-skew, var(--block-skew)));
     text-decoration: none;
+    overflow: hidden;
     user-select: none;
     transition: var(--hover-transition-time);
 
@@ -163,30 +162,74 @@ h3 {
         transform: skewX(calc(var(--_adjusted-block-skew, var(--block-skew)) * -1));
     }
 
-    &:not([not-hoverable]):hover {
-        --_hover-translate: var(--_adjusted-hover-translate, var(--btn-hover-translate));
-        --_hover-shadow-shift: var(--_adjusted-hover-shadow-shift, var(--btn-hover-shadow-shift));
+    &[b-role="block"] {
+        width: var(--_block-width);
+        height: var(--_block-height);
 
-        translate: var(--_hover-translate) var(--_hover-translate);
-        box-shadow: var(--_hover-shadow-shift) var(--_hover-shadow-shift) var(--main-shadow-color);
+        & > * {
+            max-width: initial;
+            width: var(--_content-width);
+            flex-shrink: 0;
+        }
+    }
+
+    &[b-role="btn"] {
+        padding: var(--_adjusted-padding, var(--btn-padding));
+        font-size: var(--_font-size, 1rem);
+    }
+
+    &[b-hoverable] {
+        cursor: pointer;
+        
+        &:hover {
+            --_hover-translate: var(--_adjusted-hover-translate, var(--btn-hover-translate));
+            --_hover-shadow-shift: var(--_adjusted-hover-shadow-shift, var(--btn-hover-shadow-shift));
+
+            translate: var(--_hover-translate) var(--_hover-translate);
+            box-shadow: var(--_hover-shadow-shift) var(--_hover-shadow-shift) var(--main-shadow-color);
+        }
+
+        &:active {
+            translate: 0 0;
+            box-shadow: var(--_shadow-shift) var(--_shadow-shift) var(--main-shadow-color);
+        }
     }
 }
 
-.skewed-block {
-    padding: var(--_padding);
-    border: var(--_border-width) solid var(--main-color);
-    border-radius: var(--_border-radius);
-    box-shadow: var(--_shadow-shift) var(--_shadow-shift) var(--main-shadow-color);
-    /* font-size: var(--_font-size, 1rem); */
-    transform: skewX(var(--block-skew));
-    text-decoration: none;
-    user-select: none;
-    transition: var(--hover-transition-time);
+.filter {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 
-    & > * {
-        transform: skewX(var(--content-skew));
+    .filter-title + * {
+        margin-inline-start: 0.5rem !important;
+    }
+    
+    .filter-block {
+        --_adjusted-padding: 0.25rem 0.5rem;
+        margin-inline-start: 1rem;
+
+        display: flex;
+        align-items: center;
+
+        .filter-checkbox {
+            display: none;
+            
+            &:checked + .filter-label::before {
+                content: url('../assets/icons/check.svg');
+                display: inline-block;
+                width: 1.0625rem;
+                margin-inline-end: 0.25rem;
+            }
+        }
+    
+        .filter-label {
+            font-size: 0.875rem;
+            transform: skewX(var(--content-skew));
+        }
     }
 }
+
 
 #home {
     --_window-padding: 2rem;
@@ -817,7 +860,7 @@ h3 {
 
 
     .ppl-img {
-        width: calc(var(--_img-width) + 2 * var(--_img-border-w));
+        /* width: calc(var(--_img-width) + 2 * var(--_img-border-w));
         height: calc(var(--_img-width) / (var(--_img-aspect-ratio)) + 2 * var(--_img-border-w));
         transform: skewX(var(--block-skew));
         border: var(--_img-border-w) solid var(--main-color);
@@ -825,17 +868,20 @@ h3 {
         box-shadow: var(--block-shadow-shift) var(--block-shadow-shift) var(--main-shadow-color);
         overflow: hidden;
         user-select: none;
-        transition: var(--hover-transition-time);
+        transition: var(--hover-transition-time); */
 
+        --_block-width: calc(var(--_img-width) + 2 * var(--_img-border-w));
+        --_block-height: calc(var(--_img-width) / (var(--_img-aspect-ratio)) + 2 * var(--_img-border-w));
+        --_adjusted-border-width: var(--_img-border-w);
+        --_adjusted-border-radius: var(--_img-border-r);
+        --_adjusted-shadow-shift: var(--block-shadow-shift);
+        
         display: flex;
         align-items: center;
         justify-content: center;
 
         & img {
-            max-width: initial;
-            flex-shrink: 0;
-            width: calc((1 + tan(var(--content-skew))) * var(--_img-width));
-            transform: skewX(var(--content-skew));
+            --_content-width: calc((1 + tan(var(--content-skew))) * var(--_img-width));
         }
     }
 
@@ -1026,53 +1072,6 @@ h3 {
     }
 }
 
-.filter {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-
-    .filter-title + * {
-        margin-inline-start: 0.5rem !important;
-    }
-    
-    .filter-block {
-        margin-inline-start: 1rem;
-        padding: 0.25rem 0.5rem;
-        background-color: var(--main-bg-color);
-        border: var(--btn-border-width) solid var(--main-color);
-        border-radius: var(--btn-border-radius);
-        box-shadow: var(--btn-shadow-shift) var(--btn-shadow-shift) var(--main-shadow-color);
-        transform: skewX(var(--block-skew));
-        user-select: none;
-        transition: var(--hover-transition-time);
-        cursor: pointer;
-
-        display: flex;
-        align-items: center;
-    
-        &:hover {
-            translate: var(--btn-hover-translate) var(--btn-hover-translate);
-            box-shadow: var(--btn-hover-shadow-shift) var(--btn-hover-shadow-shift) var(--main-shadow-color);
-        }
-    
-        .filter-checkbox {
-            display: none;
-            
-            &:checked + .filter-label::before {
-                content: url('../assets/icons/check.svg');
-                display: inline-block;
-                width: 1.0625rem;
-                margin-inline-end: 0.25rem;
-            }
-        }
-    
-        .filter-label {
-            font-size: 0.875rem;
-            transform: skewX(var(--content-skew));
-        }
-    }
-}
-
 
 /* research */
 .res-section {
@@ -1101,7 +1100,7 @@ h3 {
     }
 
     .res-fields-block {
-        width: calc(2rem * var(--_block-scale));
+        /* width: calc(2rem * var(--_block-scale));
         aspect-ratio: 2/5;
         transform: skewX(var(--block-skew));
         background-color: var(--main-bg-color);
@@ -1110,7 +1109,13 @@ h3 {
         box-shadow: var(--block-shadow-shift) var(--block-shadow-shift) var(--main-shadow-color);
         overflow: hidden;
         user-select: none;
-        transition: var(--hover-transition-time);
+        transition: var(--hover-transition-time); */
+
+        --_block-width: calc(2rem * var(--_block-scale));
+        --_block-height: calc(5rem * var(--_block-scale));
+        --_adjusted-border-width: 0.1875rem;
+        --_adjusted-border-radius: 0.125rem;
+        --_adjusted-shadow-shift: var(--block-shadow-shift);
 
         display: flex;
         align-items: center;
@@ -1129,36 +1134,21 @@ h3 {
     }
 
     .res-img-block {
-        width: calc(12rem * var(--_block-scale));
-        aspect-ratio: 4/3;
-        transform: skewX(var(--block-skew));
-        background-color: var(--main-bg-color);
-        border: var(--border-width) solid var(--main-color);
-        border-radius: 0.125rem;
-        box-shadow: var(--block-shadow-shift) var(--block-shadow-shift) var(--main-shadow-color);
-        overflow: hidden;
-        transition: var(--hover-transition-time);
+         --_block-width: calc(12rem * var(--_block-scale));
+        --_block-height: calc(9rem * var(--_block-scale));
+        --_adjusted-border-width: 0.1875rem;
+        --_adjusted-border-radius: 0.125rem;
+        --_adjusted-shadow-shift: var(--block-shadow-shift);
 
+        --_adjusted-hover-translate: var(--block-hover-translate);
+        --_adjusted-hover-shadow-shift: var(--block-hover-shadow-shift);
+        
         display: flex;
         align-items: center;
         justify-content: center;
-
-        &:hover {
-            translate: var(--block-hover-translate) var(--block-hover-translate);
-            box-shadow: var(--block-hover-shadow-shift) var(--block-hover-shadow-shift) var(--main-shadow-color);
-            cursor: pointer;
-        }
-
-        &:active {
-            translate: 0 0;
-            box-shadow: var(--block-shadow-shift) var(--block-shadow-shift) var(--main-shadow-color);
-        }
-
+        
         .res-img {
-            max-width: initial;
-            width: calc(var(--_svg-width, 12.125rem) * var(--_block-scale));
-            transform: skewX(var(--content-skew));
-            flex-shrink: 0;
+            --_content-width: calc(var(--_svg-width, 12.125rem) * var(--_block-scale));
         }
     }
 
@@ -1362,33 +1352,11 @@ h3 {
     
     .pub-more {
         margin-block-start: 0.75rem;
-        padding: var(--btn-padding);
-        border: var(--btn-border-width) solid var(--main-color);
-        border-radius: var(--btn-border-radius);
-        box-shadow: var(--btn-shadow-shift) var(--btn-shadow-shift) var(--main-shadow-color);
-        transform: skewX(var(--block-skew));
-        user-select: none;
-        transition: var(--hover-transition-time);
 
         display: flex;
 
-        &:hover {
-            translate: var(--btn-hover-translate) var(--btn-hover-translate);
-            box-shadow: var(--btn-hover-shadow-shift) var(--btn-hover-shadow-shift) var(--main-shadow-color);
-            cursor: pointer;
-
-            & svg {translate: 0.125rem -0.125rem;}
-        }
-
-        &:active {
-            translate: 0 0;
-            box-shadow: var(--btn-shadow-shift) var(--btn-shadow-shift) var(--main-shadow-color);
-
-            /* & svg {translate: 0 0;} */
-        }
-
-        & > * {
-            transform: skewX(var(--content-skew));
+        &:hover svg {
+            translate: 0.125rem -0.125rem;
         }
 
         & svg {
