@@ -803,8 +803,8 @@ h3 {
     }
 }
 
-/* about */
-#about {
+/* about us */
+#about-us {
 }
 
 .abt-section {
@@ -1492,6 +1492,45 @@ h3 {
 
     .glf-img-text {
         margin-inline-end: 0.25rem;
+    }
+}
+
+
+/* footer */
+footer {
+    width: 100%;
+    margin-block-start: 2rem;
+    padding: 4rem 2rem;
+    border-top: 0.1875rem solid var(--main-color);
+    background-color: var(--main-bg-color);
+
+    display: grid;
+    gap: 2rem;
+
+    .footer-block {
+        width: min(100%, 89rem);
+        margin-inline: auto;
+        /* padding: 8rem 2rem; */
+
+        display: flex;
+        align-items: center;
+        /* justify-content: space-between; */
+        gap: 1.5rem;
+
+        .footer-logo {
+            width: 3rem;
+            user-select: none;
+        }
+
+        .footer-link {
+            font-size: 1.25rem;
+            text-decoration: none;
+            transition: var(--hover-transition-time);
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
     }
 }
 
