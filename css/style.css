@@ -841,7 +841,7 @@ h3 {
             
         & p {
             margin-top: 1rem;
-            font-size: 1.125rem;
+            font-size: 1.25rem;
             text-align: justify;
             
             & sub {
@@ -1080,7 +1080,7 @@ h3 {
                 }
 
                 & span::after {
-                    content: url(../assets/icons/ppl_s_arrow.svg);
+                    content: url(../assets/icons/ppl-s-arrow.svg);
                     width: 0.75rem;
                     display: inline-block;
                     margin-inline-start: 0.5rem;
