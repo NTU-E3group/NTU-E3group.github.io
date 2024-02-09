@@ -1395,69 +1395,76 @@ h3 {
     --_img-border-r: 0.25rem;
     --_img-border-w: 0.1875rem;
 
+    --_slider-gap: 2rem;
+
     /* background-color: green; */
     /* margin-inline: auto; */
 
     display: grid;
     justify-content: center;
+    justify-items: center;
 
     .glf-slider-header {
+        width: var(--_img-width);
+
         display: flex;
         align-items: baseline;
         justify-content: space-between;
-    }
 
-    .glf-slider-btns {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-    }
-
-    .glf-slider {
-        /* width: calc(var(--_img-width) + 2 * var(--_img-border-w));
-
-        display: flex;
-        align-items: center;
-
-        & > img {
-            max-width: initial;
-            width: var(--_img-width);
-            flex-shrink: 0;
-        } */
-    }
-
-    .glf-slider {
-        --_adjusted-block-skew: -1.5deg;
-        --_adjusted-content-skew: calc(-1 * var(--_adjusted-block-skew));
-
-        width: calc(var(--_img-width) + 2 * var(--_img-border-w));
-        height: calc(var(--_img-width) / (var(--_img-aspect-ratio)) + 2 * var(--_img-border-w));
-        transform: skewX(var(--_adjusted-block-skew));
-        border: var(--_img-border-w) solid var(--main-color);
-        border-radius: var(--_img-border-r);
-        box-shadow: var(--block-shadow-shift) var(--block-shadow-shift) var(--main-shadow-color);
-        overflow: hidden;
-        user-select: none;
-        transition: var(--hover-transition-time);
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        & img {
-            max-width: initial;
-            flex-shrink: 0;
-            width: calc((1 + tan(var(--_adjusted-content-skew))) * var(--_img-width));
-            transform: skewX(var(--_adjusted-content-skew));
+        .glf-slider-btns {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
     }
 
-    .glf-slider-text {
-        width: var(--_img-width);
-        margin-block-start: 0.75rem;
-        font-size: 1.25rem;
-        text-wrap: balance;
-        text-align: center;
+
+    .glf-slider {
+        width: 100%;
+        /* padding-inline: var(--_slider-padding); */
+        /* background-color: red; */
+        overflow: hidden;
+    }
+
+    .glf-slider-wrapper {
+        transform: translateX(50%);
+
+        display: flex;
+        align-items: start;
+        gap: var(--_slider-gap);
+    }
+
+    .glf-slider-block {
+        transform: translateX(-50%);
+        
+        .glf-slider-img {
+            --_adjusted-block-skew: -1.5deg;
+            --_adjusted-content-skew: calc(-1 * var(--_adjusted-block-skew));
+    
+            --_block-width: calc(var(--_img-width) + 2 * var(--_img-border-w));
+            --_block-height: calc(var(--_img-width) / (var(--_img-aspect-ratio)) + 2 * var(--_img-border-w));
+            --_adjusted-border-width: var(--_img-border-w);
+            --_adjusted-border-radius: var(--_img-border-r);
+            --_adjusted-shadow-shift: var(--block-shadow-shift);
+            --_adjusted-hover-shadow-shift: var(--block-hover-shadow-shift);
+    
+    
+            display: flex;
+            align-items: center;
+            justify-content: center;
+    
+            & img {
+                --_content-width: calc((1 + tan(var(--content-skew))) * var(--_img-width));
+            }
+        }
+    
+        .glf-slider-text {
+            width: var(--_img-width);
+            margin-block-start: 0.75rem;
+            font-size: 1.25rem;
+            text-wrap: balance;
+            text-align: center;
+        }
     }
 }
 
