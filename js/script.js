@@ -112,10 +112,24 @@ resImgBlockWithAni.forEach(elem => {
 // var sliderGap = getComputedStyle(document.querySelector('.glf-section[which="slider"]')).getPropertyValue('--_slider-gap');
 // console.log(sliderGap);
 
+// var glfSlider = document.querySelector('.glf-slider');
 var glfSliderCurrentNum = document.querySelector('.glf-slider-current-num');
 var glfSliderTotalNum = document.querySelector('.glf-slider-total-num');
 var glfSliderWrapper = document.querySelector('.glf-slider-wrapper');
+var glfSliderBlock = document.querySelectorAll('.glf-slider-block');
 var glfSliderBlockNum = document.querySelectorAll('.glf-slider-block').length;
+var blockNumMax = glfSliderBlockNum - 1;
+
+glfSliderBlock.forEach((elem, index) => {
+    elem.style.setProperty('--_block-num', index);
+    if (index === 0) {
+        // elem.style.setProperty('display', 'block');
+    } else {
+        // elem.style.setProperty('display', 'none');
+    };
+});
+
+// glfSliderBlock[0].style.setProperty('display', 'block');
 
 glfSliderWrapper.style.setProperty('--_slide-to', 0);
 glfSliderCurrentNum.innerHTML = 1;
@@ -123,7 +137,7 @@ glfSliderTotalNum.innerHTML = glfSliderBlockNum;
 
 var glfSliderTo = 0;
 function glfSliderPush(push) {
-    let blockNumMax = glfSliderBlockNum - 1;
+    glfSliderBlock[glfSliderTo].style.setProperty('opacity', 0);
 
     glfSliderTo += push;
     glfSliderTo = glfSliderTo < 0 ? 0 : glfSliderTo;
@@ -131,6 +145,9 @@ function glfSliderPush(push) {
     glfSliderWrapper.style.setProperty('--_slide-to', glfSliderTo);
 
     glfSliderCurrentNum.innerHTML = glfSliderTo + 1;
+
+    glfSliderBlock[glfSliderTo].style.setProperty('opacity', 1);
+
 }
 
 
