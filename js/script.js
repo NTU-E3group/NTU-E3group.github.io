@@ -104,6 +104,35 @@ resImgBlockWithAni.forEach(elem => {
 });
 
 
+// group life
+// const element = document.querySelector('div.a');
+// const computedStyle = getComputedStyle(element);
+// const width = computedStyle.getPropertyValue('--_width');
+
+// var sliderGap = getComputedStyle(document.querySelector('.glf-section[which="slider"]')).getPropertyValue('--_slider-gap');
+// console.log(sliderGap);
+
+var glfSliderCurrentNum = document.querySelector('.glf-slider-current-num');
+var glfSliderTotalNum = document.querySelector('.glf-slider-total-num');
+var glfSliderWrapper = document.querySelector('.glf-slider-wrapper');
+var glfSliderBlockNum = document.querySelectorAll('.glf-slider-block').length;
+
+glfSliderWrapper.style.setProperty('--_slide-to', 0);
+glfSliderCurrentNum.innerHTML = 1;
+glfSliderTotalNum.innerHTML = glfSliderBlockNum;
+
+var glfSliderTo = 0;
+function glfSliderPush(push) {
+    let blockNumMax = glfSliderBlockNum - 1;
+
+    glfSliderTo += push;
+    glfSliderTo = glfSliderTo < 0 ? 0 : glfSliderTo;
+    glfSliderTo = glfSliderTo > blockNumMax ? blockNumMax : glfSliderTo;
+    glfSliderWrapper.style.setProperty('--_slide-to', glfSliderTo);
+
+    glfSliderCurrentNum.innerHTML = glfSliderTo + 1;
+}
+
 
 // cursor
 let mouseX = 0, mouseY = 0;
@@ -151,17 +180,17 @@ document.addEventListener('mousemove', function(e) {
 
 
 
-document.querySelectorAll('[hover-text]').forEach(elem => {
-    elem.addEventListener('mouseover', function() {
-        cursor.classList.add('hover-effect');
-        // cursorText.innerHTML = 'fjooj';
-        cursorText.innerHTML = elem.getAttribute('hover-text');
-    });
+// document.querySelectorAll('[hover-text]').forEach(elem => {
+//     elem.addEventListener('mouseover', function() {
+//         cursor.classList.add('hover-effect');
+//         // cursorText.innerHTML = 'fjooj';
+//         cursorText.innerHTML = elem.getAttribute('hover-text');
+//     });
 
-    elem.addEventListener('mouseout', function() {
-        cursor.classList.remove('hover-effect');
-        cursorText.innerHTML = '';
-    });
-});
+//     elem.addEventListener('mouseout', function() {
+//         cursor.classList.remove('hover-effect');
+//         cursorText.innerHTML = '';
+//     });
+// });
 
 // animateCursor();
