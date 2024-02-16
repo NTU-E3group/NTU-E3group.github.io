@@ -1446,10 +1446,10 @@ h3 {
     }
 
     .glf-slider-wrapper {
-        --_slider-transition-time: 1s;
+        --_slider-transition-time: 0.4s;
         --_slide-to: 0;
         transform: translateX(calc(50% - (var(--_img-width) + var(--_slider-gap)) * var(--_slide-to)));
-        transition: var(--_slider-transition-time);
+        transition: var(--_slider-transition-time) cubic-bezier(0.3, 0.2, 0.2, 1.2);
 
         display: flex;
         align-items: start;
@@ -1577,7 +1577,16 @@ footer {
     }
 }
 
+.to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
 
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 0.25rem;
+}
 
 
 .nav-l {
