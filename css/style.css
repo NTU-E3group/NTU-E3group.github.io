@@ -1113,7 +1113,7 @@ h3 {
 
     .res-block {
         flex-grow: 1;
-        background-color: red;
+        /* background-color: red; */
 
         display: flex;
         flex-wrap: wrap;
