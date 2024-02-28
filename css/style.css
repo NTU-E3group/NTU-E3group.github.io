@@ -834,15 +834,12 @@ h3 {
         flex-basis: calc(
             (min(100%, var(--_para-min-width)) - (100% - var(--_logo-width) - var(--_gap))) * 9999
         );
-
-        & > * + * {
-            text-indent: 2rem;
-        }
-            
+        
         & p {
             margin-top: 1rem;
             font-size: 1.3125rem;
             text-align: justify;
+            text-indent: 2rem;
             
             & sub {
                 font-size: 0.75em;
