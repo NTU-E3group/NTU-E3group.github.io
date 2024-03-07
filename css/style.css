@@ -1601,13 +1601,12 @@ footer {
 }
 
 .menu-wrapper {
-    --_menu-width: 15rem;
+    --_block-width: 15rem;
+    --_block-height: 100%;
 
     position: fixed;
     top: 0;
     right: 0;
-    width: var(--_menu-width);
-    height: 100%;
     background-color: var(--main-bg-color);
     border-left: 0.1875rem solid var(--main-color);
 
