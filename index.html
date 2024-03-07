@@ -2196,11 +2196,21 @@
         <p>Menu</p>
     </button>
 
-    <nav class="menu-wrapper skewed-block" b-role="block">
-        <ul>
+    <nav class="menu display-none">
+        <div class="menu-bg"></div>
+
+        <ul class="menu-wrapper">
+            <ui>
+                <button type="button" class="menu-close-btn skewed-block" b-role="btn" b-hoverable hover-text="Home">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27" width="1.6875rem">
+                        <path class="fill-m" d="M15.62,13.5L26.56,2.56c.59-.59,.59-1.54,0-2.12-.59-.59-1.54-.59-2.12,0L13.5,11.38,2.56,.44C1.97-.15,1.03-.15,.44,.44-.15,1.02-.15,1.98,.44,2.56L11.38,13.5,.44,24.44c-.59,.59-.59,1.54,0,2.12,.29,.29,.68,.44,1.06,.44s.77-.15,1.06-.44L13.5,15.62l10.94,10.94c.29,.29,.68,.44,1.06,.44s.77-.15,1.06-.44c.59-.59,.59-1.54,0-2.12L15.62,13.5Z"/>
+                    </svg>
+                </button>
+            </ui>
+
             <ui>
                 <a href="#home" class="menu-a skewed-block" b-role="btn" b-hoverable hover-text="Home">
-                    <svg viewBox="0 0 22 22">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
                         <path class="fill-m" d="M10.55,2.25L.79,9.7c-.44,.33-.52,.96-.19,1.39h0c.33,.44,.97,.53,1.41,.19l1-.76v8.63c0,.41,.33,.75,.75,.75h14.51c.41,0,.75-.33,.75-.75V10.53l1.01,.76c.44,.33,1.06,.24,1.39-.19h0c.33-.44,.25-1.06-.19-1.39L11.46,2.25c-.27-.2-.64-.2-.91,0Zm6.45,15.65h-5v-3c0-.55-.45-1-1-1h0c-.55,0-1,.45-1,1v3H5V9l6-4.58,6,4.58v8.9Z"/>
                     </svg>
                     
@@ -2210,7 +2220,7 @@
 
             <ui>
                 <a href="#about-us" class="menu-a skewed-block" b-role="btn" b-hoverable hover-text="About Us">
-                    <svg viewBox="0 0 22 22">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
                         <path class="fill-m" d="M8,5c1.1,0,2,.9,2,2s-.9,2-2,2-2-.9-2-2,.9-2,2-2m0-2c-2.21,0-4,1.79-4,4s1.79,4,4,4,4-1.79,4-4-1.79-4-4-4h0Z"/>
                         <path class="fill-m" d="M14,3c-.47,0-.91,.1-1.33,.24,.83,1.03,1.33,2.33,1.33,3.76s-.5,2.73-1.33,3.76c.42,.15,.86,.24,1.33,.24,2.21,0,4-1.79,4-4s-1.79-4-4-4Z"/>
                         <path class="fill-m" d="M20.4,17.61l-2.14-5c-.16-.37-.52-.61-.92-.61h-3.17l2.06,4.82c.3,.7,.32,1.48,.07,2.18h3.17c.72,0,1.2-.73,.92-1.39Z"/>
@@ -2223,7 +2233,7 @@
 
             <ui>
                 <a href="#members" class="menu-a skewed-block" b-role="btn" b-hoverable hover-text="Members">
-                    <svg viewBox="0 0 22 22">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
                         <path class="fill-m" d="M8,5c1.1,0,2,.9,2,2s-.9,2-2,2-2-.9-2-2,.9-2,2-2m0-2c-2.21,0-4,1.79-4,4s1.79,4,4,4,4-1.79,4-4-1.79-4-4-4h0Z"/>
                         <path class="fill-m" d="M14,3c-.47,0-.91,.1-1.33,.24,.83,1.03,1.33,2.33,1.33,3.76s-.5,2.73-1.33,3.76c.42,.15,.86,.24,1.33,.24,2.21,0,4-1.79,4-4s-1.79-4-4-4Z"/>
                         <path class="fill-m" d="M20.4,17.61l-2.14-5c-.16-.37-.52-.61-.92-.61h-3.17l2.06,4.82c.3,.7,.32,1.48,.07,2.18h3.17c.72,0,1.2-.73,.92-1.39Z"/>
@@ -2236,7 +2246,7 @@
 
             <ui>
                 <a href="#research" class="menu-a skewed-block" b-role="btn" b-hoverable hover-text="Research">
-                    <svg viewBox="0 0 22 22">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
                         <path class="fill-m" d="M9.98,19.74l-6-3.26c-.32-.17-.52-.51-.52-.88v-5.41l-2.4-1.32c-.69-.38-.69-1.38,0-1.75L9.98,2.26c.3-.16,.66-.16,.96,0l10,5.45c.32,.18,.52,.51,.52,.88v6.41c0,.55-.45,1-1,1h0c-.55,0-1-.45-1-1v-5.9l-2,1.1v5.41c0,.37-.2,.7-.52,.88l-6,3.26c-.3,.16-.66,.16-.95,0Zm.48-8.04l6.85-3.7-6.85-3.7L3.61,8l6.85,3.7Zm0,6.03l5-2.7v-3.78l-4.52,2.48c-.3,.17-.66,.17-.96,0l-4.52-2.48v3.78l5,2.7Z"/>
                     </svg>
 
@@ -2246,7 +2256,7 @@
             
             <ui>
                 <a href="#publication" class="menu-a skewed-block" b-role="btn" b-hoverable hover-text="Publication">
-                    <svg viewBox="0 0 22 22">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
                         <path class="fill-m" d="M5,21c-.55,0-1.02-.2-1.41-.59s-.59-.86-.59-1.41V3c0-.55,.2-1.02,.59-1.41s.86-.59,1.41-.59h12c.55,0,1.02,.2,1.41,.59s.59,.86,.59,1.41V19c0,.55-.2,1.02-.59,1.41s-.86,.59-1.41,.59H5Zm0-2h12V3h-2v6.65c0,.16-.17,.25-.3,.17l-2.2-1.32-2.2,1.32c-.13,.08-.3-.02-.3-.17V3H5V19Zm0,0v0Z"/>
                     </svg>
 
@@ -2256,7 +2266,7 @@
 
             <ui>
                 <a href="#group-life" class="menu-a skewed-block" b-role="btn" b-hoverable hover-text="Group Life">
-                    <svg viewBox="0 0 22 22">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
                         <path class="fill-m" d="M15.59,15H6.41c-.17,0-.26-.19-.16-.32l3.04-3.97c.08-.1,.24-.1,.32,0l1.98,2.59c.08,.1,.24,.1,.32,0l1.23-1.59c.08-.1,.24-.1,.32,0l2.29,2.97c.1,.13,0,.32-.16,.32Z"/>
                         <path class="fill-m" d="M18.41,3.59c-.39-.39-.86-.59-1.41-.59H5c-.55,0-1.02,.2-1.41,.59s-.59,.86-.59,1.41v12c0,.55,.2,1.02,.59,1.41s.86,.59,1.41,.59h12c.55,0,1.02-.2,1.41-.59s.59-.86,.59-1.41V5c0-.55-.2-1.02-.59-1.41Zm-1.41,13.41H5V5h12v12Z"/>
                     </svg>
@@ -2264,17 +2274,6 @@
                     <span>Group Life</span>
                 </a>
             </ui>
-
-            <ui>
-                <a href="#contact" class="menu-a skewed-block" b-role="btn" b-hoverable hover-text="Contact">
-                    <svg viewBox="0 0 22 22">
-                        <path class="fill-m" d="M2.29,4.51v12.99c0,.72,.73,1.2,1.39,.92l15.42-6.49c.82-.34,.82-1.5,0-1.84L3.68,3.58c-.66-.28-1.39,.21-1.39,.92Zm2,7.99l5.22-1.31c.2-.05,.2-.34,0-.39l-5.22-1.31v-3.5l11.85,5-11.85,5v-3.5Z"/>
-                    </svg>
-
-                    <span>Contact Us</span>
-                </a>
-            </ui>
-
         </ul>
     </nav>
 

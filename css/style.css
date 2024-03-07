@@ -8,7 +8,7 @@
     --secondary-color: #c4c691;
     --page-bg: #f7fafb;
 
-    --main-hsl: 201, 85%, 27%;
+    --main-color-hsl: 201, 85%, 27%;
 
     /* --main-color: #8fcdff;
     --main-bg-color: #1a1c1e;
@@ -101,6 +101,7 @@ html {
 
 body {
     background-color: var(--page-bg);
+    /* overflow: hidden; */
 }
 
 main {
@@ -191,7 +192,7 @@ h3 {
 
     &[b-role="btn"] {
         padding: var(--_adjusted-padding, var(--btn-padding));
-        font-size: var(--_font-size, 1rem);
+        font-size: var(--_adjusted-font-size, 1rem);
     }
 
     &[b-hoverable] {
@@ -248,6 +249,8 @@ h3 {
     }
 }
 
+.display-none {display: none !important;}
+.overflow-hidden {overflow: hidden !important;}
 
 #home {
     --_window-padding: 2rem;
@@ -319,7 +322,7 @@ h3 {
         }
     
         .hp1-about-us {
-            --_font-size: 1.5rem;
+            --_adjusted-font-size: 1.5rem;
             --_adjusted-border-width: 0.1875rem;
             --_adjusted-shadow-shift: 0.3125rem;
             --_adjusted-hover-shadow-shift: 0.4375rem;
@@ -1584,7 +1587,7 @@ footer {
 
 /* menu */
 .menu-btn {
-    --_font-size: 1.125rem;
+    --_adjusted-font-size: 1.125rem;
 
     position: fixed;
     top: 2rem;
@@ -1600,17 +1603,52 @@ footer {
     gap: 0.5rem;
 }
 
-.menu-wrapper {
-    --_block-width: 15rem;
-    --_block-height: 100%;
-
+.menu {
+    --_menu-width: 25rem;
+    --_menu-a-width: 11rem;
+    
     position: fixed;
-    top: 0;
-    right: 0;
-    background-color: var(--main-bg-color);
-    border-left: 0.1875rem solid var(--main-color);
+    inset: 0;
+    z-index: 999;
+    
+    .menu-bg {
+        position: fixed;
+        inset: 0;
+        background-color: var(--main-color);
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.3s;
+    }
+    
+    .menu-wrapper {
+        position: fixed;
+        top: 0;
+        right: calc(-1 * var(--_menu-width) - 100lvh * tan(var(--content-skew)) / 2);
+        width: var(--_menu-width);
+        height: 100%;
+        padding: 2rem calc((var(--_menu-width) - var(--_menu-a-width)) / 1.8);
+        background-color: var(--main-bg-color);
+        border-left: 0.1875rem solid var(--main-color);
+        transform: skewX(var(--block-skew));
+        transition: 0.3s;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: end;
+        gap: 2rem;
+
+        
+        & > * {
+            transform: skewX(calc(-1 * var(--block-skew)));
+        }
+    }
 
     .menu-a {
+        --_adjusted-font-size: 1.25rem;
+
+        width: var(--_menu-a-width);
+
         display: flex;
         align-items: center;
         gap: 0.5rem;
@@ -1618,6 +1656,16 @@ footer {
 
     & svg {
         width: 1.375rem;
+    }
+}
+
+.menu-active {
+    .menu-bg {
+        opacity: 0.1;
+    }
+
+    .menu-wrapper {
+        right: calc(-100lvh * tan(var(--content-skew)) / 2);
     }
 }
 

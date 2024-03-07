@@ -1,3 +1,4 @@
+const body = document.querySelector('body');
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
@@ -150,6 +151,35 @@ function glfSliderPush(push) {
 
 }
 
+// menu
+var menuBtn = document.querySelector('.menu-btn');
+var menuCloseBtn = document.querySelector('.menu-close-btn');
+var menuBg = document.querySelector('.menu-bg');
+var menu = document.querySelector('.menu');
+
+// the bg part to be fixed
+[menuBtn, menuCloseBtn, menuBg].forEach(elem => {
+    elem.addEventListener('click', (e) => {
+        // console.log(e.target);
+        if (menu.classList.contains('menu-active')) {
+            body.classList.remove('overflow-hidden');
+            menu.classList.remove('menu-active');
+            setTimeout(() => {
+                menu.classList.add('display-none');
+            }, 300);
+        } else {
+            body.classList.add('overflow-hidden');
+            menu.classList.remove('display-none');
+            setTimeout(() => {
+                menu.classList.add('menu-active');
+            }, 10);
+        };
+    });
+});
+
+document.addEventListener('click', (e) => {
+    console.log(e.target);
+});
 
 // cursor
 let mouseX = 0, mouseY = 0;
