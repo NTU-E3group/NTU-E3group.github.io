@@ -4,14 +4,14 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 };
 
-const colorArray = ['--r-red', '--r-orange', '--r-yellow', '--r-green', '--r-blue', '-r-indigo', '--r-purple'];
+const colorArray = ['--r-red', '--r-orange', '--r-yellow', '--r-green', '--r-blue', '--r-indigo', '--r-purple'];
 
 // 101 top color change
 function change101Top() {
     var timeNow = new Date();
     var utc8Day = timeNow.getUTCHours() >= 16 ? timeNow.getUTCDay() + 1 : timeNow.getUTCDay();
     var topColorHex = getComputedStyle(document.documentElement).getPropertyValue(colorArray[utc8Day % 7]);
-    document.querySelector(".fill-101-top").style.fill = topColorHex;
+    document.querySelector(".hp-101-top").style.fill = topColorHex;
 };
 change101Top();
 
