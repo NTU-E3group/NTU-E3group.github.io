@@ -494,255 +494,56 @@ h3 {
     }
 }
 
-.hp-main {
-    translate: 0 -1rem;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-
-    & > p {
-        font-size: 1.5rem;
-        user-select: none;
-        transition: transform var(--hover-transition-time);
-
-        display: flex;
-        align-items: baseline;
-        gap: 0.5rem;
-
-        & svg {height: 1rem;}
-    }
+/* .hp-rain-back, .hp-rain-front {
+    top: 0;
+    width: 100%;
+    height: 100%;
 }
 
-.hp-window {
-    --_lw: 0.1875rem;
+.hp-rain-front{
+    --_drop-time: 1.5s;
 
-    position: relative;
-    width: var(--_window-width);
-    aspect-ratio: 16/9;
-    background-color: var(--main-bg-color);
-    border-radius: 0.375rem;
-    border: var(--_lw) solid var(--main-color);
-    box-shadow: 0.625rem 0.625rem var(--main-shadow-color);
-    overflow: hidden;
-    transition: var(--hover-transition-time);
+    & line {
+        --_rain-length: 5rem;
 
-    &:hover {
-        translate: -0.0625rem -0.0625rem;
-        box-shadow: 0.8125rem 0.8125rem var(--main-shadow-color);
-
-        /* scale: 1.0025; */
-    }
-
-    &:active {
-        translate: 0 0;
-        box-shadow: 0.625rem 0.625rem var(--main-shadow-color);
-        /* scale: 1; */
-    }
-
-    & > * {
-        position: absolute;
-    }
-
-    .hp-dive-in {
-        font-size: 1.5rem;
-        user-select: none;
-
-        display: flex;
-        align-items: baseline;
-        gap: 0.5rem;
-
-        & svg {height: 1rem;}
-    }
-
-    .hp-top-layer {
-        inset: 0;
-        background-color: transparent;
-        z-index: 99;
-        /* cursor: none; */
-
-        &:hover {
-            & div {
-                translate: 0 0;
-            }
-        }
-
-        & div {
-            position: absolute;
-            right: 1rem;
-            bottom: 1rem;
-            width: 4rem;
-            aspect-ratio: 1/1;
-            border-radius: 50%;
-            padding: 0.5rem;
-            background-color: var(--main-bg-color);
-            border: var(--_lw) solid var(--main-color);
-            box-shadow: 0.1875rem 0.1875rem var(--main-shadow-color);
-            translate: 6rem 0;
-            transition: translate var(--hover-transition-time);
-        }
-    }
-
-    .hp-horizon {
-        width: 100%;
-        height: 0.53%;
-        background-color: var(--main-color);
-        top: 69%;
-    }
-
-    .hp-wire {
-        width: 100%;
-        top: 71%;
-
-        display: flex;
-        align-items: baseline;
-        justify-content: center;
-    }
-
-    .hp-wire path {
-        stroke: var(--secondary-color);
-        fill: none;
-        stroke-width: var(--_lw);
-    }
-
-    .hp-wire-l {
-        margin-right: 87px;
-    }
-
-    .hp-wire-r {
-        margin-left: 93px;
-        margin-right: 34px;
-    }
-
-    .hp-landscape {
-        width: 100%;
-        top: 18%;
-
-        display: flex;
-        align-items: baseline;
-        justify-content: center;
-        /* justify-content: space-evenly; */
-        /* gap: 50px; */
-
-    }
-
-    .hp-batt {margin-right: 2.6%;}
-    .hp-pv {margin-right: 3.2%;}
-    .hp-sky {margin-right: 4.3%;}
-    .hp-fb-a25 {margin-right: 4.7%;}
-    .hp-wfns {margin-left: 4.5%;}
-    .hp-ns-a21 {
-        margin-left: 4.5%;
-        translate: 0 3.1%;
-    }
-    .hp-wt {margin-left: 2.5%;}
-    .hp-wt-blade {
-        /* transY 21.34/56 */
-        margin-bottom: -38.1071%;
-        /* trans-o 32.5/65 34.66/56 */
-        transform-origin: 50% 61.8928%;
-        animation: wt-spin 10s linear infinite; 
-    }
-
-    .hp-ess {
-        /* w32 ml18 mr14 */
-        margin-left: 1.8%;
-        margin-right: 1.4%;
-    }
-
-    .hp-road-ltr {
-        width: 100%;
-        /* t400 */
-        top: 71.1%;
-
-        display: flex;
-    }
-    .hp-road-rtl {
-        width: 100%;
-        /* t460 */
-        top: 81.8%;
-        scale: -1 1;
-
-        display: flex;
-    }
-
-    .hp-car {
-        /* position: absolute; */
-        width: 75px;
-        /* cursor: pointer; */
-        animation: car-go-burr 7s ease-in-out infinite;
-        /* translate: 200px; */
-        /* transform: translateX(); */
-    }
-
-    .hp-v-stroke {
         stroke: var(--main-color);
-        stroke-width: var(--_lw);
-        stroke-dasharray: 0 100%;
-        /* stroke-dashoffset: 5; */
-        transition: 0.8s;
-        animation: vehicle-stroke 1s linear infinite;
-    }
-
-    .hp-car:hover .hp-v-stroke {
-        stroke-dasharray: 100%;
-        /* stroke-dashoffset: calc(-100% - 5px); */
-    }
-
-
-
-    .hp-rain-back, .hp-rain-front {
-        top: 0;
-        width: 100%;
-        height: 100%;
-    }
-
-    .hp-rain-front{
-        --_drop-time: 1.5s;
-
-        & line {
-            --_rain-length: 5rem;
-
-            stroke: var(--main-color);
-            opacity: 0.65;
-            stroke-width: 0.125rem;
-            stroke-dasharray: var(--_rain-length) 1000;
-            stroke-dashoffset: var(--_rain-length);
-            animation: rain-stroke-front var(--_drop-time) linear infinite;
-        }
-    }
-
-    .hp-rain-back {
-        --_drop-time: 1.5s;
-        /* position: absolute;
-        top: -160px;
-        left: 200px; */
-        width: 100%;
-
-        & line {
-            --_rain-length: 3.75rem;
-
-            stroke: var(--main-color);
-            opacity: 0.5;
-            stroke-width: 0.09375rem;
-            stroke-dasharray: var(--_rain-length) 1000;
-            stroke-dashoffset: var(--_rain-length);
-            animation: rain-stroke var(--_drop-time) linear infinite;
-
-        }
-
-        & path {
-            stroke: var(--main-color);
-            fill: none;
-            stroke-dasharray: 2 4.25;
-            stroke-width: 4;
-            opacity: 1;
-            transform: scale(0);
-            animation: rain-splat var(--_drop-time) linear infinite;
-        }
+        opacity: 0.65;
+        stroke-width: 0.125rem;
+        stroke-dasharray: var(--_rain-length) 1000;
+        stroke-dashoffset: var(--_rain-length);
+        animation: rain-stroke-front var(--_drop-time) linear infinite;
     }
 }
+
+.hp-rain-back {
+    --_drop-time: 1.5s;
+    /* position: absolute;
+    top: -160px;
+    left: 200px; */
+    width: 100%;
+
+    & line {
+        --_rain-length: 3.75rem;
+
+        stroke: var(--main-color);
+        opacity: 0.5;
+        stroke-width: 0.09375rem;
+        stroke-dasharray: var(--_rain-length) 1000;
+        stroke-dashoffset: var(--_rain-length);
+        animation: rain-stroke var(--_drop-time) linear infinite;
+
+    }
+
+    & path {
+        stroke: var(--main-color);
+        fill: none;
+        stroke-dasharray: 2 4.25;
+        stroke-width: 4;
+        opacity: 1;
+        transform: scale(0);
+        animation: rain-splat var(--_drop-time) linear infinite;
+    }
+} */
 
 
 @keyframes wt-spin {from {rotate: 0deg;} to {rotate: 360deg;}}
