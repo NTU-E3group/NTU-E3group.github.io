@@ -6,7 +6,6 @@ function getRandomInt(min, max) {
 
 const colorArray = ['--r-red', '--r-orange', '--r-yellow', '--r-green', '--r-blue', '-r-indigo', '--r-purple'];
 
-
 // 101 top color change
 function change101Top() {
     var timeNow = new Date();
@@ -152,34 +151,79 @@ function glfSliderPush(push) {
 }
 
 // menu
+var menu = document.querySelector('.menu');
 var menuBtn = document.querySelector('.menu-btn');
 var menuCloseBtn = document.querySelector('.menu-close-btn');
 var menuBg = document.querySelector('.menu-bg');
-var menu = document.querySelector('.menu');
+var menuA = document.querySelectorAll('.menu-a');
+
+function getScrollBarWidth() {
+    let el = document.createElement("div");
+    el.style.cssText = "overflow:scroll; visibility:hidden; position:absolute;";
+    document.body.appendChild(el);
+    let width = el.offsetWidth - el.clientWidth;
+    el.remove();
+    return width;
+}
+
+function menuOpen() {
+    body.style.paddingInlineEnd = getScrollBarWidth() + 'px';
+    body.classList.add('overflow-hidden');
+    menu.classList.remove('display-none');
+    setTimeout(() => {
+        menu.classList.add('menu-active');
+    }, 10);
+};
+
+function menuClose() {
+    body.style.paddingInlineEnd = 0;
+    body.classList.remove('overflow-hidden');
+    menu.classList.remove('menu-active');
+    setTimeout(() => {
+        menu.classList.add('display-none');
+    }, 300);
+};
 
 // the bg part to be fixed
 [menuBtn, menuCloseBtn, menuBg].forEach(elem => {
     elem.addEventListener('click', (e) => {
-        // console.log(e.target);
         if (menu.classList.contains('menu-active')) {
-            body.classList.remove('overflow-hidden');
-            menu.classList.remove('menu-active');
-            setTimeout(() => {
-                menu.classList.add('display-none');
-            }, 300);
+            menuClose();
         } else {
-            body.classList.add('overflow-hidden');
-            menu.classList.remove('display-none');
-            setTimeout(() => {
-                menu.classList.add('menu-active');
-            }, 10);
+            menuOpen();
         };
     });
 });
 
+menuA.forEach(elem => {
+    elem.addEventListener('click', () => {
+        menuClose();
+    });
+});
+
+
 document.addEventListener('click', (e) => {
     console.log(e.target);
 });
+
+// to top button
+var toTopBtn = document.querySelector('.to-top-btn');
+
+window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+    if (document.body.scrollTop > window.innerHeight || document.documentElement.scrollTop > window.innerHeight) {
+        console.log('hi');
+        toTopBtn.style.display = "grid";
+        setTimeout(() => {
+            toTopBtn.style.opacity = "1";
+        }, 10);
+    } else {
+      toTopBtn.style.opacity = "0";
+        setTimeout(() => {
+            toTopBtn.style.display = "none";
+        }, 300);
+    }
+  }
 
 // cursor
 let mouseX = 0, mouseY = 0;

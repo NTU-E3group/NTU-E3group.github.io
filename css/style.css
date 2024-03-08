@@ -250,7 +250,7 @@ h3 {
 }
 
 .display-none {display: none !important;}
-.overflow-hidden {overflow: hidden !important;}
+.overflow-hidden {overflow-y: hidden !important;}
 
 #home {
     --_window-padding: 2rem;
@@ -1661,7 +1661,7 @@ footer {
 
 .menu-active {
     .menu-bg {
-        opacity: 0.1;
+        opacity: 0.15;
     }
 
     .menu-wrapper {
@@ -1669,12 +1669,15 @@ footer {
     }
 }
 
-.to-top {
+.to-top-btn {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
+    transition: 0.3s;
 
-    display: grid;
+    /* work with js */
+    /* scroll down then display grid */
+    display: none;
     place-content: center;
     justify-items: center;
     gap: 0.25rem;
