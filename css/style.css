@@ -87,6 +87,11 @@
     stroke-width: 0.1875rem;
     stroke-miterlimit: 10;
 }
+.stroke-4 {
+    fill: none;
+    stroke-width: 0.25rem;
+    stroke-miterlimit: 10;
+}
 .stroke-2 {
     fill: none;
     stroke-width: 0.125rem;

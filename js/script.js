@@ -13,17 +13,7 @@ function change101Top() {
     var topColorHex = getComputedStyle(document.documentElement).getPropertyValue(colorArray[utc8Day % 7]);
     document.querySelector(".fill-101-top").style.fill = topColorHex;
 };
-// change101Top();
-
-var hpDiveIn = document.querySelector('.hp-dive-in');
-var hpTopLayer = document.querySelector('.hp-top-layer');
-
-// hpTopLayer.addEventListener('mouseover', () => {
-//     hpDiveIn.style.transform = 'translateY(-0.4375rem)';
-// });
-// hpTopLayer.addEventListener('mouseout', () => {
-//     hpDiveIn.style.transform = 'translateY(0rem)';
-// });
+change101Top();
 
 // rain
 var hpRainFront = document.querySelector('.hp-rain-front');
