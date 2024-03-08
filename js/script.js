@@ -202,7 +202,6 @@ var toTopBtn = document.querySelector('.to-top-btn');
 window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
     if (document.body.scrollTop > window.innerHeight || document.documentElement.scrollTop > window.innerHeight) {
-        console.log('hi');
         toTopBtn.style.display = "grid";
         setTimeout(() => {
             toTopBtn.style.opacity = "1";
