@@ -1574,3 +1574,32 @@ footer {
 [hover-text]:hover {
     /* cursor: none; */
 }
+
+
+@media (width <= 48rem) {
+    .section-title {
+        & h2 {
+            font-size: 3rem;
+        }
+
+        & svg {
+            height: 3rem;
+            translate: 0.5rem -1.25rem;
+        }
+    }
+
+    h3 {
+        margin-block: 3rem 0.75rem;
+        font-size: 1.5rem;
+
+        &::after {
+            width: 0.625rem;
+            height: 0.1875rem;
+        }
+    }
+
+    .abt-text p {
+        font-size: 1rem;
+    }
+
+}
