@@ -110,7 +110,7 @@ body {
 }
 
 main {
-    background-image: url(../assets/image/background.png);
+    background-image: url(../assets/image/background.webp);
     background-repeat: repeat-y;
     background-size: 100% auto;
 }
