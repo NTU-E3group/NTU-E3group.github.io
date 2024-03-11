@@ -177,7 +177,7 @@ function getScrollBarWidth() {
 }
 
 function menuOpen() {
-    body.style.paddingInlineEnd = getScrollBarWidth() + 'px';
+    // body.style.paddingInlineEnd = getScrollBarWidth() + 'px';
     body.classList.add('overflow-hidden');
     menu.classList.remove('display-none');
     setTimeout(() => {
@@ -212,9 +212,9 @@ menuA.forEach(elem => {
 });
 
 
-document.addEventListener('click', (e) => {
-    console.log(e.target);
-});
+// document.addEventListener('click', (e) => {
+//     console.log(e.target);
+// });
 
 // to top button
 var toTopBtn = document.querySelector('.to-top-btn');

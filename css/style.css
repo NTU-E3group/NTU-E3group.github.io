@@ -617,7 +617,7 @@ h3 {
         );
         
         & p {
-            margin-top: 1rem;
+            /* margin-block-start: 1rem; */
             font-size: 1.3125rem;
             text-align: justify;
             text-indent: 2rem;
@@ -626,6 +626,8 @@ h3 {
                 font-size: 0.75em;
                 vertical-align: text-bottom;
             }
+
+            &+p {margin-block-start: 1rem;}
         }
     
     }
@@ -800,6 +802,8 @@ h3 {
         .ppl-arrow {
             align-self: end;
         }
+
+        @media (width < 45rem) {justify-content: space-around;}
     }
 
     &[who='S'] {
@@ -867,6 +871,8 @@ h3 {
             
             }
         }
+
+        @media (width < 51.5rem) {justify-content: space-around;}
     }
 }
 
@@ -898,6 +904,7 @@ h3 {
         gap: 1rem 0.625rem;
         align-items: start;
         /* justify-content: center; */
+        /* @media (width < 42rem) {justify-content: center;} */
     }
 
     .res-fields-block {
@@ -1112,11 +1119,11 @@ h3 {
             align-items: start;
 
             .pub-date-mm {
-                width: 2.2rem;
+                width: 2.25rem;
             }
             
             .pub-date-yy {
-                width: 1.4rem;
+                width: 1.375rem;
                 text-align: right;
             }
         }
@@ -1173,6 +1180,8 @@ h3 {
             margin-inline-start: 0.25rem;
             transition: var(--hover-transition-time);
         }
+
+        @media (width <= 48rem) {margin-block-start: 1.5rem;}
     }
 }
 
@@ -1219,7 +1228,7 @@ h3 {
         }
 
         .glf-slider-num {
-            width: 3.8rem;
+            width: 3.8125rem;
             margin-inline-start: 0.125rem;
             font-size: 1.25rem;
             text-align: center;
@@ -1320,6 +1329,8 @@ h3 {
     .glf-img-text {
         margin-inline-end: 0.25rem;
     }
+
+    @media (width < 54.125rem) {justify-content: space-around;}
 }
 
 
@@ -1437,6 +1448,7 @@ footer {
 .menu-active {
     .menu-bg {
         opacity: 0.15;
+        pointer-events: auto;
     }
 
     .menu-wrapper {
@@ -1577,14 +1589,16 @@ footer {
 
 
 @media (width <= 48rem) {
-    .section-title {
-        & h2 {
-            font-size: 3rem;
-        }
+    section:has(.section-title) {
+        .section-title {
+            & h2 {
+                font-size: 3rem;
+            }
 
-        & svg {
-            height: 3rem;
-            translate: 0.5rem -1.25rem;
+            & svg {
+                height: 2.75rem;
+                translate: 0.5rem -1.125rem;
+            }
         }
     }
 
@@ -1599,7 +1613,40 @@ footer {
     }
 
     .abt-text p {
-        font-size: 1rem;
+        font-size: 1.0675rem !important;
     }
 
+    /* ppl */
+    .ppl-section[who='L'] .ppl-name div {
+        margin-block-start: 0rem;
+        font-size: 3rem;
+    }
+
+    .pub-section {
+        --_font-size-l: 1.3125rem;
+        --_font-size-s: 0.875rem;
+
+        .pub-date-mm {
+            width: 1.875rem !important;
+        }
+        
+        .pub-date-yy {
+            width: 1.25rem !important;
+        }
+    }
+
+    .glf-section[which='slider'] {
+        .glf-slider-btns svg {
+            width: 0.625rem;
+        }
+
+        .glf-slider-num {
+            width: 3.4375rem !important;
+            font-size: 1.125rem !important;
+        }
+    }
+
+    .glf-slider-text {
+        font-size: 1.125rem !important;
+    }
 }
