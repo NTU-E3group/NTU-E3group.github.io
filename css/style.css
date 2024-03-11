@@ -358,6 +358,7 @@ h3 {
         left: 50%;
         transform: translateX(-50%);
         bottom: var(--_window-padding);
+        user-select: none;
 
         display: grid;
         place-items: center;

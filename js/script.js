@@ -4,6 +4,26 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 };
 
+// last update time
+const repo = 'NTU-E3group/NTU-E3group.github.io';
+const commitsApiUrl = `https://api.github.com/repos/${repo}/commits`;
+
+fetch(commitsApiUrl)
+  .then(response => response.json())
+  .then(data => {
+    const lastCommitDate = data[0].commit.committer.date;
+    // const lastCommitMessage = data[0].commit.message;
+
+    let yyyy = new Date(lastCommitDate).getFullYear();
+    let mm = String(new Date(lastCommitDate).getMonth()+1).padStart(2, '0');
+    let dd = String(new Date(lastCommitDate).getDate()).padStart(2, '0');
+
+    let hpLastUpdateTime = document.querySelector('.hp-last-update-time');
+    hpLastUpdateTime.innerHTML = `${yyyy}. ${mm}. ${dd}`;
+  })
+  .catch(error => console.error('獲取更新資料時發生錯誤：', error));
+
+
 const colorArray = ['--r-red', '--r-orange', '--r-yellow', '--r-green', '--r-blue', '--r-indigo', '--r-purple'];
 
 // 101 top color change
