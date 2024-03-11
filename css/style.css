@@ -1083,6 +1083,7 @@ h3 {
 .pub-section {
     --_font-size-l: 1.5rem;
     --_font-size-s: 1rem;
+    --_block-gap: 0.75rem;
 
     display: grid;
     justify-items: start;
@@ -1095,14 +1096,12 @@ h3 {
         margin-inline: 1.5rem;
 
         & > * + * {
-            margin-block-start: 0.75rem;
+            margin-block-start: var(--_block-gap);
         }
     }
     
     .pub-block {
-        display: grid;
-        grid-template-columns: auto min(100%, var(--para-max-width)) 1fr;
-        align-items: start;
+        display: flex;
         gap: 1rem;
 
         .pub-date {
@@ -1126,7 +1125,7 @@ h3 {
             text-decoration: none;
 
             .pub-title {
-                /* display: inline-block; */
+                max-width: var(--para-max-width);
                 font-size: var(--_font-size-l);
                 /* text-wrap: balance; */
                 transition: var(--hover-transition-time);
@@ -1151,10 +1150,17 @@ h3 {
             margin-block-start: 0.125rem;
             font-size: var(--_font-size-s);
         }
+
+        @media (width <= 48rem) {
+            --_block-gap: 1rem;
+
+            flex-direction: column;
+            gap: 0.125rem;
+        }
     }
     
     .pub-more {
-        margin-block-start: 0.75rem;
+        margin-block-start: 1rem;
 
         display: flex;
 
