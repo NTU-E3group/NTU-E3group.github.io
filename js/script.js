@@ -18,8 +18,11 @@ fetch(commitsApiUrl)
     let mm = String(new Date(lastCommitDate).getMonth()+1).padStart(2, '0');
     let dd = String(new Date(lastCommitDate).getDate()).padStart(2, '0');
 
+    let hh = String(new Date(lastCommitDate).getHours()).padStart(2, '0');
+    let min = String(new Date(lastCommitDate).getMinutes()).padStart(2, '0');
+
     let hpLastUpdateTime = document.querySelector('.hp-last-update-time');
-    hpLastUpdateTime.innerHTML = `${yyyy}. ${mm}. ${dd}`;
+    hpLastUpdateTime.innerHTML = `${yyyy}.${mm}.${dd}  ${hh}:${min}`;
   })
   .catch(error => console.error('獲取更新資料時發生錯誤：', error));
 
