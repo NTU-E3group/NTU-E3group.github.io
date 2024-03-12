@@ -1661,14 +1661,13 @@ footer {
         --_font-size-l: 1.25rem;
         --_font-size-s: 0.75rem;
 
-
         .pub-date {
             .pub-date-mm {
-                width: 1.875rem !important;
+                width: 1.625rem !important;
             }
             
             .pub-date-yy {
-                width: 1.25rem !important;
+                width: 1.0625rem !important;
             }
         }
     }
