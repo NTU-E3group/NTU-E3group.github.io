@@ -517,6 +517,32 @@ h3 {
 } */
 
 /* hp animations */
+.hp-wind {
+    --_translate-y-start: -0.3125rem;
+    --_translate-y-end: 0.3125rem;
+    animation: translate-var 2s ease-in-out infinite alternate;
+
+    &[wind-no="2"] {animation-delay: -1s;}
+    &[wind-no="3"] {animation-delay: -0.5s;}
+    &[wind-no="4"] {animation-delay: -1.5s;}
+}
+
+.hp-pv-panel {
+    --_ani-time: 3s;
+
+    & [panel-ani-no] {
+        animation: panel-flash var(--_ani-time) step-end infinite;
+    }
+
+    & [panel-ani-no="2"] {animation-delay: calc(var(--_ani-time) / 4);}
+}
+
+@keyframes panel-flash {
+    0% {fill: var(--main-3-light);}
+    25% {fill: var(--main-color-3);}
+    100% {fill: var(--main-color-3);}
+}
+
 .hp-turbine-blade {
     rotate: 45deg;
     animation: turbine-spin 8s linear infinite;
