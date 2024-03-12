@@ -129,7 +129,7 @@ section:has(.section-title) {
 
         & svg {
             height: 3.75rem;
-            translate: 0.625rem -0.75rem;
+            translate: 0.375rem -1.25rem;
         }
     }
 
@@ -300,7 +300,7 @@ h3 {
 
             & svg {
                 height: 3.75rem;
-                translate: 0.625rem -0.75rem;
+                translate: 0.375rem -1.25rem;
             }
         }
 
@@ -392,7 +392,7 @@ h3 {
     
                 & svg {
                     height: 2.75rem;
-                    translate: 0.625rem -0.75rem;
+                    translate: 0.5rem -0.75rem;
                 }
             }
     
@@ -516,8 +516,13 @@ h3 {
     }
 } */
 
+/* hp animations */
+.hp-turbine-blade {
+    rotate: 45deg;
+    animation: turbine-spin 8s linear infinite;
+}
 
-@keyframes wt-spin {from {rotate: 0deg;} to {rotate: 360deg;}}
+@keyframes turbine-spin {from {rotate: 0deg;} to {rotate: 360deg;}}
 
 @keyframes car-go-burr {
     0% {translate: 0px;}
