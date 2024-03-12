@@ -1613,7 +1613,7 @@ footer {
     }
 
     .abt-text p {
-        font-size: 1rem !important;
+        font-size: 0.75rem !important;
         /* text-align: initial !important; */
 
         &+p {margin-block-start: 2rem !important;}
