@@ -73,6 +73,58 @@ var dropTime = 1300;
 // makeItRain(true, rainSlope, precip, dropTime);
 // makeItRain(false, rainSlope, precip, dropTime);
 
+
+function animateHpTheSky() {
+    var hpTheSkyBg = document.querySelector('.hp-the-sky-bg');
+    var hpTheSkyBack = document.querySelector('.hp-the-sky-back');
+    var hpTheSkyFront = document.querySelector('.hp-the-sky-front');
+
+    var start = null;
+    var duration = 600;
+    var direction = 1;
+    var cycle = 0;
+
+    var initialY = 143.85;
+    var deltaY = 4;
+    var targetY = initialY - deltaY;
+
+    function easeInOut(t) {
+        // return t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2;
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function animate(time) {
+        if (!start) start = time;
+        var progress = (time - start) / duration;
+
+        var easeProgress = easeInOut(progress);
+        var newY = (direction == 1) ? initialY - deltaY * easeProgress : targetY + deltaY * easeProgress;
+        var newYStar = newY - initialY;
+
+        if (cycle < 2) {
+            hpTheSkyBg.setAttribute('points', `379.5 ${newYStar + 143.85} 366.5 ${newYStar + 156.15} 366.5 ${newYStar + 143.85} 309.71 ${newYStar + 197.58} 309.71 409.15 379.5 409.15`);
+            hpTheSkyBack.setAttribute('points', `374.5 ${newYStar + 155.46} 366.5 ${newYStar + 163.03} 366.5 404.15 374.5 404.15`);
+            hpTheSkyFront.setAttribute('points', `361.5 ${newYStar + 155.46} 314.71 ${newYStar + 199.73} 314.71 404.15 361.5 404.15`);
+        };
+
+        if (progress >= 1) {
+            start = time;
+            direction *= -1;
+            if (cycle > 4) {
+                cycle = 0;
+            } else {
+                cycle++;
+            };
+        };
+
+        requestAnimationFrame(animate);
+    };
+
+    requestAnimationFrame(animate);
+};
+
+window.onload = animateHpTheSky();
+
 // filters
 document.querySelectorAll('.filter').forEach((filter) => {
     let where = filter.getAttribute('where');

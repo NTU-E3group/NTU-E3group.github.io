@@ -81,7 +81,13 @@
 .stroke-m {stroke: var(--main-color);}
 .stroke-s {stroke: var(--secondary-color);}
 .stroke-s-light {stroke: var(--secondary-light);}
+.stroke-m-2 {stroke: var(--main-color-2);}
 .stroke-m-3 {stroke: var(--main-color-3);}
+.stroke-2 {
+    fill: none;
+    stroke-width: 0.125rem;
+    stroke-miterlimit: 10;
+}
 .stroke-3 {
     fill: none;
     stroke-width: 0.1875rem;
@@ -90,11 +96,6 @@
 .stroke-4 {
     fill: none;
     stroke-width: 0.25rem;
-    stroke-miterlimit: 10;
-}
-.stroke-2 {
-    fill: none;
-    stroke-width: 0.125rem;
     stroke-miterlimit: 10;
 }
 
@@ -559,6 +560,48 @@ h3 {
     10% {fill: var(--main-color-3);}
     100% {fill: var(--main-color-3);}
 }
+
+.hp-fubon-a25 {
+    .ani-elevator {
+        --_offset-start: -5;
+        --_offset-end: -173.5;
+        animation: elevator-move 6s ease-in-out infinite alternate;
+        stroke-dasharray: 0.625rem 9999;
+    }
+}
+
+@keyframes elevator-move {
+    from {stroke-dashoffset: var(--_offset-start);}
+    20% {stroke-dashoffset: var(--_offset-start);}
+    80% {stroke-dashoffset: var(--_offset-end);}
+    to {stroke-dashoffset: var(--_offset-end);}
+}
+
+.hp-breeze-nanshan {
+    & [which='front'] {--_translate-x-end: 0.125rem;}
+    & [which='back'] {--_translate-x-end: -0.125rem;}
+
+    & > * {
+        animation: building-collapse 6s 2s ease-in-out infinite;
+    }
+}
+
+@keyframes building-collapse {
+    0% {translate: var(--_translate-x-start, 0) var(--_translate-y-start);}
+    10% {translate: var(--_translate-x-end, 0) var(--_translate-y-end, 0);}
+    20% {translate: var(--_translate-x-start, 0) var(--_translate-y-start);}
+    100% {translate: var(--_translate-x-start, 0) var(--_translate-y-start);}
+}
+
+.hp-nanshan-a21 {
+    & [which='top'] {
+        --_translate-y-start: 0.0625rem;
+        --_translate-y-end: -0.125rem;
+
+        animation: translate-var 2s ease-in-out infinite alternate;
+    }
+}
+
 
 .hp-turbine-blade {
     rotate: 45deg;
