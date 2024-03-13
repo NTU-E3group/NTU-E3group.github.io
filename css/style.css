@@ -447,6 +447,11 @@ h3 {
     @media (width <= 48rem) {
         .hp-small-no, .hp-about-us {display: none;}
 
+        .hp-101 {scale: 0.85;}
+        .hp-pv-panel {--_small_move: 21.41%;}
+        .hp-turbine {--_small_move: -19.54%;}
+        .hp-small-move {translate: var(--_small_move) 0;}
+
         .hp-mainthing {
             padding-block: 5rem 3rem;
             padding-inline: 0;
@@ -527,19 +532,31 @@ h3 {
     &[wind-no="4"] {animation-delay: -1.5s;}
 }
 
-.hp-pv-panel {
-    --_ani-time: 3s;
+.hp-wire-left, .hp-wire-right {
+    .ani-energy-through {
+        --_offset-start: 20;
+        --_offset-end: -200;
+        animation: energy-through 3s linear infinite;
+        stroke-dasharray: 0.75rem 9999;
+    }
+}
 
-    & [panel-ani-no] {
+.hp-pv-panel {
+    --_ani-time: 4s;
+
+    & [ani-wave] {
         animation: panel-flash var(--_ani-time) step-end infinite;
     }
 
-    & [panel-ani-no="2"] {animation-delay: calc(var(--_ani-time) / 4);}
+    & [ani-wave="2"] {animation-delay: calc(var(--_ani-time) * 0.1);}
+    & [ani-wave="3"] {animation-delay: calc(var(--_ani-time) * 0.2);}
+    & [ani-wave="4"] {animation-delay: calc(var(--_ani-time) * 0.3);}
+    & [ani-wave="5"] {animation-delay: calc(var(--_ani-time) * 0.4);}
 }
 
 @keyframes panel-flash {
     0% {fill: var(--main-3-light);}
-    25% {fill: var(--main-color-3);}
+    10% {fill: var(--main-color-3);}
     100% {fill: var(--main-color-3);}
 }
 
