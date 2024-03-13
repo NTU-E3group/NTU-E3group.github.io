@@ -83,6 +83,7 @@
 .stroke-s-light {stroke: var(--secondary-light);}
 .stroke-m-2 {stroke: var(--main-color-2);}
 .stroke-m-3 {stroke: var(--main-color-3);}
+.stroke-m-3-light {stroke: var(--main-3-light);}
 .stroke-2 {
     fill: none;
     stroke-width: 0.125rem;
@@ -540,6 +541,39 @@ h3 {
         animation: energy-through 3s linear infinite;
         stroke-dasharray: 0.75rem 9999;
     }
+}
+
+.hp-battery {
+    --_stroke-width: 1.25rem;
+    --_full-charge: 3rem;
+}
+
+.hp-energy-storage {
+    --_stroke-width: 2.1875rem;
+    --_full-charge: 4.25rem;
+}
+
+.hp-battery, .hp-energy-storage {
+    .ani-battery-charge {
+        stroke-width: var(--_stroke-width);
+        animation: battery-charge 4s ease-out infinite;
+    }
+
+    .ani-electric-flashing {
+        animation: electric-flashing 2s step-end infinite;
+    }
+}
+
+@keyframes battery-charge {
+    0% {stroke-dasharray: 0 9999;}
+    60% {stroke-dasharray: var(--_full-charge) 9999;}
+    100% {stroke-dasharray: var(--_full-charge) 9999;}
+}
+
+@keyframes electric-flashing {
+    0% {fill: var(--main-color-2);}
+    10% {fill: var(--main-color);}
+    100% {fill: var(--main-color);}
 }
 
 .hp-pv-panel {
