@@ -566,14 +566,12 @@ h3 {
 
 @keyframes battery-charge {
     0% {stroke-dasharray: 0 9999;}
-    60% {stroke-dasharray: var(--_full-charge) 9999;}
-    100% {stroke-dasharray: var(--_full-charge) 9999;}
+    60%, 100% {stroke-dasharray: var(--_full-charge) 9999;}
 }
 
 @keyframes electric-flashing {
     0% {fill: var(--main-color-2);}
-    10% {fill: var(--main-color);}
-    100% {fill: var(--main-color);}
+    10%, 100% {fill: var(--main-color);}
 }
 
 .hp-pv-panel {
@@ -591,8 +589,7 @@ h3 {
 
 @keyframes panel-flash {
     0% {fill: var(--main-3-light);}
-    10% {fill: var(--main-color-3);}
-    100% {fill: var(--main-color-3);}
+    10%, 100% {fill: var(--main-color-3);}
 }
 
 .hp-fubon-a25 {
@@ -605,10 +602,8 @@ h3 {
 }
 
 @keyframes elevator-move {
-    from {stroke-dashoffset: var(--_offset-start);}
-    20% {stroke-dashoffset: var(--_offset-start);}
-    80% {stroke-dashoffset: var(--_offset-end);}
-    to {stroke-dashoffset: var(--_offset-end);}
+    0%, 20% {stroke-dashoffset: var(--_offset-start);}
+    80%, 100% {stroke-dashoffset: var(--_offset-end);}
 }
 
 .hp-breeze-nanshan {
@@ -621,10 +616,8 @@ h3 {
 }
 
 @keyframes building-collapse {
-    0% {translate: var(--_translate-x-start, 0) var(--_translate-y-start);}
+    0%, 20%, 100% {translate: var(--_translate-x-start, 0) var(--_translate-y-start);}
     10% {translate: var(--_translate-x-end, 0) var(--_translate-y-end, 0);}
-    20% {translate: var(--_translate-x-start, 0) var(--_translate-y-start);}
-    100% {translate: var(--_translate-x-start, 0) var(--_translate-y-start);}
 }
 
 .hp-nanshan-a21 {
@@ -636,13 +629,23 @@ h3 {
     }
 }
 
-
 .hp-turbine-blade {
     rotate: 45deg;
     animation: turbine-spin 8s linear infinite;
 }
 
 @keyframes turbine-spin {from {rotate: 0deg;} to {rotate: 360deg;}}
+
+.hp-scroll-for-more {
+    .ani-scroll {
+        animation: scroll-bounce 4s ease-in-out infinite;
+    }
+}
+
+@keyframes scroll-bounce {
+    0%, 20%, 100% {translate: 0 0.125rem;}
+    10% {translate: 0 0.25rem;}
+}
 
 @keyframes car-go-burr {
     0% {translate: 0px;}
