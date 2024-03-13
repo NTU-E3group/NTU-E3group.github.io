@@ -447,7 +447,7 @@ h3 {
     @media (width <= 48rem) {
         .hp-small-no, .hp-about-us {display: none;}
 
-        .hp-101 {scale: 0.85;}
+        .hp-101 {scale: 0.9;}
         .hp-pv-panel {--_small_move: 21.41%;}
         .hp-turbine {--_small_move: -19.54%;}
         .hp-small-move {translate: var(--_small_move) 0;}
