@@ -612,7 +612,7 @@ h3 {
 }
 
 .hp-breeze-nanshan {
-    & [which='front'] {--_translate-x-end: 0.125rem;}
+    & [which='front'] {--_translate-x-end: 0.0625rem;}
     & [which='back'] {--_translate-x-end: -0.125rem;}
 
     & > * {
