@@ -136,6 +136,7 @@ a:hover {
 .fill-m-2 {fill: var(--main-color-2);}
 .fill-m-3 {fill: var(--main-color-3);}
 .fill-s {fill: var(--secondary-color);}
+.fill-none {fill: none;}
 
 .fill-r-red {fill: var(--r-red);}
 .fill-r-orange {fill: var(--r-orange);}
