@@ -1,13 +1,14 @@
 body {
     width: min(100%, 75rem);
     margin-inline: auto;
+    padding-block-start: 6rem;
 
-    display: grid;
-    gap: 4rem;
+    & > * + * {
+        margin-block-start: 3rem;
+    }
 }
 
 header {
-    margin-block-start: 6rem;
 }
 
 .main-name {
@@ -29,5 +30,77 @@ header {
 
     & span {
         color: var(--secondary-color);
+    }
+}
+
+.main-info {
+    display: grid;
+    grid-template-columns: auto 20rem;
+    justify-content: start;
+    align-items: end;
+    gap: 1rem;
+
+    .photo {
+        height: 13rem;
+        aspect-ratio: 1/1;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & img {
+            --_cot: calc(-1 * tan(var(--block-skew)));
+
+            height: calc(100% * (1 + var(--_cot)));
+        }
+    }
+
+    .tags {
+        /* background-color: red; */
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.625rem;
+
+        .tag {
+            --_adjusted-padding: 0.25rem 0.5rem;
+
+            font-size: 1rem;
+
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+    }
+
+}
+
+h2 {
+    font-size: 2.25rem;
+
+    display: flex;
+    align-items: baseline;
+
+    &::after {
+        content: '';
+        width: 0.75rem;
+        height: 0.25rem;
+        margin-left: 0.25rem;
+        translate: 0 50%;
+        background-color: var(--secondary-color);
+    }
+}
+
+#about-me {
+    .paragraph p {
+        margin-block-start: 1rem;
+        /* padding-inline: 1rem; */
+        font-size: 1.25rem;
+        text-indent: 1.5rem;
+        max-width: 70ch;
+
+        & + * {
+            margin-block-start: 1rem;
+        }
     }
 }
