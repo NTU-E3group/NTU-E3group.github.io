@@ -583,6 +583,7 @@ h3 {
             /* margin-block-start: 1rem; */
             font-size: 1.3125rem;
             text-align: justify;
+            hyphens: auto;
             text-indent: 2rem;
             
             & sub {
