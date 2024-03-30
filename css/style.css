@@ -413,10 +413,7 @@ h3 {
 .hp-pv-panel {
     --_ani-time: 4s;
 
-    & [ani-wave] {
-        animation: panel-flash var(--_ani-time) step-end infinite;
-    }
-
+    & [ani-wave] {animation: panel-flash var(--_ani-time) step-end infinite;}
     & [ani-wave="2"] {animation-delay: calc(var(--_ani-time) * 0.1);}
     & [ani-wave="3"] {animation-delay: calc(var(--_ani-time) * 0.2);}
     & [ani-wave="4"] {animation-delay: calc(var(--_ani-time) * 0.3);}
@@ -424,8 +421,8 @@ h3 {
 }
 
 @keyframes panel-flash {
-    0% {fill: var(--main-3-light);}
-    10%, 100% {fill: var(--main-color-3);}
+    0% {fill: var(--_flash-light, var(--main-3-light));}
+    10%, 100% {fill: var(--_flash-dark, var(--main-color-3));}
 }
 
 .hp-fubon-a25 {
@@ -972,6 +969,18 @@ h3 {
             --_rotate-deg: 360deg;
             animation: rotate-var linear infinite;
             animation-duration: 10s;
+        }
+    }
+
+    &:has(.ani-pv-panel):hover {
+        --_ani-time: 4s;
+
+        .ani-pv-panel {
+            & [ani-wave] {animation: panel-flash var(--_ani-time) step-end infinite;}
+            & [ani-wave="2"] {animation-delay: calc(var(--_ani-time) * 0.1);}
+            & [ani-wave="3"] {animation-delay: calc(var(--_ani-time) * 0.2);}
+            & [ani-wave="4"] {animation-delay: calc(var(--_ani-time) * 0.3);}
+            & [ani-wave="5"] {animation-delay: calc(var(--_ani-time) * 0.4);}
         }
     }
 
