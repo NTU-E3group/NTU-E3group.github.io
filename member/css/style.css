@@ -1,7 +1,11 @@
 body {
-    width: min(100%, 75rem);
+    width: min(calc(100% - 4rem), 75rem);
     margin-inline: auto;
     padding-block-start: 6rem;
+
+    background-image: url(../../assets/image/background.webp);
+    background-repeat: repeat-y;
+    background-size: 100% auto;
 
     & > * + * {
         margin-block-start: 3rem;
@@ -14,6 +18,7 @@ header {
 
 .main-name {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 1rem;
 
@@ -30,17 +35,22 @@ header {
     font-size: 1.125rem;
     transform: skewX(var(--block-skew));
 
-    & span {
+    & span{
         color: var(--secondary-color);
     }
 }
 
 .main-info {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 1rem;
+
+    /* display: grid;
     grid-template-columns: auto 20rem;
     justify-content: start;
     align-items: end;
-    gap: 1rem;
+    gap: 1rem; */
 
     .photo {
         height: 13rem;
@@ -58,7 +68,7 @@ header {
     }
 
     .tags {
-        /* background-color: red; */
+        width: 20rem;
 
         display: flex;
         flex-wrap: wrap;
