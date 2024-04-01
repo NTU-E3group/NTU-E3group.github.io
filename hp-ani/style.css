@@ -344,7 +344,20 @@
     
 }
 
+:root {
+    --in-img-scale-from: 0.8;
+    --in-img-translate-y-from: -30%;
+    --in-bar-width: 5rem;
+    --in-bar-loc-x: 10%;
+    --in-bar-loc-y: 1.5%;
+    /* --in-bar-loc-y-delta: calc(100% - 2 * var(--in-bar-loc-y)); */
+    --in-bar-loc-y-delta: 110%;
+}
+
 .hp-img {
+    --_img-scale: 0.7;
+    --_img-translate-y-from: -30%;
+
     translate: -13.5rem 0;
     /* scale: 0.8; */
 
@@ -354,15 +367,24 @@
 }
 
 .in-page-ani {
-    --_bar-width: 5rem;
+    --_bar-width-row: 4rem;
+    --_bar-width-col: 5rem;
     --_bar-loc-x: 10%;
-    --_bar-loc-y: 1.5%;
+    --_bar-loc-y: 2%;
     --_bar-loc-y-delta: calc(100% - 2 * var(--_bar-loc-y));
+    /* --_bar-loc-y-delta: 100%; */
+
 
     inset: 0;
     position: fixed;
     z-index: 1000;
     /* background-color: #eeeeeee6; */
+
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
     background-image: 
         linear-gradient(var(--main-color), var(--main-color)),
         linear-gradient(var(--main-color), var(--main-color)),
@@ -380,8 +402,8 @@
         0 var(--_bar-loc-y),
         0 calc(var(--_bar-loc-y) + var(--_bar-loc-y-delta));;
     background-size: 
-        var(--_bar-width) 100%, var(--_bar-width) 100%, /* 垂直線的大小 */
-        100% var(--_bar-width), 100% var(--_bar-width), 100% var(--_bar-width); /* 水平線的大小 */
+        var(--_bar-width-col) 100%, var(--_bar-width-col) 100%, /* 垂直線的大小 */
+        100% var(--_bar-width-row), 100% var(--_bar-width-row), 100% var(--_bar-width-row); /* 水平線的大小 */
     scale: 2;
     opacity: 0;
 
@@ -403,6 +425,8 @@
             0 calc(var(--_bar-loc-y) + var(--_bar-loc-y-delta));
         scale: 1;
         opacity: 1;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
     }
 
     to {
@@ -414,6 +438,8 @@
             0 calc(var(--_bar-loc-y) + 2 * var(--_bar-loc-y-delta));
         scale: 1;
         opacity: 1;
+        backdrop-filter: blur(1px);
+        -webkit-backdrop-filter: blur(1px);
     }
 }
 
@@ -441,21 +467,21 @@
 
 @keyframes view-move {
     from {
-        translate: -13.5rem 10%;
-        scale: 0.8;
+        translate: -13.5rem var(--_img-translate-y-from);
+        scale: var(--_img-scale);
     }
 
     to {
-        scale: 0.8;
+        scale: var(--_img-scale);
     }
 }
 
 @keyframes view-stay {
-    from {scale: 0.8;}
-    to {scale: 0.8;}
+    from {scale: var(--_img-scale);}
+    to {scale: var(--_img-scale);}
 }
 
 @keyframes view-move-away {
-    from {scale: 0.8;}
+    from {scale: var(--_img-scale);}
     to {scale: 1;}
 }
