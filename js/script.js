@@ -4,26 +4,39 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 };
 
-const colorArray = ['--r-red', '--r-orange', '--r-yellow', '--r-green', '--r-blue', '-r-indigo', '--r-purple'];
+// last update time
+const repo = 'NTU-E3group/NTU-E3group.github.io';
+const commitsApiUrl = `https://api.github.com/repos/${repo}/commits`;
+
+fetch(commitsApiUrl)
+  .then(response => response.json())
+  .then(data => {
+    const lastCommitDate = data[0].commit.committer.date;
+    // const lastCommitMessage = data[0].commit.message;
+
+    let yyyy = new Date(lastCommitDate).getFullYear();
+    let mm = String(new Date(lastCommitDate).getMonth()+1).padStart(2, '0');
+    let dd = String(new Date(lastCommitDate).getDate()).padStart(2, '0');
+
+    let hh = String(new Date(lastCommitDate).getHours()).padStart(2, '0');
+    let min = String(new Date(lastCommitDate).getMinutes()).padStart(2, '0');
+
+    let hpLastUpdateTime = document.querySelector('.hp-last-update-time');
+    hpLastUpdateTime.innerHTML = `${yyyy}.${mm}.${dd}  ${hh}:${min}`;
+  })
+  .catch(error => console.error('獲取更新資料時發生錯誤：', error));
+
+
+const colorArray = ['--r-red', '--r-orange', '--r-yellow', '--r-green', '--r-blue', '--r-indigo', '--r-purple'];
 
 // 101 top color change
 function change101Top() {
     var timeNow = new Date();
     var utc8Day = timeNow.getUTCHours() >= 16 ? timeNow.getUTCDay() + 1 : timeNow.getUTCDay();
     var topColorHex = getComputedStyle(document.documentElement).getPropertyValue(colorArray[utc8Day % 7]);
-    document.querySelector(".fill-101-top").style.fill = topColorHex;
+    document.querySelector(".hp-101-top").style.fill = topColorHex;
 };
-// change101Top();
-
-var hpDiveIn = document.querySelector('.hp-dive-in');
-var hpTopLayer = document.querySelector('.hp-top-layer');
-
-// hpTopLayer.addEventListener('mouseover', () => {
-//     hpDiveIn.style.transform = 'translateY(-0.4375rem)';
-// });
-// hpTopLayer.addEventListener('mouseout', () => {
-//     hpDiveIn.style.transform = 'translateY(0rem)';
-// });
+change101Top();
 
 // rain
 var hpRainFront = document.querySelector('.hp-rain-front');
@@ -59,6 +72,58 @@ var dropTime = 1300;
 
 // makeItRain(true, rainSlope, precip, dropTime);
 // makeItRain(false, rainSlope, precip, dropTime);
+
+
+function animateHpTheSky() {
+    var hpTheSkyBg = document.querySelector('.hp-the-sky-bg');
+    var hpTheSkyBack = document.querySelector('.hp-the-sky-back');
+    var hpTheSkyFront = document.querySelector('.hp-the-sky-front');
+
+    var start = null;
+    var duration = 600;
+    var direction = 1;
+    var cycle = 0;
+
+    var initialY = 143.85;
+    var deltaY = 4;
+    var targetY = initialY - deltaY;
+
+    function easeInOut(t) {
+        // return t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2;
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function animate(time) {
+        if (!start) start = time;
+        var progress = (time - start) / duration;
+
+        var easeProgress = easeInOut(progress);
+        var newY = (direction == 1) ? initialY - deltaY * easeProgress : targetY + deltaY * easeProgress;
+        var newYStar = newY - initialY;
+
+        if (cycle < 2) {
+            hpTheSkyBg.setAttribute('points', `379.5 ${newYStar + 143.85} 366.5 ${newYStar + 156.15} 366.5 ${newYStar + 143.85} 309.71 ${newYStar + 197.58} 309.71 409.15 379.5 409.15`);
+            hpTheSkyBack.setAttribute('points', `374.5 ${newYStar + 155.46} 366.5 ${newYStar + 163.03} 366.5 404.15 374.5 404.15`);
+            hpTheSkyFront.setAttribute('points', `361.5 ${newYStar + 155.46} 314.71 ${newYStar + 199.73} 314.71 404.15 361.5 404.15`);
+        };
+
+        if (progress >= 1) {
+            start = time;
+            direction *= -1;
+            if (cycle > 4) {
+                cycle = 0;
+            } else {
+                cycle++;
+            };
+        };
+
+        requestAnimationFrame(animate);
+    };
+
+    requestAnimationFrame(animate);
+};
+
+window.onload = animateHpTheSky();
 
 // filters
 document.querySelectorAll('.filter').forEach((filter) => {
@@ -167,7 +232,7 @@ function getScrollBarWidth() {
 }
 
 function menuOpen() {
-    body.style.paddingInlineEnd = getScrollBarWidth() + 'px';
+    // body.style.paddingInlineEnd = getScrollBarWidth() + 'px';
     body.classList.add('overflow-hidden');
     menu.classList.remove('display-none');
     setTimeout(() => {
@@ -202,9 +267,9 @@ menuA.forEach(elem => {
 });
 
 
-document.addEventListener('click', (e) => {
-    console.log(e.target);
-});
+// document.addEventListener('click', (e) => {
+//     console.log(e.target);
+// });
 
 // to top button
 var toTopBtn = document.querySelector('.to-top-btn');
@@ -212,7 +277,6 @@ var toTopBtn = document.querySelector('.to-top-btn');
 window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
     if (document.body.scrollTop > window.innerHeight || document.documentElement.scrollTop > window.innerHeight) {
-        console.log('hi');
         toTopBtn.style.display = "grid";
         setTimeout(() => {
             toTopBtn.style.opacity = "1";
