@@ -999,6 +999,10 @@ h3 {
                 --_offset-start: 20;
                 --_offset-end: -120;
             }
+
+            &.alternate {animation-direction: alternate;}
+            
+            &.alternate-reverse {animation-direction: alternate-reverse;}
         }
     }
 
@@ -1018,7 +1022,6 @@ h3 {
             .ani-vehicle-dash {
                 stroke-dasharray: 0 100%;
                 animation: vehicle-dash 1.5s ease-in-out infinite;
-            
             }
         }
     }
