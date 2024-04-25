@@ -1010,6 +1010,19 @@ h3 {
         }
     }
 
+    &:has(.ani-vehicle-vibrate):hover {
+        .ani-vehicle-vibrate {
+            transform-origin: bottom;
+            animation: vehicle-vibrate 1.5s ease-in-out alternate infinite;
+
+            .ani-vehicle-dash {
+                stroke-dasharray: 0 100%;
+                animation: vehicle-dash 1.5s ease-in-out infinite;
+            
+            }
+        }
+    }
+
     .ani-carbon-pricing {
         & .backface {opacity: 0;}
     }
@@ -1061,6 +1074,23 @@ h3 {
 @keyframes energy-through {
     from {stroke-dashoffset: var(--_offset-start);}
     to {stroke-dashoffset: var(--_offset-end);}
+}
+
+@keyframes vehicle-vibrate {
+    0% {
+        translate: -0.125rem 0;
+    }
+    40% {transform: translateY(0) scaleY(1);}
+    50% {transform: translateY(0) scaleY(0.98);}
+    60% {transform: translateY(0) scaleY(1);}
+    100% {
+        translate: 0.125rem 0;
+    }
+}
+
+@keyframes vehicle-dash {
+    0% {stroke-dasharray: 0 100%;}
+    100% {stroke-dasharray: 100% 0;}
 }
 
 @keyframes coin-flip {
