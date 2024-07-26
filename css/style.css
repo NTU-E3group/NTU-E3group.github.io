@@ -1019,9 +1019,9 @@ h3 {
             transform-origin: bottom;
             animation: vehicle-vibrate 1.5s ease-in-out alternate infinite;
 
-            .ani-vehicle-dash {
+            .ani-line-dash {
                 stroke-dasharray: 0 100%;
-                animation: vehicle-dash 1.5s ease-in-out infinite;
+                animation: line-dash 1.5s ease-in-out infinite;
             }
         }
     }
@@ -1054,6 +1054,39 @@ h3 {
         }
     }
 
+    &:has(.ani-arrow):hover {
+        .ani-arrow-line {
+            stroke-dasharray: 0 100%;
+            animation: line-dash 1.5s linear infinite;
+        }
+
+        .ani-arrow-head {
+            stroke-dasharray: 0 100%;
+            animation: arrow-dash-head 1.5s linear infinite;
+        }
+    }
+
+    &:has(.ani-poll):hover {
+        .ani-poll {
+            --_translate-x-start: 6rem;
+            --_translate-x-end: -12rem;
+            animation: translate-var 6s linear infinite;
+        }
+    }
+
+    &:has(.ani-radar):hover {
+        --_ani-time: 4s;
+        --_flash-light: var(--secondary-color);
+        --_flash-dark: var(--secondary-light);
+    
+        & [ani-wave] {
+            fill: var(--secondary-light);
+            animation: panel-flash var(--_ani-time) step-end infinite;
+        }
+        & [ani-wave="2"] {animation-delay: calc(var(--_ani-time) * 0.1);}
+        & [ani-wave="3"] {animation-delay: calc(var(--_ani-time) * 0.2);}
+    }
+
     &:has(.ani-top-layer) {
         position: relative;
         
@@ -1070,7 +1103,7 @@ h3 {
 @keyframes rotate-var {from {rotate: 0deg;} to {rotate: var(--_rotate-deg);}}
 
 @keyframes translate-var {
-    from {translate: var(--_translate-x-start, 0) var(--_translate-y-start);}
+    from {translate: var(--_translate-x-start, 0) var(--_translate-y-start, 0);}
     to {translate: var(--_translate-x-end, 0) var(--_translate-y-end, 0);}
 }
 
@@ -1091,7 +1124,7 @@ h3 {
     }
 }
 
-@keyframes vehicle-dash {
+@keyframes line-dash {
     0% {stroke-dasharray: 0 100%;}
     100% {stroke-dasharray: 100% 0;}
 }
@@ -1103,6 +1136,12 @@ h3 {
 }
 
 @keyframes coin-surface-opacity {25% {opacity: 1;} 75% {opacity: 0;}}
+
+@keyframes arrow-dash-head {
+    0% {stroke-dasharray: 0 100%;}
+    40% {stroke-dasharray: 0 100%;}
+    100% {stroke-dasharray: 100% 0;}
+}
 
 
 /* publication */
