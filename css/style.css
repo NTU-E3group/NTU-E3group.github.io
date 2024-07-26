@@ -1070,7 +1070,8 @@ h3 {
         .ani-poll {
             --_translate-x-start: 6rem;
             --_translate-x-end: -12rem;
-            animation: translate-var 6s linear infinite;
+
+            animation: poll 6s linear infinite;
         }
     }
 
@@ -1141,6 +1142,23 @@ h3 {
     0% {stroke-dasharray: 0 100%;}
     40% {stroke-dasharray: 0 100%;}
     100% {stroke-dasharray: 100% 0;}
+}
+
+@keyframes poll {
+    0% {translate: var(--_translate-x-start, 0) var(--_translate-y-start, 0);}
+    10% {transform: scaleY(1);}
+    12.5% {transform: scaleY(0.98);}
+    15% {transform: scaleY(1);}
+    35% {transform: scaleY(1);}
+    37.5% {transform: scaleY(0.98);}
+    40% {transform: scaleY(1);}
+    60% {transform: scaleY(1);}
+    62.5% {transform: scaleY(0.98);}
+    65% {transform: scaleY(1);}
+    85% {transform: scaleY(1);}
+    87.5% {transform: scaleY(0.98);}
+    90% {transform: scaleY(1);}
+    100% {translate: var(--_translate-x-end, 0) var(--_translate-y-end, 0);}
 }
 
 
