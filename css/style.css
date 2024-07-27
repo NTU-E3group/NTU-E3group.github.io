@@ -1093,8 +1093,9 @@ h3 {
             fill: var(--secondary-light);
             animation: panel-flash var(--_ani-time) step-end infinite;
         }
-        & [ani-wave="2"] {animation-delay: calc(var(--_ani-time) * 0.1);}
-        & [ani-wave="3"] {animation-delay: calc(var(--_ani-time) * 0.2);}
+        & [ani-wave="1"] {animation-delay: calc(var(--_ani-time) * 0.1);}
+        & [ani-wave="2"] {animation-delay: calc(var(--_ani-time) * 0.2);}
+        & [ani-wave="3"] {animation-delay: calc(var(--_ani-time) * 0.3);}
     }
 
     &:has(.ani-top-layer) {
