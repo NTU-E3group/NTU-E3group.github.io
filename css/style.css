@@ -963,7 +963,7 @@ h3 {
     }
 }
 
-.res-img-block {
+.res-block {
     &:has(.ani-rotate-360):hover {
         .ani-rotate-360 {
             --_rotate-deg: 360deg;

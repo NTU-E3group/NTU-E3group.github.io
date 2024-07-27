@@ -148,23 +148,27 @@ document.querySelectorAll('.filter').forEach((filter) => {
 
 
 // research animation: hover to start
-const resImgBlockWithAni = Array.from(document.querySelectorAll('.res-img-block'))
+var resBlockAniRunning = false;
+const resBlockWithAni = Array.from(document.querySelectorAll('.res-block'))
     .filter(elem => elem.querySelector('animateMotion'));
 
-resImgBlockWithAni.forEach(elem => {
-    const aniTopLayer = document.createElement('div');
-    elem.insertBefore(aniTopLayer, elem.firstChild);
-    aniTopLayer.setAttribute('class', 'ani-top-layer');
-
-    aniTopLayer.addEventListener('mouseover', () => {
-        elem.querySelectorAll('animateMotion').forEach(svgElem => {
-            svgElem.beginElement();
-        });
+resBlockWithAni.forEach(block => {
+    block.addEventListener('mouseover', (e) => {
+        if (block.contains(e.target) && !resBlockAniRunning) {
+            block.querySelectorAll('animateMotion').forEach(svgElem => {
+                svgElem.beginElement();
+            });
+            resBlockAniRunning = true;
+        };
     });
-    aniTopLayer.addEventListener('mouseout', () => {
-        elem.querySelectorAll('animateMotion').forEach(svgElem => {
-            svgElem.endElement();
-        });
+
+    block.addEventListener('mouseout', (e) => {
+        if (!block.contains(e.relatedTarget)) {
+            block.querySelectorAll('animateMotion').forEach(svgElem => {
+                svgElem.endElement();
+            });
+            resBlockAniRunning = false;
+        };
     });
 });
 
