@@ -1419,6 +1419,42 @@ h3 {
     @media (width < 54.125rem) {justify-content: space-around;}
 }
 
+/* contact */
+.tac-section {
+    & form {
+        margin-block-start: 1rem;
+
+        display: grid;
+        gap: 1rem;
+
+        & input, & textarea {
+            padding: 0.5rem 0.75rem;
+            font-size: 1.125rem;
+            resize: none;
+        }
+
+        .tac-infos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+
+            .tac-name {
+                width: 20ch;
+                flex-grow: 2;
+            }
+    
+            .tac-email {
+                width: 30ch;
+                flex-grow: 3;
+            }
+        }
+
+        .tac-send {
+            justify-self: start;
+        }
+    }
+}
+
 
 /* footer */
 footer {
