@@ -1421,6 +1421,9 @@ h3 {
 
 /* contact */
 .tac-section {
+    max-width: min(40rem, calc(100vw - 5rem));
+    margin-inline: auto;
+
     & form {
         margin-block-start: 1rem;
 
@@ -1445,7 +1448,7 @@ h3 {
     
             .tac-email {
                 width: 30ch;
-                flex-grow: 3;
+                flex-grow: 4;
             }
         }
 
