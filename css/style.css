@@ -112,9 +112,19 @@ h3 {
     align-items: center;
     justify-content: center;
 
+    .hp-plane {
+        --_y-location: 17%;
+        
+        .hp-plane-text {
+            font-size: 1.375rem;
+            color: var(--main-color);
+        }
+    }
+
     .hp-mainthing {
         padding-inline: 5rem 2rem;
 
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -477,6 +487,50 @@ h3 {
 }
 
 @keyframes turbine-spin {from {rotate: 0deg;} to {rotate: 360deg;}}
+
+.hp-plane {
+    animation: plane-move 30s linear infinite;
+
+    .hp-plane-wo-text {
+        animation: plane-wo-text-move 3s ease-in-out alternate infinite;
+    }
+    
+    .hp-plane-body {
+        --_plane-rotate: -3deg;
+        /* rotate: -10deg; */
+        animation: plane-body-move 6s ease-in-out infinite;
+    }
+
+    .hp-plane-blade {
+        animation: plane-blade-spin 0.8s ease-in alternate infinite;
+    }
+
+    [class^='hp-plane-text-'] {
+        animation: plane-text-box-skew 3s ease-in-out infinite;
+    }
+}
+
+@keyframes plane-move {
+    0% {translate: -20% var(--_y-location);}
+    100% {translate: 200% var(--_y-location);}
+}
+
+@keyframes plane-wo-text-move {
+    0% {translate: 0 -0.125rem;}
+    100% {translate: 0 0.125rem;}
+}
+
+@keyframes plane-body-move {
+    0%, 100% {rotate: var(--_plane-rotate);}
+    50% {rotate: calc(-0.5 * var(--_plane-rotate));}   
+}
+
+@keyframes plane-blade-spin {from {scale: 1 1} to {scale: 1 0;}}
+
+@keyframes plane-text-box-skew {
+    25% {transform: skewY(0.2deg);}
+    75% {transform: skewY(-0.2deg);}
+}
 
 .hp-scroll-for-more {
     .ani-scroll {
