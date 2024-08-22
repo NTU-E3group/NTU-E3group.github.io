@@ -1248,7 +1248,7 @@ h3 {
     }
     
     .pub-block {
-        display: flex !important;
+        display: flex;
         gap: 1rem;
 
         .pub-date {
