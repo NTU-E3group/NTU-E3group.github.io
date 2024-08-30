@@ -1,3 +1,14 @@
+// Check if the browser supports CSS nesting
+const supportsNesting = window.getComputedStyle(document.body, '::before').content.includes('css-nesting-supported');
+if (!supportsNesting) {
+    const nestingSupportDialog = document.querySelector('.nesting-support-dialog');
+    nestingSupportDialog.showModal(); // Show the dialog
+
+    document.querySelector('.nesting-support-dialog-close-btn').addEventListener('click', function() {
+        nestingSupportDialog.close(); // Close the dialog
+    });
+};
+
 const body = document.querySelector('body');
 
 function getRandomInt(min, max) {

@@ -195,43 +195,59 @@ body {
     overflow: hidden;
     user-select: none;
     transition: var(--hover-transition-time);
+}
+.skewed-block > * {
+    transform: skewX(calc(var(--_adjusted-block-skew, var(--block-skew)) * -1));
+}
 
-    & > * {
-        transform: skewX(calc(var(--_adjusted-block-skew, var(--block-skew)) * -1));
+.skewed-block[b-role="block"] {
+    width: var(--_block-width);
+    height: var(--_block-height);
+}
+.skewed-block[b-role="block"] > * {
+    max-width: initial;
+    width: var(--_content-width);
+    flex-shrink: 0;
+}
+
+.skewed-block[b-role="btn"] {
+    padding: var(--_adjusted-padding, var(--btn-padding));
+    font-size: var(--_adjusted-font-size, 1rem);
+}
+
+.skewed-block[b-hoverable] {cursor: pointer;}
+.skewed-block[b-hoverable]:hover {
+    --_hover-translate: var(--_adjusted-hover-translate, var(--btn-hover-translate));
+    --_hover-shadow-shift: var(--_adjusted-hover-shadow-shift, var(--btn-hover-shadow-shift));
+
+    translate: var(--_hover-translate) var(--_hover-translate);
+    box-shadow: var(--_hover-shadow-shift) var(--_hover-shadow-shift) var(--main-shadow-color);
+}
+.skewed-block[b-hoverable]:active {
+    translate: 0 0;
+    box-shadow: var(--_shadow-shift) var(--_shadow-shift) var(--main-shadow-color);
+}
+
+/* This rule is used to check CSS nesting support */
+@supports selector(:is(div &)) {
+    body::before {
+      content: "css-nesting-supported";
+      display: none;
     }
-
-    &[b-role="block"] {
-        width: var(--_block-width);
-        height: var(--_block-height);
-
-        & > * {
-            max-width: initial;
-            width: var(--_content-width);
-            flex-shrink: 0;
-        }
-    }
-
-    &[b-role="btn"] {
-        padding: var(--_adjusted-padding, var(--btn-padding));
-        font-size: var(--_adjusted-font-size, 1rem);
-    }
-
-    &[b-hoverable] {
-        cursor: pointer;
-        
-        &:hover {
-            --_hover-translate: var(--_adjusted-hover-translate, var(--btn-hover-translate));
-            --_hover-shadow-shift: var(--_adjusted-hover-shadow-shift, var(--btn-hover-shadow-shift));
-
-            translate: var(--_hover-translate) var(--_hover-translate);
-            box-shadow: var(--_hover-shadow-shift) var(--_hover-shadow-shift) var(--main-shadow-color);
-        }
-
-        &:active {
-            translate: 0 0;
-            box-shadow: var(--_shadow-shift) var(--_shadow-shift) var(--main-shadow-color);
-        }
-    }
+}
+.nesting-support-dialog {
+    margin: auto;
+    padding: 2rem;
+    background-color: var(--main-bg-color);
+    border: var(--btn-border-width) solid var(--main-color);
+    border-radius: var(--btn-border-radius);
+    font-size: 1.25rem;
+}
+.nesting-support-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+.nesting-support-dialog-close-btn {
+    margin-block-start: 1.5rem;
 }
 
 /* a[target="_blank"]:after {
