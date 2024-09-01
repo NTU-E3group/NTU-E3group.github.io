@@ -229,7 +229,7 @@ body {
 }
 
 /* This rule is used to check CSS nesting support */
-@supports selector(:is(div &)) {
+/* @supports selector(:is(div &)) {
     body::before {
       content: "css-nesting-supported";
       display: none;
@@ -248,7 +248,7 @@ body {
 }
 .nesting-support-dialog-close-btn {
     margin-block-start: 1.5rem;
-}
+} */
 
 /* a[target="_blank"]:after {
     content: '';

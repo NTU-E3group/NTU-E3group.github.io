@@ -1,15 +1,15 @@
 // Check if the browser supports CSS nesting
-const supportsNesting = window.getComputedStyle(document.body, '::before').content.includes('css-nesting-supported');
-const nestingSupportDialog = document.querySelector('.nesting-support-dialog');
-if (!supportsNesting) {
-    nestingSupportDialog.showModal(); // Show the dialog
+// const supportsNesting = window.getComputedStyle(document.body, '::before').content.includes('css-nesting-supported');
+// const nestingSupportDialog = document.querySelector('.nesting-support-dialog');
+// if (!supportsNesting) {
+//     nestingSupportDialog.showModal(); // Show the dialog
 
-    document.querySelector('.nesting-support-dialog-close-btn').addEventListener('click', function() {
-        nestingSupportDialog.close(); // Close the dialog
-    });
-} else {
-    nestingSupportDialog.remove(); // Remove the dialog
-};
+//     document.querySelector('.nesting-support-dialog-close-btn').addEventListener('click', function() {
+//         nestingSupportDialog.close(); // Close the dialog
+//     });
+// } else {
+//     nestingSupportDialog.remove(); // Remove the dialog
+// };
 
 const body = document.querySelector('body');
 
