@@ -5,7 +5,8 @@ import pandas as pd
 article_num = 7
 
 # Get your API key at https://serpapi.com/dashboard
-api_key = "9564b246509b8b5c0be41828e72e1793ddd3dafb1a6c3ba9a4c41114fb0b2c5d"
+# addd
+api_key = "9564b246509b8b5c0be41828e72e1793ddd3dafb1a6c3ba9a4c41114fb0b2c5"
 
 # Define the output file path
 output_path = '../src/publication.json'
