@@ -18,6 +18,33 @@ cols = ['title', 'link', 'publication_date', 'journal', 'volume']
 # author_id for Lisa
 author_id = "tUbPb-QAAAAJ"
 
+# Function to convert a title to title case
+def title_case(title):
+    # List of words that should not be capitalized unless they are the first or last word
+    small_words = {
+        'a', 'an', 'and', 'as', 'at', 'but', 'by', 'for', 
+        'in', 'nor', 'of', 'on', 'or', 'so', 'the', 'to', 'up', 'with', 'yet'
+    }
+    
+    # Split the title into words
+    words = title.split()
+    
+    # Function to properly capitalize each word
+    def capitalize_word(word, is_first_or_last):
+        if word.lower() in small_words and not is_first_or_last:
+            return word.lower()
+        return word.capitalize()
+    
+    # Apply the capitalize_word function to each word
+    capitalized_words = [
+        capitalize_word(word, i == 0 or i == len(words) - 1) 
+        for i, word in enumerate(words)
+    ]
+    
+    # Join the words back into a single string
+    return ' '.join(capitalized_words)
+
+# start
 params = {
     "engine": "google_scholar_author",
     "author_id": author_id,
@@ -42,6 +69,7 @@ for article in articles:
 
 # Get the columns you want
 df = df[cols]
+df['title'] = df['title'].apply(title_case)
 df['publication_date'] = pd.to_datetime(df['publication_date'], format='mixed')
 df['year'] = df['publication_date'].dt.strftime('%y')
 df['month'] = df['publication_date'].dt.strftime('%b.')
