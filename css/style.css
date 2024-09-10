@@ -1283,7 +1283,7 @@ h3 {
                 transition: var(--hover-transition-time);
             }
 
-            &:hover {
+            &[href]:hover {
                 .pub-title {
                     opacity: 0.8;
                 }
@@ -1323,6 +1323,11 @@ h3 {
 
         @media (width <= 48rem) {margin-block-start: 1.5rem;}
     }
+}
+
+/* news */
+#news .pub-block-wrapper {
+    --_block-gap: 1rem;
 }
 
 
