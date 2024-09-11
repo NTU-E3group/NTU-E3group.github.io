@@ -1564,6 +1564,7 @@ footer {
     position: fixed;
     top: 2rem;
     right: -1rem;
+    transition: margin 0s;
 
     & p {
         margin-inline-end: 1rem;
