@@ -1575,6 +1575,21 @@ footer {
     gap: 0.5rem;
 }
 
+
+.to-top-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    transition: all 0.3s, margin 0s;
+
+    /* work with js */
+    /* scroll down then display grid */
+    display: none;
+    place-content: center;
+    justify-items: center;
+    gap: 0.25rem;
+}
+
 .menu {
     --_menu-width: 25rem;
     --_menu-a-width: 11rem;
@@ -1639,20 +1654,6 @@ footer {
     .menu-wrapper {
         right: calc(-100lvh * tan(var(--content-skew)) / 2);
     }
-}
-
-.to-top-btn {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    transition: 0.3s;
-
-    /* work with js */
-    /* scroll down then display grid */
-    display: none;
-    place-content: center;
-    justify-items: center;
-    gap: 0.25rem;
 }
 
 
