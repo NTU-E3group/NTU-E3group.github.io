@@ -100,14 +100,14 @@ h3 {
     --_window-padding: 2rem;
     --_hp-text-width: 23rem;
 
-    position: relative;
     width: min(100%, 120rem);
     height: min(100%, 75rem);
     /* height: 100svh; */
     margin-inline: auto;
     padding: var(--_window-padding);
     overflow: hidden;
-
+    
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1461,6 +1461,7 @@ h3 {
         --_adjusted-border-width: var(--_img-border-w);
         --_adjusted-border-radius: var(--_img-border-r);
         --_adjusted-shadow-shift: var(--block-shadow-shift);
+        --_adjusted-hover-shadow-shift: var(--block-hover-shadow-shift);
 
         display: flex;
         align-items: center;
@@ -1557,6 +1558,43 @@ footer {
     }
 }
 
+/* img-modal */
+.img-modal {
+    display: none;
+
+    &[open]{
+        width: min(100%, 85svh, 80rem);
+        margin: auto;
+        padding: 0.5rem;
+        background-color: transparent;
+        overflow: hidden;
+
+        display: grid;
+        place-content: center;
+        gap: 1rem;
+    }
+
+    &::backdrop{
+        background-color: var(--main-color);
+        opacity: 0.3;
+        pointer-events: auto;
+    }
+
+    .img-modal-content-wrapper {
+        --_adjusted-block-skew: 0;
+    }
+
+    .img-modal-caption {
+        font-size: 1.25rem;
+        text-align: center;
+        user-select: initial;
+    }
+
+    .img-modal-close-btn {
+        justify-self: end;
+    }
+}
+
 /* menu */
 .menu-btn {
     --_adjusted-font-size: 1.125rem;
@@ -1574,7 +1612,6 @@ footer {
     align-items: center;
     gap: 0.5rem;
 }
-
 
 .to-top-btn {
     position: fixed;

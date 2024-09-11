@@ -242,6 +242,31 @@ function glfSliderPush(push) {
 
 };
 
+// img-modal
+var imgModal = document.querySelector('.img-modal');
+var imgModalCloseBtn = document.querySelector('.img-modal-close-btn');
+var imgModalContent = document.querySelector('.img-modal-content');
+var imgModalCaption = document.querySelector('.img-modal-caption');
+var glfImgBlock = document.querySelectorAll('.glf-section[which="all"] .glf-img-block');
+
+glfImgBlock.forEach((block) => {
+    block.addEventListener('click', () => {
+        console.log('d');
+        var img = block.querySelector('img');
+        imgModalContent.src = img.src;
+        imgModalCaption.innerHTML = img.alt;
+        imgModal.showModal();
+    });
+});
+
+imgModalCloseBtn.addEventListener('click', () => {
+    imgModal.close();
+});
+
+imgModal.addEventListener('click', (e) => {
+    if (e.target === imgModal) imgModal.close();
+});
+
 // to top button
 var toTopBtn = document.querySelector('.to-top-btn');
 
