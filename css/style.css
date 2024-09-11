@@ -1587,6 +1587,7 @@ footer {
     .img-modal-caption {
         font-size: 1.25rem;
         text-align: center;
+        text-wrap: balance;
         user-select: initial;
     }
 
