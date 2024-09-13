@@ -1582,6 +1582,7 @@ footer {
 
     .img-modal-content-wrapper {
         --_adjusted-block-skew: 0;
+        --_content-width: 100%;
     }
 
     .img-modal-caption {

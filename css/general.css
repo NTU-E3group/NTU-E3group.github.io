@@ -206,7 +206,7 @@ body {
 }
 .skewed-block[b-role="block"] > * {
     max-width: initial;
-    width: var(--_content-width, 100%);
+    width: var(--_content-width);
     flex-shrink: 0;
 }
 
