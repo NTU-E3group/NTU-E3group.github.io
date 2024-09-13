@@ -934,7 +934,7 @@ h3 {
         gap: 2rem 1rem;
         justify-content: space-between;
 
-        @media (width < 64rem) {
+        @media (width < 75rem) {
             --_res-block-width: var(--_res-info-width);
         }
     }
