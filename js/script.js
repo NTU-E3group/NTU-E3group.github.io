@@ -151,18 +151,21 @@ hpPlaneTextBg.setAttribute('x', -34.5 - hpPlaneText.getBBox().width);
 // filters
 document.querySelectorAll('.filter').forEach((filter) => {
     let where = filter.getAttribute('where');
+    
+    // Store the initial display value (could be 'grid', 'flex', or anything)
+    let originalDisplay = getComputedStyle(document.querySelector(`.filter-content[where="${where}"]`)).display;
 
     document.querySelectorAll(`.filter-checkbox[where="${where}"]`).forEach((checkbox) => {
         document.querySelectorAll(`.filter-content[where="${where}"]`).forEach((elem) => {
             if (elem.dataset.value === checkbox.value) {
-                elem.style.display = checkbox.checked ? 'grid' : 'none';
+                elem.style.display = checkbox.checked ? originalDisplay : 'none';
             };
         });
 
         checkbox.addEventListener('change', () => {
             document.querySelectorAll(`.filter-content[where="${where}"]`).forEach((elem) => {
                 if (elem.dataset.value === checkbox.value) {
-                    elem.style.display = checkbox.checked ? 'grid' : 'none';
+                    elem.style.display = checkbox.checked ? originalDisplay : 'none';
                 };
             });
         });
