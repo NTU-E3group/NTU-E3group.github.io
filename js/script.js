@@ -151,7 +151,7 @@ hpPlaneTextBg.setAttribute('x', -34.5 - hpPlaneText.getBBox().width);
 // filters
 document.querySelectorAll('.filter').forEach((filter) => {
     let where = filter.getAttribute('where');
-    
+
     // Store the initial display value (could be 'grid', 'flex', or anything)
     let originalDisplay = getComputedStyle(document.querySelector(`.filter-content[where="${where}"]`)).display;
 
@@ -254,9 +254,9 @@ var glfImgBlock = document.querySelectorAll('.glf-section[which="all"] .glf-img-
 
 glfImgBlock.forEach((block) => {
     block.addEventListener('click', () => {
-        console.log('d');
         var img = block.querySelector('img');
         imgModalContent.src = img.src;
+        imgModalContent.srcset = img.srcset;
         imgModalCaption.innerHTML = img.alt;
         imgModal.showModal();
     });
