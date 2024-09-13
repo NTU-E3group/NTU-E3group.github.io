@@ -1,0 +1,162 @@
+[
+    {
+        "engName": "I-Yun Lisa Hsieh",
+        "chiName": "謝依芸",
+        "description": "Department of Civil Engineering<br>Department of Chemical Engineering (Joint Appointment)<br>National Taiwan University",
+        "links": [
+            {
+                "icon": "xxxxxxxxxxxx",
+                "text": "iyhsieh@ntu.edu.tw",
+                "url": "mailto:iyhsieh@ntu.edu.tw"
+            },
+            {
+                "icon": "xxxxxxxxxxxx",
+                "text": "CERB 601",
+                "url": "https://maps.app.goo.gl/crYHNJhSwBzqt2VJ8"
+            }
+        ]
+    },
+    {
+        "engName": "Jason",
+        "chiName": "譚竣文",
+        "assistant": true,
+        "role": "master",
+        "year": "2",
+        "studentID": "r105216",
+        "yearID": "r10",
+        "email": "",
+        "graduated": false
+    },
+    {
+        "engName": "Thomas",
+        "chiName": "簡元璽",
+        "assistant": false,
+        "role": "master",
+        "year": "3",
+        "studentID": "r11521604",
+        "yearID": "r11",
+        "email": "r11521604@ntu.edu.tw",
+        "graduated": false
+    },
+    {
+        "engName": "Jocelyn",
+        "chiName": "曾靖琇",
+        "assistant": false,
+        "role": "master",
+        "year": "3",
+        "studentID": "r11521605",
+        "yearID": "r11",
+        "email": "r11521605@ntu.edu.tw",
+        "graduated": false
+    },
+    {
+        "engName": "Anita",
+        "chiName": "陳珮慈",
+        "assistant": false,
+        "role": "master",
+        "year": "2",
+        "studentID": "r12521602",
+        "yearID": "r12",
+        "email": "r12521602@ntu.edu.tw",
+        "graduated": false
+    },
+    {
+        "engName": "Sigi",
+        "chiName": "胡羽忻",
+        "assistant": false,
+        "role": "master",
+        "year": "2",
+        "studentID": "r12521605",
+        "yearID": "r12",
+        "email": "r12521605@ntu.edu.tw",
+        "graduated": false
+    },
+    {
+        "engName": "Harper",
+        "chiName": "呂芷儀",
+        "assistant": false,
+        "role": "master",
+        "year": "2",
+        "studentID": "r12521611",
+        "yearID": "r12",
+        "email": "r12521611@ntu.edu.tw",
+        "graduated": false
+    },
+    {
+        "engName": "Eric",
+        "chiName": "張友睿",
+        "assistant": false,
+        "role": "master",
+        "year": "2",
+        "studentID": "r12524052",
+        "yearID": "r12",
+        "email": "r12524052@ntu.edu.tw",
+        "graduated": false
+    },
+    {
+        "engName": "Jianhern",
+        "chiName": "楊建恆",
+        "assistant": false,
+        "role": "master",
+        "year": "2",
+        "studentID": "r12521626",
+        "yearID": "r12",
+        "email": "r12521626@ntu.edu.tw",
+        "graduated": false
+    },
+    {
+        "engName": "Dulcinea",
+        "chiName": "吳巽言",
+        "assistant": false,
+        "role": "master",
+        "year": "1",
+        "studentID": "",
+        "yearID": "r13",
+        "email": "@ntu.edu.tw",
+        "graduated": false
+    },
+    {
+        "engName": "Derek",
+        "chiName": "周恩毅",
+        "assistant": false,
+        "role": "master",
+        "year": "1",
+        "studentID": "",
+        "yearID": "r13",
+        "email": "@ntu.edu.tw",
+        "graduated": false
+    },
+    {
+        "engName": "Ray",
+        "chiName": "林宏叡",
+        "assistant": false,
+        "role": "master",
+        "year": "1",
+        "studentID": "",
+        "yearID": "r13",
+        "email": "@ntu.edu.tw",
+        "graduated": false
+    },
+    {
+        "engName": "Anching",
+        "chiName": "鍾安慶",
+        "assistant": false,
+        "role": "master",
+        "year": "1",
+        "studentID": "",
+        "yearID": "r13",
+        "email": "@ntu.edu.tw",
+        "graduated": false
+    },
+    {
+        "engName": "Sonya",
+        "chiName": "于懿雅",
+        "assistant": false,
+        "role": "master",
+        "year": "1",
+        "studentID": "",
+        "yearID": "r13",
+        "email": "@ntu.edu.tw",
+        "graduated": false
+    }
+]
