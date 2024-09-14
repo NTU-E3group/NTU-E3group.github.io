@@ -99,10 +99,10 @@ h3 {
 #home {
     --_window-padding: 2rem;
     --_hp-text-width: 23rem;
+    --_home-min-height: 50rem;
 
     width: min(100%, 120rem);
-    height: min(100%, 75rem);
-    /* height: 100svh; */
+    height: clamp(var(--_home-min-height), 100svh, 75rem);
     margin-inline: auto;
     padding: var(--_window-padding);
     overflow: hidden;
@@ -263,6 +263,8 @@ h3 {
     }
 
     @media (width < 64rem) {
+        --_home-min-height: 59rem;
+
         align-items: end;
 
         .hp-mainthing {
@@ -273,7 +275,6 @@ h3 {
             flex-direction: column;
             justify-content: space-around;
             gap: 3rem;
-            /* background-color: #51a885; */
         }
 
         .hp-text {
@@ -293,6 +294,8 @@ h3 {
     }
 
     @media (width <= 48rem) {
+        --_home-min-height: 44rem;
+
         .hp-small-no, .hp-about-us {display: none;}
 
         .hp-101 {scale: 0.9;}
