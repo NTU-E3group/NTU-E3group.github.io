@@ -44,8 +44,13 @@
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Outfit:wght@100..900&display=swap" rel="preload" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="preload" as="style">
+    <!-- async CSS (optionally increase loading priority with fetchpriority="high") -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap" media="print" onload="this.onload=null;this.removeAttribute('media');" fetchpriority="high"> -->
+    <!-- no-JS fallback -->
+    <!-- <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap">
+    </noscript> -->
 
     <!-- css -->
     <link rel="stylesheet" href="/css/general.css">
@@ -63,6 +68,7 @@
     <meta name="msapplication-TileColor" content="#0a557e">
     <meta name="theme-color" content="#ffffff">
 </head>
+
 <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M3L6SMNZ"
@@ -75,6 +81,9 @@
         <button class="nesting-support-dialog-close-btn skewed-block" b-role="btn" b-hoverable>Visit Without Proper Styling</button>
     </dialog> -->
 
+    
+
+
     <section id="home">
 
         <div class="hp-mainthing">
@@ -83,7 +92,7 @@
                 <div class="hp-title">
                     <h1>
                         E3 Group
-                        <object type="image/svg+xml" data="/assets/icons/e3-logo.svg"></object>
+                        <svg><use href="#e3-logo"></use></svg>
                     </h1>
                     <span>Directed by Professor I-Yun Lisa Hsieh</span>
                 </div>
@@ -368,7 +377,7 @@
         <section id="about-us">
             <div class="section-title">
                 <h2>About Us</h2>
-                <object type="image/svg+xml" data="/assets/icons/e3-logo.svg"></object>
+                <svg><use href="#e3-logo"></use></svg>
             </div>
 
             <h3>The NTU E3 Research Group</h3>
@@ -395,8 +404,13 @@
         <section id="members">
             <div class="section-title">
                 <h2>Members</h2>
+<<<<<<< Updated upstream
                 <object type="image/svg+xml" data="/assets/icons/e3-logo.svg"></object>
             </div>
+=======
+                <svg><use href="#e3-logo"></use></svg>
+            </div>            
+>>>>>>> Stashed changes
 
             <h3>Principle Investigator</h3>
             <section class="mem-section" who="L">
@@ -1001,7 +1015,7 @@
             <div class="section-title-block">
                 <div class="section-title">
                     <h2>Research</h2>
-                    <object type="image/svg+xml" data="/assets/icons/e3-logo.svg"></object>
+                    <svg><use href="#e3-logo"></use></svg>
                 </div>
 
                 <div class="section-subtitle">
@@ -1864,7 +1878,7 @@
         <section id="publication">
             <div class="section-title">
                 <h2>Publication</h2>
-                <object type="image/svg+xml" data="/assets/icons/e3-logo.svg"></object>
+                <svg><use href="#e3-logo"></use></svg>
             </div>
 
             <h3>Journal Publication</h3>
@@ -2118,7 +2132,7 @@
         <section id="news">
             <div class="section-title">
                 <h2>News</h2>
-                <object type="image/svg+xml" data="/assets/icons/e3-logo.svg"></object>
+                <svg><use href="#e3-logo"></use></svg>
             </div>
 
             <h3>Recent News</h3>
@@ -2236,7 +2250,7 @@
         <section id="group-life">
             <div class="section-title">
                 <h2>Group Life</h2>
-                <object type="image/svg+xml" data="/assets/icons/e3-logo.svg"></object>
+                <svg><use href="#e3-logo"></use></svg>
             </div>
 
             <section class="glf-section" which="slider">
@@ -2278,6 +2292,7 @@
                                         /assets/glf/2024-1-1200w.webp 1200w,
                                         /assets/glf/2024-1-1600w.webp 1600w
                                     "
+                                    size="(max-width: 45rem) 100svw, 45rem"
                                     alt="August 2024, Celebrating Lisa's Promotion and E3 Group Homecoming.">
                             </div>
                             
@@ -2298,6 +2313,7 @@
                                         /assets/glf/2023-3-1200w.webp 1200w,
                                         /assets/glf/2023-3-1600w.webp 1600w
                                     "
+                                    size="(max-width: 45rem) 100svw, 45rem"
                                     alt="December 2023, The E3 Group Workshop and Gathering.">
                             </div>
                             
@@ -2318,6 +2334,7 @@
                                         /assets/glf/2023-2-1200w.webp 1200w,
                                         /assets/glf/2023-2-1600w.webp 1600w
                                     "
+                                    size="(max-width: 45rem) 100svw, 45rem"
                                     alt="August 2023, The E3 Group Welcome and Farewell Gathering.">
                             </div>
                             
@@ -2338,6 +2355,7 @@
                                         /assets/glf/2023-1-1200w.webp 1200w,
                                         /assets/glf/2023-1-1600w.webp 1600w
                                     "
+                                    size="(max-width: 45rem) 100svw, 45rem"
                                     alt="August 2023, Graduation gifts for the E3 new graduates (R10).">
                             </div>
                             
@@ -2358,6 +2376,7 @@
                                         /assets/glf/2022-4-1200w.webp 1200w,
                                         /assets/glf/2022-4-1600w.webp 1600w
                                     "
+                                    size="(max-width: 45rem) 100svw, 45rem"
                                     alt="December 2022, The E3 Group after a Christmas Party + Gift Exchange Game.">
                             </div>
                             
@@ -2378,6 +2397,7 @@
                                         /assets/glf/2022-3-1200w.webp 1200w,
                                         /assets/glf/2022-3-1600w.webp 1600w
                                     "
+                                    size="(max-width: 45rem) 100svw, 45rem"
                                     alt="November 2022, The E3 Group pioneers graduation photos.">
                             </div>
                             
@@ -2398,6 +2418,7 @@
                                         /assets/glf/2022-2-1200w.webp 1200w,
                                         /assets/glf/2022-2-1600w.webp 1600w
                                     "
+                                    size="(max-width: 45rem) 100svw, 45rem"
                                     alt="September 2022, Prof. Hsieh’s Teacher’s Day with her lovely E3 Group.">
                             </div>
                             
@@ -2418,6 +2439,7 @@
                                         /assets/glf/2022-1-1200w.webp 1200w,
                                         /assets/glf/2022-1-1600w.webp 1600w
                                     "
+                                    size="(max-width: 45rem) 100svw, 45rem"
                                     alt="September 2022, The E3 Group Welcome and Farewell Gathering.">
                             </div>
                             
@@ -2438,6 +2460,7 @@
                                         /assets/glf/2021-2-1200w.webp 1200w,
                                         /assets/glf/2021-2-1600w.webp 1600w
                                     "
+                                    size="(max-width: 45rem) 100svw, 45rem"
                                     alt="December 2021, The E3 Group after a Christmas Party + Gift Exchange Game.">
                             </div>
                             
@@ -2458,6 +2481,7 @@
                                         /assets/glf/2021-1-1200w.webp 1200w,
                                         /assets/glf/2021-1-1600w.webp 1600w
                                     "
+                                    size="(max-width: 45rem) 100svw, 45rem"
                                     alt="October 2021, The E3 Group after the first online group meeting during the COVID-19 pandemic.">
                             </div>
                             
@@ -2754,7 +2778,7 @@
         <section id="contact-us">
             <div class="section-title">
                 <h2>Contact Us</h2>
-                <object type="image/svg+xml" data="/assets/icons/e3-logo.svg"></object>
+                <svg><use href="#e3-logo"></use></svg>
             </div>
 
             <section class="tac-section">
@@ -2786,7 +2810,7 @@
     <footer>
         <a class="ftr-logo">
             <!-- <img src="/assets/image/e3-logo.svg" alt=""> -->
-            <object type="image/svg+xml" data="/assets/icons/e3-logo.svg"></object>
+            <svg><use href="#e3-logo"></use></svg>
         </a>
 
         <div class="ftr-link-wrapper">
@@ -2804,7 +2828,7 @@
 
             <a class="ftr-link" href="#group-life">Group Life</a>
 
-            <!-- <a class="ftr-link" href="#contact-us">Contact Us</a> -->
+            <a class="ftr-link" href="#contact-us">Contact Us</a>
         </div>
 
         <div class="ftr-info">
@@ -2943,6 +2967,24 @@
     <!-- <div class="cursor">
         <span class="cursor-text"></span>
     </div> -->
+
+    <!-- SVG sprite file definition -->
+    <svg style="display:none;">
+        <symbol id="e3-logo" viewBox="0 0 200 173.27">
+            <polygon fill="#d8daa5" points="0 101.39 16.77 101.39 34.06 71.44 17.3 71.44 0 101.39"/>
+            <polygon fill="#d8daa5" points="66.14 101.39 82.9 101.39 100.2 71.44 83.43 71.44 66.14 101.39"/>
+            <polygon fill="#d8daa5" points="33.07 101.39 49.84 101.39 67.13 71.44 50.36 71.44 33.07 101.39"/>
+            <polygon fill="#1e5b7d" points="133.06 14.52 141.44 0 58.45 0 17.21 71.44 100.2 71.44 108.32 57.38 38.97 57.38 47.49 42.63 116.83 42.63 124.55 29.27 55.57 29.27 64.08 14.52 133.06 14.52"/>
+            <polygon fill="#c2d2ac" points="158.53 173.19 150.15 158.67 115.56 158.67 123.94 173.19 158.53 173.19"/>
+            <polygon fill="#c2d2ac" points="125.46 115.92 117.08 101.39 82.49 101.39 90.87 115.92 125.46 115.92"/>
+            <polygon fill="#c2d2ac" points="142 144.55 133.61 130.03 99.02 130.03 107.41 144.55 142 144.55"/>
+            <polygon fill="#aeb657" points="16.76 101.39 0 101.39 41.5 173.27 123.98 173.27 82.49 101.39 66.26 101.39 100.93 161.44 83.9 161.44 49.23 101.39 33.79 101.39 68.28 161.13 51.26 161.13 16.76 101.39"/>
+            <polygon fill="#abbfc1" points="141.42 0.08 133.03 14.6 150.33 44.55 158.71 30.03 141.42 0.08"/>
+            <polygon fill="#abbfc1" points="108.35 57.35 99.97 71.87 117.26 101.83 125.64 87.31 108.35 57.35"/>
+            <polygon fill="#abbfc1" points="124.88 28.71 116.5 43.23 133.79 73.19 142.18 58.67 124.88 28.71"/>
+            <polygon fill="#217e77" points="150.12 158.75 158.5 173.27 200 101.39 158.76 29.96 117.26 101.83 125.38 115.89 160.05 55.84 168.56 70.58 133.89 130.64 141.61 144 176.1 84.26 184.61 99.01 150.12 158.75"/>
+        </symbol>
+    </svg>
 
 </body>
 </html>

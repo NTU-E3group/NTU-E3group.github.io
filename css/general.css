@@ -126,10 +126,6 @@ a:hover {
     --content-skew: calc(-1 * var(--block-skew));
 }
 
-.dark-theme {
-
-}
-
 .fill-101-top {fill: var(--r-yellow);}
 .fill-m {fill: var(--main-color);}
 .fill-m-bg {fill: var(--main-bg-color);}

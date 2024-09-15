@@ -16,7 +16,7 @@ section:has(.section-title) {
             font-size: 4rem;
         }
 
-        & object {
+        & svg {
             height: 3.75rem;
             translate: 0.375rem -1.25rem;
         }
@@ -93,6 +93,7 @@ h3 {
     }
 }
 
+svg:has(use[href="#e3-logo"]) {aspect-ratio: 1.1543;}
 .display-none {display: none !important;}
 .overflow-hidden {overflow-y: hidden !important;}
 
@@ -146,7 +147,7 @@ h3 {
 
             display: flex;
 
-            & object {
+            & svg {
                 height: 3.75rem;
                 translate: 0.375rem -1.25rem;
             }
@@ -238,7 +239,7 @@ h3 {
             & h1 {
                 font-size: 3rem;
     
-                & object {
+                & svg {
                     height: 2.75rem;
                     translate: 0.5rem -0.75rem;
                 }
@@ -612,9 +613,6 @@ h3 {
 }
 
 /* about us */
-#about-us {
-}
-
 .abt-section {
     /* --_para-min-width: 768px; */
     --_para-min-width: 50rem;
@@ -630,11 +628,6 @@ h3 {
     & > * {
         flex-grow: 1;
     }
-
-    /* display: grid;
-    grid-template-columns: var(--para-max-width) 1fr;
-    align-content: center;
-    gap: 1rem; */
 
     .abt-text {
         flex-grow: 999;
@@ -1546,7 +1539,7 @@ footer {
         margin-inline: auto;
     }
 
-    .ftr-logo object {
+    .ftr-logo svg {
         width: 3rem;
         user-select: none;
     }
@@ -1833,7 +1826,7 @@ footer {
                 font-size: 2.5rem;
             }
 
-            & object {
+            & svg {
                 height: 2.25rem;
                 translate: 0.375rem -0.6875rem;
             }
