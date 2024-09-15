@@ -93,7 +93,6 @@ h3 {
     }
 }
 
-svg:has(use[href="#e3-logo"]) {aspect-ratio: 1.1543;}
 .display-none {display: none !important;}
 .overflow-hidden {overflow-y: hidden !important;}
 
@@ -914,7 +913,6 @@ svg:has(use[href="#e3-logo"]) {aspect-ratio: 1.1543;}
     }
 }
 
-
 /* research */
 .res-section {
     --_block-scale: 0.875;
@@ -1284,6 +1282,7 @@ svg:has(use[href="#e3-logo"]) {aspect-ratio: 1.1543;}
 
             & svg {
                 display: inline-block;
+                width: 0.625rem;
                 transition: var(--hover-transition-time);
             }
 
@@ -1321,6 +1320,7 @@ svg:has(use[href="#e3-logo"]) {aspect-ratio: 1.1543;}
 
         & svg {
             display: inline-block;
+            width: 0.625rem;
             margin-inline-start: 0.25rem;
             transition: var(--hover-transition-time);
         }
@@ -1917,3 +1917,10 @@ footer {
         font-size: 1.125rem !important;
     }
 }
+
+/* symbols */
+svg:has(use[href="#svg-e3-logo"]) {aspect-ratio: 200/173.27;}
+svg:has(use[href="#svg-arrow-top-right"]) {aspect-ratio: 1;}
+svg:has(use[href="#svg-energy"]) {aspect-ratio: 15/18;}
+svg:has(use[href="#svg-economy"]) {aspect-ratio: 10/18;}
+svg:has(use[href="#svg-environment"]) {aspect-ratio: 18/18;}
