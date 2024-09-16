@@ -1,0 +1,284 @@
+{
+    "special": [
+        {
+            "engName": "I-Yun Lisa Hsieh",
+            "chiName": "謝依芸",
+            "description": "Department of Civil Engineering<br>Department of Chemical Engineering (Joint Appointment)<br>National Taiwan University",
+            "links": [
+                {
+                    "icon": "xxxxxxxxxxxx",
+                    "text": "iyhsieh@ntu.edu.tw",
+                    "url": "mailto:iyhsieh@ntu.edu.tw"
+                },
+                {
+                    "icon": "xxxxxxxxxxxx",
+                    "text": "CERB 601",
+                    "url": "https://maps.app.goo.gl/crYHNJhSwBzqt2VJ8"
+                }
+            ]
+        },
+        {
+            "engName": "I-Yun Lisa Hsieh",
+            "chiName": "謝依芸",
+            "description": "Department of Civil Engineering<br>Department of Chemical Engineering (Joint Appointment)<br>National Taiwan University",
+            "links": [
+                {
+                    "icon": "xxxxxxxxxxxx",
+                    "text": "iyhsieh@ntu.edu.tw",
+                    "url": "mailto:iyhsieh@ntu.edu.tw"
+                },
+                {
+                    "icon": "xxxxxxxxxxxx",
+                    "text": "CERB 601",
+                    "url": "https://maps.app.goo.gl/crYHNJhSwBzqt2VJ8"
+                }
+            ]
+        }
+    ],
+    "others": [
+        {
+            "engName": "Ayria",
+            "chiName": "蔡佳妤",
+            "role": "master",
+            "roleYear": "3",
+            "studentID": "r08521604",
+            "yearEnter": "2019",
+            "email": "r08521604@ntu.edu.tw",
+            "graduated": true,
+            "imgPath": "/assets/mem/r08521604.jpg"
+        },
+        {
+            "engName": "David",
+            "chiName": "張綜桁",
+            "role": "master",
+            "roleYear": "3",
+            "studentID": "r09521525",
+            "yearEnter": "2020",
+            "email": "r09521525@ntu.edu.tw",
+            "graduated": true,
+            "imgPath": "/assets/mem/r09521525.jpg"
+        },
+        {
+            "engName": "Jim",
+            "chiName": "曾暐畯",
+            "role": "master",
+            "roleYear": "2",
+            "studentID": "10521602",
+            "yearEnter": "2021",
+            "email": "10521602@ntu.edu.tw",
+            "graduated": true,
+            "imgPath": "/assets/mem/r10521602.jpg"
+        },
+        {
+            "engName": "Alison",
+            "chiName": "羅凱芸",
+            "role": "master",
+            "roleYear": "2",
+            "studentID": "10521604",
+            "yearEnter": "2021",
+            "email": "10521604@ntu.edu.tw",
+            "graduated": true,
+            "imgPath": "/assets/mem/r10521604.jpg"
+        },
+        {
+            "engName": "Evan",
+            "chiName": "馮意凡",
+            "role": "master",
+            "roleYear": "2",
+            "studentID": "10521609",
+            "yearEnter": "2021",
+            "email": "10521609@ntu.edu.tw",
+            "graduated": true,
+            "imgPath": "/assets/mem/r10521609.jpg"
+        },
+        {
+            "engName": "Jason",
+            "chiName": "譚竣文",
+            "role": "master",
+            "roleYear": "2",
+            "studentID": "10521612",
+            "yearEnter": "2021",
+            "email": "10521612@ntu.edu.tw",
+            "graduated": true,
+            "imgPath": "/assets/mem/r10521612.jpg"
+        },
+        {
+            "engName": "Sean",
+            "chiName": "陳維軒",
+            "role": "master",
+            "roleYear": "2",
+            "studentID": "10524030",
+            "yearEnter": "2021",
+            "email": "10524030@ntu.edu.tw",
+            "graduated": true,
+            "imgPath": "/assets/mem/r10524030.jpg"
+        },
+        {
+            "engName": "Sean",
+            "chiName": "薛丞翔",
+            "role": "master",
+            "roleYear": "2",
+            "studentID": "r11521602",
+            "yearEnter": "2022",
+            "email": "r11521602@ntu.edu.tw",
+            "graduated": true,
+            "imgPath": "/assets/mem/r11521602.jpg"
+        },
+        {
+            "engName": "Thomas",
+            "chiName": "簡元璽",
+            "role": "master",
+            "roleYear": "3",
+            "studentID": "r11521604",
+            "yearEnter": "2022",
+            "email": "r11521604@ntu.edu.tw",
+            "graduated": false,
+            "imgPath": "/assets/mem/r11521604.jpg"
+        },
+        {
+            "engName": "Jocelyn",
+            "chiName": "曾靖琇",
+            "role": "master",
+            "roleYear": "3",
+            "studentID": "r11521605",
+            "yearEnter": "2022",
+            "email": "r11521605@ntu.edu.tw",
+            "graduated": false,
+            "imgPath": "/assets/mem/r11521605.jpg"
+        },
+        {
+            "engName": "Joseph",
+            "chiName": "傅遠新",
+            "role": "master",
+            "roleYear": "2",
+            "studentID": "r11524037",
+            "yearEnter": "2022",
+            "email": "r11524037@ntu.edu.tw",
+            "graduated": true,
+            "imgPath": "/assets/mem/r11524037.jpg"
+        },
+
+
+        {
+            "engName": "Anita",
+            "chiName": "陳珮慈",
+            "assistant": false,
+            "role": "master",
+            "year": "2",
+            "studentID": "r12521602",
+            "yearID": "r12",
+            "email": "r12521602@ntu.edu.tw",
+            "graduated": false
+        },
+        {
+            "engName": "Sigi",
+            "chiName": "胡羽忻",
+            "assistant": false,
+            "role": "master",
+            "year": "2",
+            "studentID": "r12521605",
+            "yearID": "r12",
+            "email": "r12521605@ntu.edu.tw",
+            "graduated": false
+        },
+        {
+            "engName": "Harper",
+            "chiName": "呂芷儀",
+            "assistant": false,
+            "role": "master",
+            "year": "2",
+            "studentID": "r12521611",
+            "yearID": "r12",
+            "email": "r12521611@ntu.edu.tw",
+            "graduated": false
+        },
+        {
+            "engName": "Eric",
+            "chiName": "張友睿",
+            "assistant": false,
+            "role": "master",
+            "year": "2",
+            "studentID": "r12524052",
+            "yearID": "r12",
+            "email": "r12524052@ntu.edu.tw",
+            "graduated": false
+        },
+        {
+            "engName": "Jianhern",
+            "chiName": "楊建恆",
+            "assistant": false,
+            "role": "master",
+            "year": "2",
+            "studentID": "r12521626",
+            "yearID": "r12",
+            "email": "r12521626@ntu.edu.tw",
+            "graduated": false
+        },
+        {
+            "engName": "Dulcinea",
+            "chiName": "吳巽言",
+            "assistant": false,
+            "role": "master",
+            "year": "1",
+            "studentID": "",
+            "yearID": "r13",
+            "email": "@ntu.edu.tw",
+            "graduated": false
+        },
+        {
+            "engName": "Derek",
+            "chiName": "周恩毅",
+            "assistant": false,
+            "role": "master",
+            "year": "1",
+            "studentID": "",
+            "yearID": "r13",
+            "email": "@ntu.edu.tw",
+            "graduated": false
+        },
+        {
+            "engName": "Ray",
+            "chiName": "林宏叡",
+            "assistant": false,
+            "role": "master",
+            "year": "1",
+            "studentID": "",
+            "yearID": "r13",
+            "email": "@ntu.edu.tw",
+            "graduated": false
+        },
+        {
+            "engName": "Anching",
+            "chiName": "鍾安慶",
+            "assistant": false,
+            "role": "master",
+            "year": "1",
+            "studentID": "",
+            "yearID": "r13",
+            "email": "@ntu.edu.tw",
+            "graduated": false
+        },
+        {
+            "engName": "Sonya",
+            "chiName": "于懿雅",
+            "assistant": false,
+            "role": "master",
+            "year": "1",
+            "studentID": "",
+            "yearID": "r13",
+            "email": "@ntu.edu.tw",
+            "graduated": false
+        },
+        {
+            "engName": "Gary",
+            "chiName": "丁俊瑋",
+            "assistant": false,
+            "role": "doctor",
+            "year": "1",
+            "studentID": "d13521023",
+            "yearID": "d13",
+            "email": "@ntu.edu.tw",
+            "graduated": false
+        }
+    ]
+}

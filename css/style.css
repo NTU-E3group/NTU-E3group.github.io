@@ -6,6 +6,7 @@ main {
 
 section:has(.section-title) {
     width: min(100%, 80rem);
+    overflow-y: scroll;
     margin-inline: auto;
     padding: 8rem 2rem;
 
@@ -1485,7 +1486,8 @@ h3 {
 
 /* contact */
 .tac-section {
-    max-width: min(40rem, calc(100vw - 5rem));
+    width: min(40rem, calc(100svw - 5rem));
+    min-width: 0;
     margin-inline: auto;
 
     & form {

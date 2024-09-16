@@ -35,13 +35,14 @@ def convert_to_webp(input_image_name, sizes, compression_quality=100):
             print(f"Saved {webp_output_path} with size {size}px width")
 
 # Define desired sizes for WebP images (widths)
-ppl_img_sizes = [200, 400, 800]
+mem_img_sizes = [200, 400, 800]
 glf_img_sizes = [200, 400, 800, 1200, 1600, 2000]
 
 # Convert images to WebP format
-for ele in ['mem', 'glf'][1:]:
+for ele in ['mem', 'glf'][:1]:
     data_list = open_json(f'../src/{ele}.json')
 
     for data in data_list:
-        print(data['image_name'])
-        convert_to_webp(f"../{ele}/{data['image_name']}", globals()[f'{ele}_img_sizes'], compression_quality=100)
+        print(data['imgPath'])
+        img_name = data['imgPath'].split('/')[-1].split('.')[0]
+        convert_to_webp(f"../{ele}/{img_name}", globals()[f'{ele}_img_sizes'], compression_quality=100)
