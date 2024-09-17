@@ -7,7 +7,7 @@ Modules to make your life easier.
 
 ### Modules:
 1. [compress-img](/assets/modules/compress-img.py): Compress image files into several sizes of the file, to have better performance.
-2. [g-scholar-scrape](/assets/modules/g-scholar-scrape.py)
+2. [g-scholar-scrape](/assets/modules/g-scholar-scrape.py): Scrape the publication (usually only journal publications) information from Google Scholar, including `citationId`, `title`, `link`, `journal`, `volume`, `year`, `month`.
 
 ## src
 Sources to render our beautiful web page.
