@@ -29,7 +29,7 @@
     </symbol>
     
     <symbol id="svg-arrow-top-right" viewBox="0 0 10 10">
-        <polygon points="1.45 .06 1.45 2.49 5.8 2.49 .06 8.22 1.78 9.94 7.51 4.2 7.51 8.55 9.94 8.55 9.94 .06 1.45 .06"/>
+        <polygon fill="#c4c691" points="1.45 .06 1.45 2.49 5.8 2.49 .06 8.22 1.78 9.94 7.51 4.2 7.51 8.55 9.94 8.55 9.94 .06 1.45 .06"/>
     </symbol>
 
     <symbol id="svg-master" viewBox="0 0 27 26">
@@ -40,7 +40,7 @@
     </symbol>
 
     <symbol id="svg-master-1" view-box="0 0 27 26">
-        <use href="#svg-master" />
+        <use href="#svg-master"/>
         <rect fill="#ed8c37" x="23" y="23" width="2" height="2"/>
     </symbol>
 </def>
