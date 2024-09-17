@@ -180,27 +180,6 @@ h3 {
         --_adjusted-hover-shadow-shift: 0.4375rem;
     }
 
-    .hp-recent-news {
-        position: absolute;
-        bottom: var(--_window-padding);
-        left: var(--_window-padding);
-        width: 30%;
-
-        & h3 {
-            margin-block: 0 0.3125rem;
-            font-size: 1.5rem;
-        }
-        
-        .hp-news-block {
-            overflow: hidden;
-        }
-
-        .hp-news {
-            text-wrap: nowrap;
-        }
-
-    }
-
     .hp-scroll-for-more {
         position: absolute;
         /* margin-inline: auto; */
@@ -675,10 +654,11 @@ h3 {
 .mem-section {
     padding-inline: 1rem;
 
-    .mem-quot, .mem-arrow {
+    .mem-quote {width: 0.875rem;}
+
+    .mem-quote, .mem-arrow {
         transform: skewX(var(--block-skew));
     }
-
 
     .mem-img {
         /* width: calc(var(--_img-width) + 2 * var(--_img-border-w));
@@ -738,6 +718,7 @@ h3 {
             }
     
             .mem-quote {
+                width: 0.875rem;
                 translate: 0 0.5rem;
             }
 
@@ -1238,6 +1219,7 @@ h3 {
     justify-items: start;
 
     .pub-quote {
+        width: 0.875rem;
         transform: skewX(var(--block-skew));
     }
 
@@ -1567,7 +1549,7 @@ footer {
 .img-modal {
     display: none;
 
-    &[open]{
+    &[open] {
         width: min(100%, 85svh, 80rem);
         margin: auto;
         padding: 0.5rem;
@@ -1579,7 +1561,7 @@ footer {
         gap: 1rem;
     }
 
-    &::backdrop{
+    &::backdrop {
         background-color: var(--main-color);
         opacity: 0.3;
         pointer-events: auto;
@@ -1599,6 +1581,10 @@ footer {
 
     .img-modal-close-btn {
         justify-self: end;
+
+        & svg {
+            width: 1rem;
+        }
     }
 }
 
@@ -1610,14 +1596,18 @@ footer {
     top: 2rem;
     right: -1rem;
     transition: margin 0s;
+    
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    & svg {
+        width: 1rem;
+    }
 
     & p {
         margin-inline-end: 1rem;
     }
-
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
 }
 
 .to-top-btn {

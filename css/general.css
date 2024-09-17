@@ -227,6 +227,7 @@ body {
 /* sprite symbols */
 svg:has(use[href*="#svg-"]) {aspect-ratio: 1;}
 svg:has(use[href*="#svg-e3-logo"]) {aspect-ratio: 200/173.27;}
+svg:has(use[href*="#svg-menu"]) {aspect-ratio: 16/14;}
 svg:has(use[href*="#svg-energy"]) {aspect-ratio: 15/18;}
 svg:has(use[href*="#svg-economics"]) {aspect-ratio: 10/18;}
 svg:has(use[href*="#svg-environment"]) {aspect-ratio: 18/18;}
