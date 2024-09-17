@@ -231,6 +231,8 @@ svg:has(use[href*="#svg-energy"]) {aspect-ratio: 15/18;}
 svg:has(use[href*="#svg-economics"]) {aspect-ratio: 10/18;}
 svg:has(use[href*="#svg-environment"]) {aspect-ratio: 18/18;}
 svg:has(use[href*="#svg-arrow-top-right"]) {aspect-ratio: 1;}
+svg:has(use[href*="#svg-assistant"]) {aspect-ratio: 27/26;}
+svg:has(use[href*="#svg-doctor"]) {aspect-ratio: 27/26;}
 svg:has(use[href*="#svg-master"]) {aspect-ratio: 27/26;}
 
 /* This rule is used to check CSS nesting support */
