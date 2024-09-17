@@ -1,5 +1,5 @@
 main {
-    background-image: url(../assets/image/background.webp);
+    background-image: url(/assets/image/background.webp);
     background-repeat: repeat-y;
     background-size: 100% auto;
 }
@@ -79,7 +79,7 @@ h3 {
             display: none;
             
             &:checked + .filter-label::before {
-                content: url('../assets/icons/check.svg');
+                content: url('/assets/icons/check.svg');
                 display: inline-block;
                 width: 1.0625rem;
                 margin-inline-end: 0.25rem;
@@ -815,6 +815,8 @@ h3 {
 
                 & svg {
                     height: 0.75em;
+                    background-color: gainsboro;
+
                 }
             }
     
@@ -823,7 +825,7 @@ h3 {
             }
 
             .mem-name-zh::after {
-                content: url(../assets/icons/mem-s-arrow.svg);
+                content: url(/assets/icons/mem-s-arrow.svg);
                 width: 0.75rem;
                 display: inline-block;
                 margin-inline-start: 0.5rem;
@@ -893,7 +895,7 @@ h3 {
                     font-size: 1rem;
 
                     &::after {
-                        content: url(../assets/icons/mem-s-arrow.svg);
+                        content: url(/assets/icons/mem-s-arrow.svg);
                         width: 0.75rem;
                         display: inline-block;
                         margin-inline-start: 0.5rem;
@@ -1918,10 +1920,3 @@ footer {
         font-size: 1.125rem !important;
     }
 }
-
-/* symbols */
-svg:has(use[href="#svg-e3-logo"]) {aspect-ratio: 200/173.27;}
-svg:has(use[href="#svg-arrow-top-right"]) {aspect-ratio: 1;}
-svg:has(use[href="#svg-energy"]) {aspect-ratio: 15/18;}
-svg:has(use[href="#svg-economy"]) {aspect-ratio: 10/18;}
-svg:has(use[href="#svg-environment"]) {aspect-ratio: 18/18;}

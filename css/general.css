@@ -224,6 +224,15 @@ body {
     box-shadow: var(--_shadow-shift) var(--_shadow-shift) var(--main-shadow-color);
 }
 
+
+/* sprite symbols */
+svg:has(use[href*="#svg-e3-logo"]) {aspect-ratio: 200/173.27;}
+svg:has(use[href*="#svg-energy"]) {aspect-ratio: 15/18;}
+svg:has(use[href*="#svg-economics"]) {aspect-ratio: 10/18;}
+svg:has(use[href*="#svg-environment"]) {aspect-ratio: 18/18;}
+svg:has(use[href*="#svg-arrow-top-right"]) {aspect-ratio: 1;}
+svg:has(use[href*="#svg-master"]) {aspect-ratio: 27/26;}
+
 /* This rule is used to check CSS nesting support */
 /* @supports selector(:is(div &)) {
     body::before {
