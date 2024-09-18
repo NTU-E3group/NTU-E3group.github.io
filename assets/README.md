@@ -6,8 +6,11 @@ Here are the assets used in the website. The folder/files, its functions, and ho
 Modules to make your life easier.
 
 ### Modules:
-#### 1. [compress-img](/assets/modules/compress-img.py): Compress image files into several sizes of the file, to have better performance.
-#### 2. [g-scholar-scrape](/assets/modules/g-scholar-scrape.py):
+#### 1. [compress-img](/assets/modules/compress-img.py)
+
+Compress image files into several sizes of the file, to have better performance.
+
+#### 2. [g-scholar-scrape](/assets/modules/g-scholar-scrape.py)
 Scrape the publication (usually only journal publications) information from the Google Scholar page of I-Yun Lisa Hsieh, including `citationId`, `title`, `link`, `journal`, `volume`, `year`, `month`.
 
 However, it only add the newest publications that were not in the file,for example:
