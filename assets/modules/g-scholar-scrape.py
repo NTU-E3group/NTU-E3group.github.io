@@ -10,7 +10,7 @@ api_key = "9564b246509b8b5c0be41828e72e1793ddd3dafb1a6c3ba9a4c41114fb0b2c5"
 output_path = '../src/pub.json'
 
 # Define the columns you want to get
-cols = ['citation_id', 'title', 'link', 'publication_date', 'journal', 'volume']
+cols = ['citationId', 'title', 'link', 'publication_date', 'journal', 'volume']
 
 # Parameter defines the ID of an author. You can find the ID either by using our Google Scholar Profiles API or by going to the Google Scholar user profile page and getting it from there (e.g., https://scholar.google.com/citations?user={author_id}).
 # author_id for Lisa
@@ -73,7 +73,7 @@ articles = GoogleSearch(params).get_dict()['articles'][:]
 # So the older articles will not be checked (prevent somewrong old articles to be added)
 # If there are older articles that are not in the list, add it manually
 old_pub = open_json(f'../src/pub.json')
-existing_ids = set(pub['citation_id'] for pub in old_pub)
+existing_ids = set(pub['citationId'] for pub in old_pub)
 new_articles_to_add = []
 for article in articles:
     citation_id = article['citation_id']
@@ -96,7 +96,7 @@ for article in new_articles_to_add:
     }
     citation = GoogleSearch(params).get_dict()['citation']
     temp = pd.DataFrame(list(citation.items())).set_index(0).T
-    temp['citation_id'] = article['citation_id']
+    temp['citationId'] = article['citation_id']
     df = pd.concat([temp, df])
 
 # format the data
@@ -110,5 +110,12 @@ if not df.empty:
 
 # Combine the new articles with the old ones
 df = pd.concat([pd.DataFrame(old_pub), df])
-df.to_json(output_path, orient='records', indent=2)
+
+# Convert DataFrame to list of dictionaries
+records = df.to_dict(orient='records')
+
+# Save the updated list to the JSON file
+with open(output_path, 'w') as f:
+    json.dump(records, f, indent=2)
+
 print(f"Added {len(new_articles_to_add)} new articles to the list.")
