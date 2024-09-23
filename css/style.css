@@ -1384,8 +1384,8 @@ h3 {
 
     .glf-slider-block {
         transform: translateX(-50%);
-        /* opacity: 0; */
         transition: calc(var(--_slider-transition-time) / 2);
+        user-select: none;
 
         & + * {
             opacity: 0;
