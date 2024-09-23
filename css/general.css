@@ -112,6 +112,7 @@ a:hover {
 
     --btn-border-width: 0.125rem;
     --btn-border-radius: 0.125rem;
+    --btn-border-radius: 0.25rem;
     --btn-padding: 0.375em 0.75em;
     --btn-shadow-shift: 0.1875rem;
     --btn-hover-translate: -0.0625rem;
@@ -217,10 +218,12 @@ body {
     --_hover-shadow-shift: var(--_adjusted-hover-shadow-shift, var(--btn-hover-shadow-shift));
 
     translate: var(--_hover-translate) var(--_hover-translate);
+    border-radius: calc(2 * var(--_adjusted-border-radius, var(--btn-border-radius)));
     box-shadow: var(--_hover-shadow-shift) var(--_hover-shadow-shift) var(--main-shadow-color);
 }
 .skewed-block[b-hoverable]:active {
     translate: 0 0;
+    border-radius: var(--_adjusted-border-radius, var(--btn-border-radius));
     box-shadow: var(--_shadow-shift) var(--_shadow-shift) var(--main-shadow-color);
 }
 
