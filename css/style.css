@@ -470,6 +470,87 @@ h3 {
 
 @keyframes turbine-spin {from {rotate: 0deg;} to {rotate: 360deg;}}
 
+.hp-vehicle-to-left, .hp-vehicle-to-right {
+    --_car-burr-scaleY: 0.97;
+
+    & > * {animation: car-go-burr 20s linear infinite;}
+
+    & :nth-child(1) {animation-delay: -19s;}
+    & :nth-child(2) {animation-delay: -16.5s;}
+    & :nth-child(3) {animation-delay: -14s;}
+    & :nth-child(4) {animation-delay: -11s;}
+    & :nth-child(5) {animation-delay: -9.2s;}
+    & :nth-child(6) {animation-delay: -7s;}
+    & :nth-child(7) {animation-delay: -2.5s;}
+
+    & :nth-child(1) .ani-line-dash {animation-delay: -0.5s;}
+    & :nth-child(2) .ani-line-dash {animation-delay: -1s;}
+    & :nth-child(3) .ani-line-dash {animation-delay: -1.25s;}
+    & :nth-child(4) .ani-line-dash {animation-delay: -1.75s;}
+    & :nth-child(5) .ani-line-dash {animation-delay: -1.15s;}
+    & :nth-child(6) .ani-line-dash {animation-delay: -0.85s;}
+    & :nth-child(7) .ani-line-dash {animation-delay: -0.25s;}
+
+    .ani-line-dash {
+        stroke-dasharray: 0 100%;
+        animation: line-dash 2s ease-in-out infinite;
+    }
+}
+
+.hp-vehicle-to-right {--_car-burr-translate: 1;}
+.hp-vehicle-to-left {--_car-burr-translate: -1;}
+
+@keyframes car-go-burr {
+    0% {translate: 0 0;}
+
+    5% {transform: scaleY(1);}
+    5.8% {transform: scaleY(var(--_car-burr-scaleY));}
+    6.6% {transform: scaleY(1);}
+
+    15% {transform: scaleY(1);}
+    15.8% {transform: scaleY(var(--_car-burr-scaleY));}
+    16.6% {transform: scaleY(1);}
+
+    25% {transform: scaleY(1);}
+    25.8% {transform: scaleY(var(--_car-burr-scaleY));}
+    26.6% {transform: scaleY(1);}
+
+    35% {transform: scaleY(1);}
+    35.8% {transform: scaleY(var(--_car-burr-scaleY));}
+    36.6% {transform: scaleY(1);}
+
+    45% {transform: scaleY(1);}
+    45.8% {transform: scaleY(var(--_car-burr-scaleY));}
+    46.6% {transform: scaleY(1);}
+
+    55% {transform: scaleY(1);}
+    55.8% {transform: scaleY(var(--_car-burr-scaleY));}
+    56.6% {transform: scaleY(1);}
+
+    65% {transform: scaleY(1);}
+    65.8% {transform: scaleY(var(--_car-burr-scaleY));}
+    66.6% {transform: scaleY(1);}
+
+    75% {transform: scaleY(1);}
+    75.8% {transform: scaleY(var(--_car-burr-scaleY));}
+    76.6% {transform: scaleY(1);}
+
+    85% {transform: scaleY(1);}
+    85.8% {transform: scaleY(var(--_car-burr-scaleY));}
+    86.6% {transform: scaleY(1);}
+
+    95% {transform: scaleY(1);}
+    95.8% {transform: scaleY(var(--_car-burr-scaleY));}
+    96.6% {transform: scaleY(1);}
+
+    100% {translate: calc(var(--_car-burr-translate) * 110%) 0;}
+}
+
+@keyframes vehicle-stroke {
+    0% {stroke-dasharray: 0 100%;}
+    100% {stroke-dasharray: 100% 0;}
+}
+
 .hp-plane {
     animation: plane-move 30s linear infinite;
 
@@ -523,28 +604,6 @@ h3 {
 @keyframes scroll-bounce {
     0%, 20%, 100% {translate: 0 0.125rem;}
     10% {translate: 0 0.25rem;}
-}
-
-@keyframes car-go-burr {
-    0% {translate: 0px;}
-    40% {translate: 200px;}
-    60% {translate: 200px;}
-    100% {translate: 600px;}
-
-    10% {transform: translateY(5px);}
-    20% {transform: translateY(0px);}
-    30% {transform: translateY(10px);}
-    40% {transform: translateY(5px);}
-    50% {transform: translateY(0px);}
-    60% {transform: translateY(10px);}
-    70% {transform: translateY(5px);}
-    80% {transform: translateY(0px);}
-    90% {transform: translateY(10px);}
-}
-
-@keyframes vehicle-stroke {
-    0% {stroke-dasharray: 0 100%;}
-    100% {stroke-dasharray: 100% 0;}
 }
 
 @keyframes rain-stroke-front {
@@ -1565,6 +1624,7 @@ footer {
 
     .img-modal-content-wrapper {
         --_adjusted-block-skew: 0;
+        --_adjusted-border-radius: 0.375rem;
         --_content-width: 100%;
     }
 
