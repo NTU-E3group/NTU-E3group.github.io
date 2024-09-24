@@ -1651,7 +1651,7 @@ footer {
     position: fixed;
     top: 2rem;
     right: -1rem;
-    transition: margin 0s;
+    transition: all var(--hover-transition-time), margin 0s;
     
     display: flex;
     align-items: center;
@@ -1670,7 +1670,7 @@ footer {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    transition: all 0.3s, margin 0s;
+    transition: all var(--hover-transition-time), margin 0s;
 
     /* work with js */
     /* scroll down then display grid */
