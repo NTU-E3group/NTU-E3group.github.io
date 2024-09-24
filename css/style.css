@@ -560,7 +560,7 @@ h3 {
     
     .hp-plane-body {
         --_plane-rotate: -3deg;
-        /* rotate: -10deg; */
+
         animation: plane-body-move 6s ease-in-out infinite;
     }
 
@@ -568,14 +568,14 @@ h3 {
         animation: plane-blade-spin 0.8s ease-in alternate infinite;
     }
 
-    [class^='hp-plane-text-'] {
+    .hp-plane-text-wrapper {
         animation: plane-text-box-skew 3s ease-in-out infinite;
     }
 }
 
 @keyframes plane-move {
-    0% {translate: -20% var(--_y-location);}
-    100% {translate: 200% var(--_y-location);}
+    0% {translate: 20% var(--_y-location);}
+    100% {translate: -200% var(--_y-location);}
 }
 
 @keyframes plane-wo-text-move {

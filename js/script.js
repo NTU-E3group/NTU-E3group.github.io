@@ -144,9 +144,9 @@ const hpPlaneText = document.querySelector('.hp-plane-text');
 
 
 hpPlaneTextBox.setAttribute('width', hpPlaneText.getBBox().width + 39);
-hpPlaneTextBox.setAttribute('x', -39 - hpPlaneText.getBBox().width);
+// hpPlaneTextBox.setAttribute('x', -39 - hpPlaneText.getBBox().width);
 hpPlaneTextBg.setAttribute('width', hpPlaneText.getBBox().width + 30);
-hpPlaneTextBg.setAttribute('x', -34.5 - hpPlaneText.getBBox().width);
+// hpPlaneTextBg.setAttribute('x', -34.5 - hpPlaneText.getBBox().width);
 
 // filters
 document.querySelectorAll('.filter').forEach((filter) => {
