@@ -1794,7 +1794,6 @@ footer {
     /* cursor: none; */
 }
 
-
 @media (width <= 48rem) {
     section:has(.section-title) {
         padding: 6rem 1.5rem;
