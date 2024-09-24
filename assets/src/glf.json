@@ -70,5 +70,17 @@
         "month": "8",
         "description": "Celebrating Lisa's Promotion and E3 Group Homecoming.",
         "imgPath": "/assets/group-life/2024-1.jpg"
+    },
+    {
+        "year": "2024",
+        "month": "9",
+        "description": "The E3 Group's grand Mid-Autumn Festival BBQ reunion.",
+        "imgPath": "/assets/group-life/2024-2.jpg"
+    },
+    {
+        "year": "2024",
+        "month": "9",
+        "description": "Prof. Hsieh’s Teacher’s Day with her fun/productive E3 Group.",
+        "imgPath": "/assets/group-life/2024-3.jpg"
     }
 ]
