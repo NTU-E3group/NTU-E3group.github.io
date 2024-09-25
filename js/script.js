@@ -170,6 +170,19 @@ document.querySelectorAll('.filter').forEach((filter) => {
     });
 });
 
+// lazy loading img
+const lazyLoadImgBlock = document.querySelectorAll('[class*="-img"]:has(img[loading="lazy"])');
+
+lazyLoadImgBlock.forEach((block) => {
+    const img = block.querySelector('img');
+    function lazyImgLoaded() {block.classList.add("lazy-img-loaded")};
+
+    if (img.complete) {
+        lazyImgLoaded();
+    } else {
+        img.addEventListener('load', lazyImgLoaded);
+    };
+});
 
 // research animation: hover to start
 var resBlockAniRunning = false;
@@ -195,7 +208,6 @@ resBlockWithAni.forEach(block => {
         };
     });
 });
-
 
 // group life
 var glfSlider = document.querySelector('.glf-slider');
@@ -264,26 +276,41 @@ glfSlider.addEventListener('touchend', (e) => {
 // img-modal
 var imgModal = document.querySelector('.img-modal');
 var imgModalCloseBtn = document.querySelector('.img-modal-close-btn');
-var imgModalContent = document.querySelector('.img-modal-content');
+var imgModalImgWrapper = document.querySelector('.img-modal-img-wrapper');
+var imgModalImg = imgModalImgWrapper.querySelector('img');
 var imgModalCaption = document.querySelector('.img-modal-caption');
-var glfImgBlock = document.querySelectorAll('.glf-section[which="all"] .glf-img-block');
+var glfImgBlock = document.querySelectorAll('.glf-section[which="all"] .glf-img');
 
 glfImgBlock.forEach((block) => {
     block.addEventListener('click', () => {
+        function lazyImgLoaded() {imgModalImgWrapper.classList.add("lazy-img-loaded")};
         var img = block.querySelector('img');
-        imgModalContent.src = img.src;
-        imgModalContent.srcset = img.srcset;
+
+        imgModalImgWrapper.setAttribute('style', `background-image: ${block.style.backgroundImage}; aspect-ratio: ${img.naturalWidth}/${img.naturalHeight}`);
+        imgModalImg.src = img.src;
+        imgModalImg.srcset = img.srcset;
+        imgModalImg.alt = img.alt;
         imgModalCaption.innerHTML = img.alt;
         imgModal.showModal();
+    
+        if (imgModalImg.complete) {
+            lazyImgLoaded();
+        } else {
+            imgModalImg.addEventListener('load', lazyImgLoaded);
+        };
     });
 });
 
 imgModalCloseBtn.addEventListener('click', () => {
+    imgModalImgWrapper.classList.remove('lazy-img-loaded');
     imgModal.close();
 });
 
 imgModal.addEventListener('click', (e) => {
-    if (e.target === imgModal) imgModal.close();
+    if (e.target === imgModal) {
+        imgModalImgWrapper.classList.remove('lazy-img-loaded');
+        imgModal.close();
+    };
 });
 
 // to top button

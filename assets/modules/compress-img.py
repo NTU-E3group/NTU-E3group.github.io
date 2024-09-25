@@ -37,6 +37,7 @@ def convert_to_webp(input_image_name, sizes, compression_quality=100):
 # Define desired sizes for WebP images (widths)
 mem_img_sizes = [200, 400, 600, 800]
 glf_img_sizes = [200, 400, 600, 800, 1200, 1600, 2000]
+lazy_img_sizes = [20]
 
 # Convert images to WebP format
 for ele in ['mem', 'glf'][:]:
@@ -46,3 +47,4 @@ for ele in ['mem', 'glf'][:]:
         print(data['imgPath'])
         img_name = data['imgPath'].split('/')[-1].split('.')[0]
         convert_to_webp(f"../{ele}/{img_name}", globals()[f'{ele}_img_sizes'], compression_quality=70)
+        convert_to_webp(f"../{ele}/{img_name}", globals()['lazy_img_sizes'], compression_quality=10)
