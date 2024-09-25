@@ -1615,10 +1615,11 @@ footer {
         pointer-events: auto;
     }
 
+    /* cannot fix when modal was initially clicked, the width isn't right */
     .img-modal-img-wrapper {
         --_adjusted-block-skew: 0;
         --_adjusted-border-radius: 0.375rem;
-        --_content-width: min(100svw - 1rem, 85svh - 1rem, 79rem);
+        --_content-width: 100%;
     }
     
     .img-modal-caption {
