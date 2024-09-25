@@ -577,7 +577,7 @@ h3 {
 }
 
 @keyframes plane-move {
-    0% {translate: 20% var(--_y-location);}
+    0% {translate: -15% var(--_y-location);}
     100% {translate: -200% var(--_y-location);}
 }
 
@@ -1537,12 +1537,12 @@ h3 {
             gap: 1rem;
 
             .tac-name {
-                width: 20ch;
+                width: min(100%, 20ch);
                 flex-grow: 2;
             }
     
             .tac-email {
-                width: 30ch;
+                width: min(100%, 30ch);
                 flex-grow: 4;
             }
         }
