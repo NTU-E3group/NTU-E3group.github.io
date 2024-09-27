@@ -1267,7 +1267,7 @@ h3 {
 
 
 /* publication */
-.pub-section {
+.publi-section {
     --_font-size-l: 1.5rem;
     --_font-size-s: 1rem;
     --_block-gap: 0.75rem;
@@ -1275,12 +1275,12 @@ h3 {
     display: grid;
     justify-items: start;
 
-    .pub-quote {
+    .publi-quote {
         width: 0.875rem;
         transform: skewX(var(--block-skew));
     }
 
-    .pub-block-wrapper {
+    .publi-block-wrapper {
         margin-inline: 1.5rem;
 
         & > * + * {
@@ -1288,31 +1288,31 @@ h3 {
         }
     }
     
-    .pub-block {
+    .publi-block {
         display: flex;
         gap: 1rem;
 
-        .pub-date {
+        .publi-date {
             margin-block-start: 0.4375rem;
             font-size: var(--_font-size-s);
 
             display: flex;
             align-items: start;
 
-            .pub-date-mm {
+            .publi-date-mm {
                 width: 2.25rem;
             }
             
-            .pub-date-yy {
+            .publi-date-yy {
                 width: 1.375rem;
                 text-align: right;
             }
         }
 
-        .pub-title-block {
+        .publi-title-block {
             text-decoration: none;
 
-            .pub-title {
+            .publi-title {
                 max-width: var(--para-max-width);
                 font-size: var(--_font-size-l);
                 /* text-wrap: balance; */
@@ -1326,7 +1326,7 @@ h3 {
             }
 
             &[href]:hover {
-                .pub-title {
+                .publi-title {
                     opacity: 0.8;
                 }
                 & svg {
@@ -1335,7 +1335,7 @@ h3 {
             }
         }
 
-        .pub-subtitle {
+        .publi-subtitle {
             margin-block-start: 0.125rem;
             font-size: var(--_font-size-s);
         }
@@ -1348,7 +1348,7 @@ h3 {
         }
     }
     
-    .pub-more {
+    .publi-more {
         margin-block-start: 1rem;
 
         display: flex;
@@ -1369,7 +1369,7 @@ h3 {
 }
 
 /* news */
-#news .pub-block-wrapper {
+#news .publi-block-wrapper {
     --_block-gap: 1rem;
 }
 
@@ -1858,16 +1858,16 @@ footer {
         }
     }
 
-    .pub-section {
+    .publi-section {
         --_font-size-l: 1.25rem;
         --_font-size-s: 0.75rem;
 
-        .pub-date {
-            .pub-date-mm {
+        .publi-date {
+            .publi-date-mm {
                 width: 1.625rem !important;
             }
             
-            .pub-date-yy {
+            .publi-date-yy {
                 width: 1.0625rem !important;
             }
         }
