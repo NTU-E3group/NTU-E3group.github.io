@@ -51,6 +51,7 @@ a:hover {
 
 /* general */
 @view-transition {navigation: auto;}
+
 ::selection {
     background-color: var(--selection-color);
     color: var(--main-bg-color);
