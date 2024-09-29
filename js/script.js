@@ -142,7 +142,6 @@ const hpPlaneTextBox = document.querySelector('.hp-plane-text-box');
 const hpPlaneTextBg = document.querySelector('.hp-plane-text-bg');
 const hpPlaneText = document.querySelector('.hp-plane-text');
 
-
 hpPlaneTextBox.setAttribute('width', hpPlaneText.getBBox().width + 39);
 hpPlaneTextBg.setAttribute('width', hpPlaneText.getBBox().width + 30);
 
