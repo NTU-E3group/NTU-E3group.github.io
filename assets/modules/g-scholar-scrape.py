@@ -108,6 +108,8 @@ if not df.empty:
     df['month'] = df['publication_date'].dt.strftime('%b.')
     df.drop('publication_date', axis=1, inplace=True)
 
+    [print(f"{i+1}. {title}") for i, title in enumerate(df['title'])]
+
 # Combine the new articles with the old ones
 df = pd.concat([pd.DataFrame(old_pub), df])
 
