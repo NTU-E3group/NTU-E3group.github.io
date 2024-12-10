@@ -3,9 +3,10 @@ body {
     margin-inline: auto;
     padding-block-start: 6rem;
 
-    background-image: url(/assets/image/background.webp);
+    /* background-image: url(/assets/image/background.webp);
     background-repeat: repeat-y;
-    background-size: 100% auto;
+    background-size: 100% auto; */
+    /* background-color: bisque; */
 
     & > * + * {
         margin-block-start: 3rem;
