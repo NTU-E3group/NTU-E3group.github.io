@@ -1,5 +1,5 @@
-# The NTU E3 Group Official Website (Working in Progress)
-The NTU E3 Group official website is on!  
+# The NTU E3 Center Official Website (Working in Progress)
+The NTU E3 Center official website is on!  
 Link: [e3group.caece.net](https://e3group.caece.net)  
 
 Project started: 2023 Fall  
