@@ -18,7 +18,7 @@ function getRandomInt(min, max) {
 };
 
 // last update time
-const repo = 'NTU-E3group/NTU-E3group.github.io';
+const repo = 'NTU-E3-Center/NTU-E3-Center.github.io';
 const commitsApiUrl = `https://api.github.com/repos/${repo}/commits`;
 
 fetch(commitsApiUrl)
